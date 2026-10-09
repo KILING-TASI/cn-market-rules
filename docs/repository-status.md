@@ -77,3 +77,25 @@ CLI校验原件字节、来源身份／文号与人工观察绑定，完整保�
 2026-10-10联合核对完成：北交pypdf、规则PyMuPDF选页观察、工作台pdfplumber三端实际使用同一已存原件。规则端只读工作台实际回执，断言sourceRecord全对象等于规则输出source_attachment及北交来源头；三端源文件摘要及旁挂头摘要一致，完整native_payload和历史可得null保留。工作台回执字节SHA256为6e574000ed764cb88431b8e5156ff99775c7acdb05a8e11581de790a4302e443，北交回执为10df24ce5cdec9fa806d176bd617456ad3dda1d30f729fa66963cc7740057664。北交回执见其PR #1的examples/announcement-reuse-receipt.json；工作台PR #6的references/examples/announcement-workbench-920188.json及announcement-reuse-chain-920188.json关联两专业输出，保留各自限制，不继承规则视觉或个人资格结论。
 
 规则实际消费实现提交9310820，两版本Python CI通过，171项本地测试／51份Markdown／70来源ID及130文件许可范围检查通过；旧输入和两个冻结预览目录无差异。规则初次回执中的pending是当时状态，文件冻结保留，联合完成状态由本段后续记录说明。独立CLI和本次三端原件关联已完成，可结束此有界批；全部九仓、净值／行情／宏观、日历联调、完整原件认证、历史时点与个体资格仍未完成。不扩转债第二材料、模型或服务，不合并发布或安装。
+
+## 独立后续批：单仓源码Skill隔离验收
+
+2026-10-10验收通过，范围为当前待审源码Skill的README最短离线教学报告，以及另一个隔离目录中的旧v2.0.0算术入口。无wheel／pip安装工程，不制造安装元数据；将完整源码Skill归档解压到新目录供独立入口使用，不修改用户Skill安装。CLI通过不代表自然语言技能发现／激活或视觉通过。
+
+待审验收源码提交407f4fd，git archive只含此仓131份已分类文件，无.git、作者缓存、私有数据或其他仓。本地源码ZIP摘要bf230aa2f121b7a57b25132b9120ba785d4838c40edacfd064885b4e4174e0fc。新建无pip、无system-site-packages的venv；子进程删除PYTHONPATH及作者组件／数据／RESEARCH_WORKBENCH等变量，HOME／用户缓存只对子进程指向新空目录，不改系统变量或真实缓存。报告与源码均在新验收目录；宿主仍有其他仓和基础Python，明确是目录／进程隔离，不是全新OS。
+
+独立可复跑命令（output-dir必须不存在）：
+
+```sh
+python scripts/verify_standalone.py --archive /path/to/rules-source.zip --output-dir /path/to/new-acceptance
+```
+
+完整receipt.json保留源码包摘要、所有命令退出码／输出、sys.path、全部加载模块origin及报告校验。使用该venv直接执行README的scripts/demo_preview.py，结果与插桩入口逐文件一致。业务模块evidence_interface、rule_versions、scenarios全部来自该归档，所有搜索路径／文件模块仅落在新验收目录或基础Python安装；没有加载其他专业仓。Python标准库是唯一运行依赖，pypdf／pdfplumber均不存在，最短报告仍可生成。人工PDF核读不是该demo的依赖，外部原件不随包附带；公告入口缺原件明确exit 2。
+
+报告验证：教学期末现金85000.00、最低5000.00、缓冲缺口15000.00；规则SSE-REITS-EXP-2025为selected，证据unknown保留，教学与未知提示存在、HTML本地链接可解析、LICENSE及第三方范围文件齐全。包内全部51份Markdown引用和示例检查通过，包含SKILL.md导航；本包没有agents目录或额外agent资源要求。已存在输出再次生成exit 2，HTML摘要不变。未联网采集，也未认证实际投资可执行性。
+
+远端独立证据：[CI 37971408918](https://github.com/KILING-TASI/cn-market-rules/actions/runs/37971408918)仅checkout本仓，Ubuntu Python3.10／3.12分别归档到runner临时目录、新建venv执行同一验收，均SUCCESS，并上传standalone-receipt工件；没有检出或安装其他自家仓。
+
+已发布v2.0.0另用新目录／venv解压原Release ZIP，摘要8a5c5ed26b3fa82d6889e86a52678d98c88925ca38184372d2fe96519fec40d5保持不变。README的scenarios.json输出文件、cash-ledger.json及validate_package.py三条实际命令exit 0，现金数值同上；scenarios模块来源为该旧包。旧版无HTML demo且无根LICENSE，不把候选MIT追溯授予旧包；未测试旧版自然语言技能发现、视觉或实时数据。
+
+本批结案：当前源码Skill最短流程独立通过，旧Release算术入口独立通过；自然语言安装发现／视觉为未验范围。本地完整回执分别另存于交付目录，远端回执可从CI工件审阅。不新增业务功能／采集器、不合并发布、替换旧资产或自动安装。
