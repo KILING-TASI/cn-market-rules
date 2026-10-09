@@ -28,6 +28,8 @@
 
 每批单独提交，可复核diff；代码改动必须跑相关测试并做全量回归、示例执行、包校验，文档同步来源/CHANGELOG/PLAN。发布仅声明实际完成范围。临时原文、下载脚本和原始附件留在本地work，不进入发布包。
 
+本次落地：A补三只债阶段违约并实现dilution；B补科创/创业核心指标，北交所当前原文取得失败保留待核；C完成沪深首发核心对照/算术及沪市扩募三路径；D完成2026两市公告派生日历。剩余工作以PLAN和案例缺口为准，不能把批次完成解释为全市场规则或所有历史结果已补齐。
+
 ## A：下修模型契约
 
 mode=dilution。必需字段：outstanding_principal（元、正整数）、old_conversion_price/new_conversion_price（元/股，0<新<旧）、existing_shares（同截止日总股本、正整数）、net_profit_ttm（元，可负）、underlying_price（元/股，正）、conversion_fraction（0—1，显式情景比例）。可选profit_adjustment（转股后年化归母利润净变化，元，包含利息节约/税/经营变化的情景，不知道就不传）。

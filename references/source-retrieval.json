@@ -181,5 +181,92 @@
     "status": "retrieved",
     "sha256": "e4ca55cce5aad921d9521fc96673936a8b4af56e47ccda05421afed3be6e359c",
     "text_chars": 913
+  },
+  {
+    "id": "sote-case-v21",
+    "url": "https://static.cninfo.com.cn/finalpage/2025-01-20/1222380393.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "b3369d147a26864cc2c5189826c27db39a2e746ca2468b4917f625b1b0bb433a",
+    "text_chars": 5661
+  },
+  {
+    "id": "lingnan-case-v21",
+    "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-08-15/163bb4b1-2e08-4ca6-99fe-bd695382c27d.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "f28f2ef4e9021202edf6587befe3bdfcb688bf7cfe4c715fe88cbf83408cb59c",
+    "text_chars": 2575
+  },
+  {
+    "id": "sote-delist-v21",
+    "url": "https://www.szse.cn/disclosure/notice/company/t20230721_602059.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "8df5ac4cc7c4fd6e5b7a23238d0db0ae41acce220a1673757d4adb02ef645086",
+    "text_chars": 8239
+  },
+  {
+    "id": "bse-v21",
+    "url": "https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf"
+  },
+  {
+    "id": "cal-sse-v21",
+    "url": "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "4e260b815ce1309175ed994e6490a4ccd51b998a5f92bcdc41cec00fc6823dc7",
+    "text_chars": 8940
+  },
+  {
+    "id": "cal-szse-v21",
+    "url": "https://investor.szse.cn/disclosure/notice/general/t20251222_618087.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "1656d8708d5faed33c7588538639d96128f39fdface02cfa6eb66d796c40f14e",
+    "text_chars": 8222
+  },
+  {
+    "id": "star-v21",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/listing/c/10817748/files/8d80222543f64159ac5d177b7aace71c.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "646a146de1f0d4fc03572b414b2c2c0d0127dd1346d0c60c276f90126e3bc5c6",
+    "text_chars": 81223
+  },
+  {
+    "id": "gem-v21",
+    "url": "https://docs.static.szse.cn/www/lawrules/rule/allrules/bussiness/W020260424688875101057.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "943802fc89787f22910edb225fb0a868f38ae112f35328b3a54536bb44ec3889",
+    "text_chars": 84369
+  },
+  {
+    "id": "sz-base-v21",
+    "url": "https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231638035935242.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "1d705476b5b49af9376e92343d0b725f9969a241c3e1417226610e9eaa89309a",
+    "text_chars": 13637
+  },
+  {
+    "id": "expansion-v21",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/10803751/files/939d0b9fdd1348999321cbb0927f6c6c.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "7e469d70b08b96efce9000b8ca3a97feb7050404e14a99e48dd3dbde1191cb5d",
+    "text_chars": 9283
+  },
+  {
+    "id": "bluedon-case-v21",
+    "url": "https://static.cninfo.com.cn/finalpage/2024-08-13/1220861411.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "1457e3c9c94f7e247896d99b5b390fc05c5ff3f58e44a62c534963f8f2413213",
+    "text_chars": 1565
   }
 ]

@@ -1,8 +1,10 @@
 # cn-market-rules
 
-中国大陆证券市场的规则核对、个案条款与收益情景工具。**v2.0.0 · 核验截止日 2026-10-09**。
+中国大陆证券市场的规则核对、个案条款与收益情景工具。**v2.1.0 · 核验截止日 2026-10-09**。
 
 从原来的18份Markdown知识包改建：修正硬规则，新增ST摘帽与退市、REITs发售、组合现金联动；把可复用知识与个案参数分开，并加入离线计算与来源台账。
+
+v2.1按[修订设计](docs/upgrade-v2.1.md)分批落地：补三只转债阶段违约原文；新增下修增量摊薄；补科创/创业核心指标；深市首发与沪市三路径扩募；两市2026官方通知派生日历。59项算术/边界测试通过，未核范围见[案例缺口](references/cases/evidence-gaps.md)及[PLAN](PLAN.md)。
 
 ## 从哪里开始
 
@@ -15,6 +17,9 @@
 python scripts/scenarios.py --input examples/scenarios.json
 python scripts/scenarios.py --input examples/scenarios.json --output result.json
 python scripts/scenarios.py --input examples/cash-ledger.json
+python scripts/scenarios.py --input examples/dilution.json
+python scripts/scenarios.py --input examples/expansion.json
+python scripts/scenarios.py --input examples/repo-with-calendar.json --calendar calendars/2026-SSE.json
 python -m unittest discover -s tests -v
 python scripts/validate_package.py
 ```
@@ -33,8 +38,9 @@ REITs回拨的现行单位是**70%**，不是70‰。已核对现行《发售业
 |---|---|---|
 | IPO与转债 | 规则、清单、计算 | 市值/行情、个券条款及券商时限由使用者取得 |
 | 事件研究 | 要约、换股、现金选择权、重组窗口 | 股东资格、价格调整、税务、到账逐案确认 |
-| ST与退市 | 沪深主板原文与撤销流程、板块差异入口 | 未声称已覆盖所有科创/创业/北交所指标；这些板块必须补入对应原文后判断 |
-| REITs发售 | 上交所现行首发规则、回拨/失败/锁定/询价；深市关键条款对照 | 深市其余细则未全量对照；扩募另查，不套首发判定 |
+| ST与退市 | 沪深主板＋科创/创业2026核心指标及撤销路径 | 北交所当前正文取得失败留待核；非财务例外仍按个案读原文 |
+| REITs发售 | 沪深首发失败模型、资格/战配/配售对照；沪市独立三路径扩募 | 深市扩募不支持；定价、审批及身份不由算术工具认证 |
+| 下修/日历 | 旧/新转股价增量摊薄；两市2026公告派生常规日历 | 静态EPS非预测，2027及临时异常停市未核，不外推 |
 | 组合联动 | 可用/可取/冻结区分，压力日历与现金缺口 | 不自动取券商余额，不假设申购退款立即可用 |
 
 数据不全时可交付已核对部分与缺口，不将缺值当零，不以持仓市值充当现金。情景中的概率、价格、费率和日期属于假设，不是行情预测。年化换算不是可重复收益。
