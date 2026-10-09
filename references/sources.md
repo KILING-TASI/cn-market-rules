@@ -36,13 +36,14 @@
 | REITS-EDU | [上交所基础设施REITs投教手册第三篇](https://edu.sse.com.cn/REITS/document/c/10608581/files/6d3eeedba8404a90b6de390b094701e1.pdf) | 历史投教，未用它替代2025现行规则 | 第20问回拨70%、第21问失败条件；PDF文字层不完整，单位另与规则原文一致性核查 |
 | REITS-CSRC | [证监会2020年第54号公告及指引](https://www.csrc.gov.cn/csrc/c101877/c1029531/content.shtml) | 2020-08-06施行；2023年第55号修改第50条 | 附件第18—19、24条（PDF11—13页）；12个月其他战投、锁定与失败基础要求 |
 | REITS-AMEND | [证监会2023年第55号修订决定](https://www.csrc.gov.cn/csrc/c101954/c7438384/content.shtml) | 2023-10-20公布施行 | 修改第50条；用于联读2020指引，不冒称重新发布全部条款 |
-| REITS-SZ | [深市不动产REITs业务办法通知](https://reits.szse.cn/lawrule/bussrules/latest/t20251231_618229.html) | 深证上2025年第1519号，2025-12-31 | 版本/生效通知核对，深市具体条款对照待补 |
-| REITS-SZ-SALE | [深市不动产REITs发售业务指引通知](https://reits.szse.cn/lawrule/bussrules/latest/t20251231_618231.html)及[附件](https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231642948766654.pdf) | 深证上2025年第1521号，2025-12-31 | 已核第21、45、48条（PDF第6、13—15页）询价/回拨/失败；其余完整业务对照待补 |
+| REITS-SZ | [深市不动产REITs业务办法通知](https://reits.szse.cn/lawrule/bussrules/latest/t20251231_618229.html)及[正文](https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231638035935242.pdf) | 深证上2025年第1519号，2025-12-31 | 已取得正文，20—24条发售与21条战配分层、多原始权益人约束；非所有市场事项全量核验 |
+| REITS-SZ-SALE | [深市不动产REITs发售业务指引通知](https://reits.szse.cn/lawrule/bussrules/latest/t20251231_618231.html)及[附件](https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231642948766654.pdf) | 深证上2025年第1521号，2025-12-31 | 已核16—17、21、37—48条资格、配售/确认、回拨及五类失败；与沪市首发模型对应，不包括扩募全量 |
 | REITS-CASE | [东吴苏州工业园区产业园REIT招募说明书更新2026年第1号](https://www.sse.com.cn/disclosure/fund/announcement/c/new/2026-06-05/508027_20260605_S20X.pdf) | 2026-06-05披露更新；首次募集发生于2021 | PDF第300页/正文296页备案条件，封闭式与场外转托管；历史首次募集叙述不伪装2026新发行 |
 
 | SOTE-DELIST | [搜于特股票及可转债终止上市公告](https://www.szse.cn/disclosure/notice/company/t20230721_602059.html) | 深交所2023-07-21 | 交易类退市、无整理期；历史终止决定，不单独证明债券付息违约 |
 | SOTE-TRUST | [华英证券搜特退债2024年第四季度违约处置进展报告](https://static.cninfo.com.cn/finalpage/2025-01-20/1222380393.PDF) | 2025-01-20披露，2024Q4进展 | PDF第1页利息及回售违约；第6页阶段处置。未声称覆盖最新最终回收 |
 | LINGNAN-DEFAULT | [岭南转债不能按期兑付本息公告](https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-08-15/163bb4b1-2e08-4ca6-99fe-bd695382c27d.PDF) | 公告2024-113，2024-08-15 | PDF第1—3页到期、剩余金额、暂缓摘牌、担保变现不确定性；历史阶段原文 |
+| REITS-EXP-SH | [沪市扩募及新购入不动产指引](https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803751.shtml) | 上证发2025年第141号，2025-12-31；旧2022指引废止 | 取得现行正文，第36—50条三路径、持有人大会规模80%及原持有人认购80%、定价/限售；第52条购入项目费用限制 |
 
 ## 取得状态与缺口
 

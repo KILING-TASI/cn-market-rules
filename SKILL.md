@@ -18,7 +18,7 @@ metadata:
 | 要约、换股、现金选择权、重组 | [事件规则](references/rules/event-arb-rules.md)、[执行核验](references/playbooks/event-arb-playbook.md) |
 | 逆回购交收、ETF/LOF套利边界 | [通用套利](references/rules/arbitrage-rules.md) |
 | ST/*ST撤销、退市路径 | [ST与退市](references/rules/st-delisting-rules.md) |
-| REITs询价、回拨、战配、募集失败 | [REITs发售](references/rules/reits-offering-rules.md) |
+| REITs询价、回拨、战配、募集失败 | [REITs发售](references/rules/reits-offering-rules.md)、[扩募](references/rules/reits-expansion-rules.md) |
 | 打新、逆回购、转债、REITs资金冲突 | [组合现金联动](references/playbooks/capital-coordination.md) |
 
 ## 核验要求

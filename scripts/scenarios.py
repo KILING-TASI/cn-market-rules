@@ -147,8 +147,9 @@ def exit_scenario(obj):
             'opportunity_cost': money(carry), 'legal_eligibility': 'not assessed'}
 
 def reits(obj):
-    if label(obj, 'market') != 'SSE' or label(obj, 'offering_type') != 'initial':
-        raise ValueError('reits: only SSE initial offering is supported')
+    market = label(obj, 'market')
+    if market not in {'SSE', 'SZSE'} or label(obj, 'offering_type') != 'initial':
+        raise ValueError('reits: only SSE/SZSE initial offering is supported')
     registered = num(obj, 'registered_units', 1)
     final = num(obj, 'final_units', 0, registered)
     strategic = num(obj, 'strategic_units', 0, final)
@@ -166,10 +167,63 @@ def reits(obj):
               'originator_noncompliance': not compliance,
               'offline_below_70_percent_of_nonstrategic': fraction < D('.70'),
               'other_failure_condition': other}
-    return {'mode': 'reits', 'nonstrategic_denominator_units': str(public_pool),
+    return {'mode': 'reits', 'market': market, 'rule_source_id': 'REITS-SALE' if market == 'SSE' else 'REITS-SZ-SALE',
+            'nonstrategic_denominator_units': str(public_pool),
             'offline_ratio': ratio(fraction), 'minimum_offline_units': str(public_pool * D('.70')),
             'failure_checks': checks, 'failure_condition_detected': any(checks.values()),
             'status': 'arithmetic conditions only; formal offering result requires manager announcement'}
+
+def reits_expansion(obj):
+    market = label(obj, 'market')
+    if market != 'SSE':
+        raise ValueError('reits_expansion: SSE verified routes only; SZSE expansion rules not yet fully verified')
+    route = label(obj, 'offering_method')
+    if route not in {'holders', 'public', 'targeted'}:
+        raise ValueError('offering_method: holders/public/targeted required')
+    approved = num(obj, 'meeting_approved_units', '.000001')
+    subscribed = num(obj, 'subscribed_units', 0, approved)
+    originator = flag(obj, 'originator_compliant')
+    other = flag(obj, 'other_failure_condition')
+    checks = {'below_80_percent_of_meeting_approved': subscribed < approved * D('.80'),
+              'originator_noncompliance': not originator, 'other_failure_condition': other}
+    if route == 'holders':
+        planned_holder = num(obj, 'planned_holder_units', '.000001', approved)
+        subscribed_holder = num(obj, 'subscribed_holder_units', 0, min(planned_holder, subscribed))
+        checks['holder_commitment_not_honored'] = not flag(obj, 'holder_commitments_honored')
+        checks['holder_subscription_below_80_percent'] = subscribed_holder < planned_holder * D('.80')
+    if route == 'targeted':
+        allottee_count = integer(obj, 'allottee_count', 1)
+        # Count must already apply the rule's aggregation of managed products.
+        checks['targeted_allottees_exceed_35'] = allottee_count > 35
+    existing = num(obj, 'existing_units', '.000001')
+    nav = num(obj, 'existing_nav_per_unit', '.000001')
+    price = num(obj, 'expansion_price', '.000001')
+    fees = num(obj, 'permitted_issue_fees', 0)
+    adjustment = num(obj, 'net_asset_adjustment')
+    old_holder = num(obj, 'holder_existing_units', 0, existing)
+    new_holder = num(obj, 'holder_subscribed_units', 0, subscribed)
+    reference = num(obj, 'reference_market_price', '.000001')
+    failed = any(checks.values())
+    projected = None
+    if not failed:
+        total = existing + subscribed
+        assets = existing * nav + subscribed * price - fees + adjustment
+        projected = {'post_units': ratio(total), 'post_net_assets': money(assets),
+                     'post_nav_per_unit': ratio(assets / total),
+                     'nav_change_ratio': ratio(assets / total / nav - 1),
+                     'nonparticipating_holder_ownership_compression': ratio(1 - existing / total),
+                     'holder_ownership_before': ratio(old_holder / existing),
+                     'holder_ownership_after': ratio((old_holder + new_holder) / total),
+                     'holder_ownership_change_ratio': ratio((old_holder + new_holder) / total - old_holder / existing),
+                     'holder_subscription_cash': money(new_holder * price)}
+    return {'mode': 'reits_expansion', 'market': market, 'offering_method': route,
+            'rule_source_id': 'REITS-EXP-SH', 'failure_checks': checks,
+            'failure_or_route_violation_detected': failed,
+            'expansion_price_to_market_ratio': ratio(price / reference - 1),
+            'conditional_capital_structure': projected,
+            'legal_price_floor_check': 'not assessed; public/targeted price bases and exceptions must be verified separately',
+            'qualification': 'not assessed; no first-offering 200m/1000/70% checks reused',
+            'assumptions': 'subscribed units treated as issued only if supplied checks pass; existing NAV plus cash minus permitted issue fees plus explicit asset/liability/fair-value adjustment; not a completion announcement or economic loss estimate'}
 
 def reits_return(obj):
     subscription = num(obj, 'subscription_amount', '.000001')
@@ -306,7 +360,7 @@ def clause(obj):
             'calendar_and_contract': 'input sequence must contain all eligible days; legal trigger not independently assessed'}
 
 MODES = {'dilution': dilution, 'tender': tender, 'merger': merger, 'exit': exit_scenario, 'reits': reits,
-         'reits_return': reits_return, 'repo': repo, 'cash': cash, 'clause': clause}
+         'reits_expansion': reits_expansion, 'reits_return': reits_return, 'repo': repo, 'cash': cash, 'clause': clause}
 
 def calculate(obj):
     if not isinstance(obj, dict):
