@@ -44,3 +44,7 @@ python scripts/evidence_interface.py --input interfaces/examples/reits-terms.jso
 记录可选backtest_cutoff（含时区的ISO时间）；此时所有非unknown事实须有available_at（含时区）。校验拒绝晚于cutoff的事实、早于已知发布日期的可得时间和混入假设。没有历史首次公开时间的记录不能冒充当时可得；当前取得时间不能证明历史可得。时点验收仅验证输入一致性，不证实首次公开时间或自动构建收益回测。
 
 解禁分别保留announcement_date、planned_circulation_date、actual_circulation_date；计划日不能认证实际流通或成交。问询分别保留inquiry_issued_at和inquiry_disclosed_at，事件研究默认以公开披露时间建立信息集，不以未公开发出日提前交易。每份更正公告独立source_id/version/published_at；记录可另写supersedes_record_id。旧版本及其字段不可覆盖，晚披露更正不得回填旧cutoff。收盘后公告的可交易窗口须另结合交易日历/停牌确认。此批尚无问询原文样本、自动修订链解析或回测引擎。
+
+## v1.2增量
+
+兼容v1.0/v1.1，增加inquiry/correction事件类型、rule_query及rule_version_id，输出rule_selections，见[版本契约](rule-version-contract.md)。第三批已补收到问询公告与标题更正原文；前述第二批无样本状态仅为历史进度。精确首次披露时间、旧挂网原版本、自动修订链和回测引擎仍未完成。

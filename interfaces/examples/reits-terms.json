@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "kind": "reits_expansion_terms",
   "as_of": "2026-10-09",
   "sources": [
@@ -16,7 +16,8 @@
       "acquisition_status": "success",
       "retrieved_at": "2026-10-09",
       "original_verification": "verified",
-      "verified_at": "2026-10-09"
+      "verified_at": "2026-10-09",
+      "rule_version_id": "SSE-REITS-EXP-2025"
     }
   ],
   "records": [
@@ -74,7 +75,17 @@
           "status": "unknown",
           "reason": "须取得持有人大会决议"
         }
-      ]
+      ],
+      "rule_query": {
+        "topic": "reits_expansion",
+        "market": "SSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "infrastructure",
+        "applicability_date": "2026-10-09",
+        "knowledge_date": "2026-10-09"
+      },
+      "rule_version_id": "SSE-REITS-EXP-2025"
     }
   ]
 }

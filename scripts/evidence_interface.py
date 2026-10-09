@@ -1,9 +1,14 @@
 """Offline validation of field-level evidence. No valuation or risk inference."""
 import argparse
 import json
-from datetime import date,datetime
+from datetime import date,datetime,timezone,timedelta
 from decimal import Decimal,InvalidOperation
 from pathlib import Path
+
+PUBLIC_DATE_ZONE=timezone(timedelta(hours=8))
+
+def public_day(moment):
+    return moment.astimezone(PUBLIC_DATE_ZONE).date()
 
 def text(obj,key):
     value=obj.get(key)
@@ -24,8 +29,8 @@ def instant(value,label):
     return result
 
 def validate(document):
-    if not isinstance(document,dict) or document.get('schema_version') not in {'1.0','1.1'}:raise ValueError('schema_version: 1.0/1.1 required')
-    layered=document['schema_version']=='1.1'
+    if not isinstance(document,dict) or document.get('schema_version') not in {'1.0','1.1','1.2'}:raise ValueError('schema_version: 1.0/1.1/1.2 required')
+    layered=document['schema_version'] in {'1.1','1.2'}
     kind=text(document,'kind')
     if kind not in {'risk_events','reits_expansion_terms'}:raise ValueError('unsupported interface kind')
     as_of=day(document.get('as_of'),'as_of')
@@ -56,7 +61,7 @@ def validate(document):
         sources[sid]=source
     records=document.get('records')
     if not isinstance(records,list) or not records:raise ValueError('records: nonempty list required')
-    ids=set();unknown=0
+    ids=set();unknown=0;selections=[]
     def binding(evidence):
         if not isinstance(evidence,dict):raise ValueError('field evidence required')
         sid=text(evidence,'source_id');text(evidence,'locator')
@@ -74,9 +79,9 @@ def validate(document):
         cutoff=None
         if 'backtest_cutoff' in record:
             cutoff=instant(record['backtest_cutoff'],'backtest_cutoff')
-            if cutoff.date()>as_of:raise ValueError('backtest cutoff after as_of')
+            if public_day(cutoff)>as_of:raise ValueError('backtest cutoff after as_of')
         if kind=='risk_events':
-            if record.get('event_type') not in {'unlock','pledge','goodwill'}:raise ValueError('event_type invalid')
+            if record.get('event_type') not in {'unlock','pledge','goodwill','inquiry','correction'}:raise ValueError('event_type invalid')
             if record.get('record_role') not in {'company_event','regulatory_observation'}:raise ValueError('record_role invalid')
         else:
             if record.get('market') not in {'SSE','SZSE'}:raise ValueError('market invalid')
@@ -89,6 +94,17 @@ def validate(document):
         for rule in rules:
             if binding(rule)['source_type']!='rule':raise ValueError('company event cannot serve as rule source')
             text(rule,'scope')
+        if 'rule_query' in record:
+            from rule_versions import load_catalog,select
+            query=record['rule_query']
+            if not isinstance(query,dict):raise ValueError('rule_query must be object')
+            if day(query.get('knowledge_date'),'knowledge_date')>observed:raise ValueError('rule knowledge after observation')
+            if cutoff and day(query['knowledge_date'],'knowledge_date')>public_day(cutoff):raise ValueError('later rule knowledge cannot enter old backtest')
+            selected=select(load_catalog(),query)
+            if record.get('rule_version_id')!=selected['rule_version_id']:raise ValueError('record rule_version_id differs from selected catalog version')
+            if selected['rule_version_id'] and selected['evidence']['source_id'] not in {r['source_id'] for r in rules}:raise ValueError('selected rule requires bound source evidence')
+            if selected['rule_version_id'] and sources[selected['evidence']['source_id']].get('rule_version_id')!=selected['rule_version_id']:raise ValueError('source rule_version_id differs from selected catalog version')
+            selections.append(dict(record_id=rid,**selected))
         facts=record.get('facts');keys=set();original_keys=set();record_unknown=0
         if not isinstance(facts,list) or not facts:raise ValueError('facts required')
         for fact in facts:
@@ -116,7 +132,7 @@ def validate(document):
                 if status=='hypothesis':raise ValueError('hypothesis cannot be historical backtest fact')
                 available=instant(fact.get('available_at'),'available_at')
                 if available>cutoff:raise ValueError('later information cannot be backfilled')
-                if source['published_at'] and available.date()<day(source['published_at'],'published_at'):raise ValueError('availability before source publication')
+                if source['published_at'] and public_day(available)<day(source['published_at'],'published_at'):raise ValueError('availability before source publication')
             if fact['unit']=='ratio':
                 if isinstance(fact['value'],bool):raise ValueError('ratio must be numeric')
                 try:value=Decimal(str(fact['value']))
@@ -126,8 +142,10 @@ def validate(document):
         if kind=='reits_expansion_terms' and record['rule_check_status']=='verified':
             if record_unknown or not rules or not {'expansion_price','approved_units','offering_method'}.issubset(original_keys):
                 raise ValueError('verified requires original project price/units/route, rules and no unknowns')
-    return {'kind':kind,'record_count':len(records),'unknown_field_count':unknown,
+    result={'kind':kind,'record_count':len(records),'unknown_field_count':unknown,
             'status':'structure_valid_only','scope':'no source authenticity certification, liquidation price, fraud classification, valuation or execution'}
+    if selections:result['rule_selections']=selections
+    return result
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--input',type=Path,required=True);args=parser.parse_args()

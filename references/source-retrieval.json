@@ -298,5 +298,60 @@
     "status": "retrieved",
     "sha256": "88f5824909c9dd7773b5808daea127f0cab2d0839398fdff5af021ebaa7012cf",
     "text_chars": 18306
+  },
+  {
+    "id": "bse-retry-v22",
+    "url": "https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf"
+  },
+  {
+    "id": "sz-exp-v22",
+    "url": "https://docs.static.szse.cn/www/lawrules/rule/reits/W020251231642043210042.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "640ccc667af67edb6c8bbdf7010d54c20884ec188548aba41675c72baf83f8c3",
+    "text_chars": 10017
+  },
+  {
+    "id": "inquiry-reit-v22",
+    "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-12/27a1a70e-bf18-49a3-9f79-8b6bdd879e72.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "d8704ccff95b2125b8f6f878480351bec9faa59e5769c9152700388d4fdc6534",
+    "text_chars": 761
+  },
+  {
+    "id": "correction-lyh-v22",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-08-27/1225513693.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "b037255d0a7cab4d9b25358504bfb170d789cfefab872e36a304c4345c8bff29",
+    "text_chars": 724
+  },
+  {
+    "id": "sse-exp-old-v22",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10804033/files/f6f563a925714d5cb63f471187398109.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "637faf80bdc59d4993d665812f5f41035fe5cad788112bff116aeabb877fe5e8",
+    "text_chars": 10018
+  },
+  {
+    "id": "sz-exp-notice-v22",
+    "url": "https://www.szse.cn/www/lawrules/rule/reits/t20251231_618232.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "9ea2906a403b8a0474000bc5870f432d53d52d551b94c65e2ba6fed802b25fc4",
+    "text_chars": 8057
+  },
+  {
+    "id": "correction-public-v22",
+    "url": "https://epaper.cs.com.cn/zgzqb/wap/html/2026-08/27/nw.D110000zgzqb_20260827_3-B022.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "0f2abf966d8ca6273270542198730254f1be5c56131d8e2ecf1cb6acb126f30e",
+    "text_chars": 2613
   }
 ]

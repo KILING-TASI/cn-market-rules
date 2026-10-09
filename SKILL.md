@@ -39,3 +39,5 @@ metadata:
 本库用于公开信息研究。规则快照截至2026-10-09，后续使用需重新检查发布与实施状态；研究结论不替代个案法律、税务或投资判断。
 
 风险事件按[证据核对](references/rules/risk-event-evidence.md)登记；对接主工作台用[字段接口](references/interfaces/evidence-contract.md)。不得由质押比例推断精确平仓价，不得将披露不足改写为造假认定。
+
+按[版本选择契约](references/interfaces/rule-version-contract.md)区分公布、实施、废止及过渡/暂缓，不用当前规则回填历史。事件交接输出rule_version_id与目录核验日，gap/deferred/ambiguous不得写成资格通过。

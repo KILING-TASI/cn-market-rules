@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.2",
+  "kind": "risk_events",
+  "as_of": "2026-10-09",
+  "sources": [
+    {
+      "source_id": "INQUIRY-RUNZE",
+      "source_type": "company_notice",
+      "title": "南方润泽REIT收到审核问询公告",
+      "publisher": "南方基金管理股份有限公司",
+      "version": "2026-08-12收到问询公告",
+      "published_at": "2026-08-12",
+      "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-12/27a1a70e-bf18-49a3-9f79-8b6bdd879e72.PDF",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
+    },
+    {
+      "source_id": "REITS-EXP-SZ",
+      "source_type": "rule",
+      "title": "深市2025扩募及新购入不动产指引",
+      "publisher": "深圳证券交易所",
+      "version": "深证上2025年第1522号",
+      "published_at": "2025-12-31",
+      "url": "https://www.szse.cn/www/lawrules/rule/reits/t20251231_618232.html",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09",
+      "rule_version_id": "SZSE-REITS-EXP-2025"
+    },
+    {
+      "source_id": "CORRECTION-LYH",
+      "source_type": "company_notice",
+      "title": "利元亨问询回复挂网标题更正公告",
+      "publisher": "广东利元亨智能装备股份有限公司",
+      "version": "公告2026-050；落款2026-08-26",
+      "published_at": null,
+      "url": "https://static.cninfo.com.cn/finalpage/2026-08-27/1225513693.PDF",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
+    },
+    {
+      "source_id": "CORRECTION-LYH-PUBLIC",
+      "source_type": "company_notice",
+      "title": "利元亨更正公告公开刊登页",
+      "publisher": "广东利元亨智能装备股份有限公司（中国证券报刊登）",
+      "version": "公告2026-050；公开刊登2026-08-27",
+      "published_at": "2026-08-27",
+      "url": "https://epaper.cs.com.cn/zgzqb/wap/html/2026-08/27/nw.D110000zgzqb_20260827_3-B022.htm",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
+    }
+  ],
+  "records": [
+    {
+      "record_id": "runze-inquiry-received",
+      "entity_name": "南方润泽科技数据中心封闭式基础设施证券投资基金",
+      "event_date": "2026-08-10",
+      "observation_date": "2026-10-09",
+      "event_type": "inquiry",
+      "record_role": "company_event",
+      "rule_query": {
+        "topic": "reits_inquiry_disclosure",
+        "market": "SZSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "infrastructure",
+        "applicability_date": "2026-08-10",
+        "knowledge_date": "2026-08-12"
+      },
+      "rule_version_id": "SZSE-REITS-EXP-2025",
+      "rules": [
+        {
+          "source_id": "REITS-EXP-SZ",
+          "locator": "第20条（二）",
+          "scope": "基金管理人收到问询后公告，不代表扩募已批准"
+        }
+      ],
+      "facts": [
+        {
+          "key": "inquiry_received_date",
+          "value": "2026-08-10",
+          "unit": "date",
+          "status": "original",
+          "evidence": {
+            "source_id": "INQUIRY-RUNZE",
+            "locator": "PDF第1页首段"
+          }
+        },
+        {
+          "key": "notice_document_date",
+          "value": "2026-08-12",
+          "unit": "date",
+          "status": "original",
+          "evidence": {
+            "source_id": "INQUIRY-RUNZE",
+            "locator": "PDF第1页落款"
+          }
+        },
+        {
+          "key": "inquiry_issued_at",
+          "value": null,
+          "unit": "timestamp",
+          "status": "unknown",
+          "reason": "公告仅明确收到日，不确认问询发出时刻"
+        },
+        {
+          "key": "inquiry_first_disclosed_at",
+          "value": null,
+          "unit": "timestamp",
+          "status": "unknown",
+          "reason": "仅核公告日期，尚无首发秒级时间"
+        },
+        {
+          "key": "project_effective_at",
+          "value": null,
+          "unit": "timestamp",
+          "status": "unknown",
+          "reason": "公告明确尚需变更注册和持有人大会，不提供生效/实施时刻"
+        }
+      ]
+    },
+    {
+      "record_id": "lyh-title-correction-2026050",
+      "entity_name": "广东利元亨智能装备股份有限公司",
+      "event_date": "2026-08-26",
+      "observation_date": "2026-10-09",
+      "event_type": "correction",
+      "record_role": "company_event",
+      "rules": [],
+      "facts": [
+        {
+          "key": "notice_document_date",
+          "value": "2026-08-26",
+          "unit": "date",
+          "status": "original",
+          "evidence": {
+            "source_id": "CORRECTION-LYH",
+            "locator": "PDF第1页落款"
+          }
+        },
+        {
+          "key": "public_notice_date",
+          "value": "2026-08-27",
+          "unit": "date",
+          "status": "original",
+          "evidence": {
+            "source_id": "CORRECTION-LYH-PUBLIC",
+            "locator": "刊登页标题旁日期；不是首次上网精确时间"
+          }
+        },
+        {
+          "key": "revision_scope",
+          "value": "仅公告挂网标题更正；公告内容保持不变",
+          "unit": "statement",
+          "status": "original",
+          "evidence": {
+            "source_id": "CORRECTION-LYH",
+            "locator": "PDF第1页更正范围"
+          }
+        },
+        {
+          "key": "previous_title_instrument",
+          "value": "向不特定对象发行可转换公司债券",
+          "unit": "text",
+          "status": "original",
+          "evidence": {
+            "source_id": "CORRECTION-LYH",
+            "locator": "PDF第1页更正前；后公告描述，非旧时点原版本已核"
+          }
+        },
+        {
+          "key": "corrected_title_instrument",
+          "value": "向特定对象发行股票",
+          "unit": "text",
+          "status": "original",
+          "evidence": {
+            "source_id": "CORRECTION-LYH",
+            "locator": "PDF第1页更正后"
+          }
+        },
+        {
+          "key": "prior_record_id",
+          "value": null,
+          "unit": "record_id",
+          "status": "unknown",
+          "reason": "旧挂网版本尚未取得，不能伪造修订链或回填"
+        },
+        {
+          "key": "correction_effective_at",
+          "value": null,
+          "unit": "timestamp",
+          "status": "unknown",
+          "reason": "标题更正未披露独立法律生效时刻"
+        },
+        {
+          "key": "first_disclosed_at",
+          "value": null,
+          "unit": "timestamp",
+          "status": "unknown",
+          "reason": "公开刊登日已核，首次上网精确时刻未核"
+        }
+      ]
+    }
+  ]
+}

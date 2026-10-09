@@ -60,3 +60,5 @@ REITs回拨的现行单位是**70%**，不是70‰。已核对现行《发售业
 运行 `python scripts/evidence_interface.py --input interfaces/examples/risk-events.json` 或 `interfaces/examples/reits-terms.json` 校验字段。扩募接口向主工作台交接条款与缺口，经营现金流估值仍由主工作台补齐。
 
 来源接口已增[v1.1分层与历史时点约束](references/interfaces/evidence-contract.md)，兼容v1.0。AKShare接口文档已核存在，实际聚合数据未拉取、合同条件未知；更正版本不得回填历史信息集。
+
+规则版本交接已增[版本选择接口](references/interfaces/rule-version-contract.md)，按实施区间、市场/板块/主体选取，保留替代与暂缓。深市扩募正文已取得，算术仍只支持沪市。问询/标题更正原文例证已补，首次公开时刻和旧挂网版本仍缺。版本状态见[第三批设计](docs/version-selection-design.md)。

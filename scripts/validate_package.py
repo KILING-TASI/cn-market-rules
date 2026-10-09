@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 from scenarios import run,load_calendar,apply_calendar
 from evidence_interface import validate as validate_evidence
+from rule_versions import load_catalog,select
 
 ROOT=Path(__file__).resolve().parents[1]
 errors=[]
@@ -36,6 +37,13 @@ for path in (ROOT/'interfaces/examples').glob('*.json'):
         validate_evidence(document)
         if any(s['source_id'] not in source_ids for s in document['sources']):raise ValueError('interface source ID not registered')
     except (ValueError,KeyError,TypeError) as e:errors.append(f'{path}: {e}')
+try:
+    catalog=load_catalog()
+    for version in catalog['versions']:
+        bindings=[version['publication_evidence'],version['interval_evidence']]+[topic['evidence'] for topic in version['topics'].values()]
+        if any(b['source_id'] not in source_ids for b in bindings):raise ValueError('catalog source ID not registered')
+    select(catalog,json.loads((ROOT/'rules/example-query.json').read_text(encoding='utf-8')))
+except (ValueError,KeyError,TypeError) as e:errors.append(f'rule catalog: {e}')
 for path in (ROOT/'calendars').glob('*.json'):
     try:
         document=json.loads(path.read_text(encoding='utf-8'))

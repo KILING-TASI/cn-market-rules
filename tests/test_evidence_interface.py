@@ -82,5 +82,10 @@ class EvidenceTests(unittest.TestCase):
     def test_aggregate_availability_no_fabricated_values(self):
         doc=json.loads((ROOT/'interfaces/examples/aggregate-availability.json').read_text(encoding='utf-8'))
         self.assertEqual(validate(doc)['unknown_field_count'],3)
+    def test_utc_timestamp_uses_china_publication_day(self):
+        doc=self.historical();doc['sources'][0]['published_at']='2026-09-11'
+        for fact in doc['records'][0]['facts']:
+            if fact['status']!='unknown':fact['available_at']='2026-09-10T16:30:00+00:00'
+        self.assertEqual(validate(doc)['status'],'structure_valid_only')
 
 if __name__=='__main__':unittest.main()
