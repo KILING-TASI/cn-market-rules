@@ -59,3 +59,19 @@ GitHub 简介与 topics 是仓库层元信息，更新后可立即显示；PR �
 软件候选版本描述包内实现；接口版本描述字段及兼容要求；规则文号描述适用法律材料；数据版本由原文版次／摘要／修订关系及派生日历覆盖确定，没有全库统一数据版号；方法验收见 method-validation.json，跨仓调用方法 bounded-native-gateway-1 不等于规则版本。旧schema1.0—1.2对应交接1.0，显式1.3对应交接1.1；消费者支持区间另查联合回执，不静默升级。本轮不提高这些版本号。
 
 规则补证、有限联调与许可收尾已提交到现有PR；本轮仅补入口／职责／状态文档并核已有样本适配，结案条件是文档链接与包检查通过、审阅提交进入PR。不合并、不发Release、不替换历史包。公告与日历的进一步跨仓同样本验收、时间／摘要等字段迁移属后置小批次，需专业消费端明确契约后执行；历史版本、个案资格及可得时间缺证继续明确保留，不因本批结案消失。
+
+## 独立后续批：首条真实公告复用
+
+2026-10-10 新批仅使用已保存的悦龙科技920188发行结果公告2026-019，官方BSE文件摘要为228f91c01b41118cdd3c67b248cc1727d188c3530724fb3014476d862ca4bafb。未重新下载、未发布PDF。北交原件、来源头与专业输入复用一次捕获；规则端独立PyMuPDF提取六页，Poppler渲染核读第2页申购／获配数及比例，第1页身份／网上权限条件和第3页正文日期仅文本核读。未认证完整法律适用、个人资格或真实收益。
+
+[候选旁挂输入](../interfaces/announcement-samples/sidecar-920188.json)字节与北交头一致，保留全部native_payload，包括其他公告字段；本批仅重新核读result的三字段，不继承offer／listing字段的核验结论。[规则选页观察](../interfaces/announcement-samples/review-920188.json)绑定同文件摘要／文号，原发布者与BSE获取渠道分列；公布和历史可得仍null＋理由，正文3月19日与URL3月18日分别保留。源文号不是规则版本，结果公告非规范性规则；rule_version_id=null、not_selected，资格unknown。已核规则版本selected与资格通过的区别仍按原契约，本样本没有足够依据生成selected。
+
+旧证据信封只支持风险事件／REITs扩募，不支持IPO发行结果；不伪装事件类型，不静默升级旧schema。独立入口只支持候选bjx-announcement-sidecar.v1的回溯发行结果消费及本库announcement-review/1；这些是有界协作词汇，不称九仓标准。标准库入口无需北交引擎或工作台安装，原件路径由调用者提供：
+
+```sh
+python scripts/announcement_consumer.py --sidecar interfaces/announcement-samples/sidecar-920188.json --review interfaces/announcement-samples/review-920188.json --original /path/to/saved/source.pdf
+```
+
+CLI校验原件字节、来源身份／文号与人工观察绑定，完整保留source_attachment及专业扩展；不自动解析PDF或把摘要相等写成语义核验。[规则端回执](announcement-consumption-validation.json)记录真实运行：正常输出无损，篡改摘要、文号冲突、未知时点事前使用均拒绝。未支持任何事前模式，即使调用者补填时间也不能绕过认证。观察语义来自本次选页人工核读，入口只核其绑定和字段一致；新的材料须新观察，不能沿用本次结论。
+
+北交及规则两端已实际复用同原件；工作台实际回执核对后才能登记三端完成。当前待该回执，不称九仓统一。本批结案条件是三个相关消费者的同材料／旁挂摘要与各自核验范围可关联、正常及反例通过、现有PR可审且旧输入／结果冻结。不扩其他数据链、转债第二材料、模型或服务，不合并发布或安装。

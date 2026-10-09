@@ -513,6 +513,26 @@
     "docs/workbench-integration-validation.json": {
       "class": "mixed_source_data",
       "basis": "original integration validation structure with limited source/contract facts and hashes; no third-party code or full source text bundled"
+    },
+    "scripts/announcement_consumer.py": {
+      "class": "original_mit",
+      "basis": "Independently created bounded consumer implementation or tests; no third-party code bundled"
+    },
+    "tests/test_announcement_consumer.py": {
+      "class": "original_mit",
+      "basis": "Independently created bounded consumer implementation or tests; no third-party code bundled"
+    },
+    "interfaces/announcement-samples/sidecar-920188.json": {
+      "class": "mixed_source_data",
+      "basis": "Original bounded adapter/review structure only; third-party numerical facts, names and provenance rights excluded"
+    },
+    "interfaces/announcement-samples/review-920188.json": {
+      "class": "mixed_source_data",
+      "basis": "Original bounded adapter/review structure only; third-party numerical facts, names and provenance rights excluded"
+    },
+    "docs/announcement-consumption-validation.json": {
+      "class": "mixed_source_data",
+      "basis": "Original bounded adapter/review structure only; third-party numerical facts, names and provenance rights excluded"
     }
   }
 }
