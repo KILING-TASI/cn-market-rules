@@ -1,0 +1,201 @@
+{
+  "kind": "risk_events",
+  "record_count": 4,
+  "unknown_field_count": 9,
+  "status": "structure_valid_only",
+  "scope": "no source authenticity certification, liquidation price, fraud classification, valuation or execution",
+  "rule_selections": [
+    {
+      "record_id": "runze-inquiry-received",
+      "query": {
+        "topic": "reits_inquiry_disclosure",
+        "market": "SZSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "infrastructure",
+        "applicability_date": "2026-08-10",
+        "knowledge_date": "2026-08-12"
+      },
+      "catalog_version": "1.0",
+      "catalog_verified_as_of": "2026-10-09",
+      "rule_version_id": "SZSE-REITS-EXP-2025",
+      "status": "selected",
+      "document_version": "深证上〔2025〕1522号",
+      "published_at": "2025-12-31",
+      "effective_from": "2025-12-31",
+      "effective_until": null,
+      "supersedes": [],
+      "replaced_by": [],
+      "evidence": {
+        "source_id": "REITS-EXP-SZ",
+        "locator": "第20条（二）"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SZ",
+        "locator": "发布通知及第56条"
+      },
+      "scope": "基金管理人在变更注册期间收到问询，2日内公告；收到日不等于发出日",
+      "reason": "version selection only; not legal eligibility certification"
+    }
+  ],
+  "regulatory_events": [
+    {
+      "evidence_kind": "issuer_notice",
+      "process_stage": "received",
+      "original_document_status": "obtained",
+      "evidence": {
+        "source_id": "INQUIRY-RUNZE",
+        "locator": "PDF第1页"
+      },
+      "publication": {
+        "date": "2026-08-12",
+        "precision": "day",
+        "first_public_at": null,
+        "reason": "只核公开文件日期，不确认首次上网精确时刻；不用于盘中可得性回填",
+        "evidence": {
+          "source_id": "INQUIRY-RUNZE",
+          "locator": "深交所披露文件日期及公告落款"
+        }
+      },
+      "legal_effect": {
+        "status": "unknown",
+        "date": null,
+        "reason": "收到问询不等于项目批准，未取得项目实施或生效时刻"
+      },
+      "rule_application": {
+        "status": "selected",
+        "version_id": "SZSE-REITS-EXP-2025",
+        "effective_from": "2025-12-31",
+        "effective_until": null,
+        "relation": "disclosure_obligation"
+      },
+      "classification_scope": "no_fraud_inference",
+      "record_id": "runze-inquiry-received",
+      "event_type": "inquiry",
+      "public_date": "2026-08-12",
+      "verification_status": "evidence_checked_rule_selected",
+      "validation": "declared_structure_only"
+    },
+    {
+      "evidence_kind": "issuer_correction_notice",
+      "process_stage": "title_correction",
+      "original_document_status": "obtained",
+      "evidence": {
+        "source_id": "CORRECTION-LYH",
+        "locator": "公告2026-050第1页"
+      },
+      "publication": {
+        "date": "2026-08-27",
+        "precision": "day",
+        "first_public_at": null,
+        "reason": "只核公开文件日期，不确认首次上网精确时刻；不用于盘中可得性回填",
+        "evidence": {
+          "source_id": "CORRECTION-LYH-PUBLIC",
+          "locator": "发行人公告公开刊登日期"
+        }
+      },
+      "legal_effect": {
+        "status": "unknown",
+        "date": null,
+        "reason": "仅挂网标题更正，未披露独立法律生效时刻"
+      },
+      "rule_application": {
+        "status": "not_checked",
+        "version_id": null,
+        "effective_from": null,
+        "effective_until": null,
+        "relation": "correction_obligation_not_checked",
+        "reason": "更正原文已核；具体信息披露规则版本与过渡未单独核验"
+      },
+      "classification_scope": "no_fraud_inference",
+      "record_id": "lyh-title-correction-2026050",
+      "event_type": "correction",
+      "public_date": "2026-08-27",
+      "verification_status": "evidence_checked_rule_gap",
+      "validation": "declared_structure_only"
+    },
+    {
+      "evidence_kind": "official_notice_citing_decision",
+      "process_stage": "decision_cited",
+      "original_document_status": "not_obtained",
+      "evidence": {
+        "source_id": "XINHAI-PENALTY-CITE",
+        "locator": "2024-03-18正式通知第一段"
+      },
+      "publication": {
+        "date": "2024-03-18",
+        "precision": "day",
+        "first_public_at": null,
+        "reason": "只核公开文件日期，不确认首次上网精确时刻；不用于盘中可得性回填",
+        "evidence": {
+          "source_id": "XINHAI-PENALTY-CITE",
+          "locator": "网页明确时间2024-03-18"
+        }
+      },
+      "legal_effect": {
+        "status": "unknown",
+        "date": null,
+        "reason": "未取得处罚决定原件及送达/执行资料，不把决定日或通知公开日当生效日"
+      },
+      "rule_application": {
+        "status": "authority_cited",
+        "version_id": null,
+        "effective_from": null,
+        "effective_until": null,
+        "relation": "downstream_listing_reference",
+        "reason": "仅登记交易所的退市规则引用；当期完整版本/施行/衔接未单独核验，不能用2026版本回填",
+        "reported_version_name": "深交所股票上市规则（2023年8月修订）",
+        "evidence": {
+          "source_id": "XINHAI-PENALTY-CITE",
+          "locator": "正式通知第1—2段、第9.5.1、9.5.2、9.5.8条引用"
+        }
+      },
+      "classification_scope": "no_fraud_inference",
+      "record_id": "xinhai-decision-cited-20240318",
+      "event_type": "administrative_penalty",
+      "public_date": "2024-03-18",
+      "verification_status": "evidence_checked_rule_gap",
+      "validation": "declared_structure_only"
+    },
+    {
+      "evidence_kind": "embedded_audit_report",
+      "process_stage": "opinion_issued",
+      "original_document_status": "embedded",
+      "evidence": {
+        "source_id": "AIRPORT-AUDIT-2025",
+        "locator": "年报PDF第73页审计报告及正文"
+      },
+      "publication": {
+        "date": "2026-04-24",
+        "precision": "day",
+        "first_public_at": null,
+        "reason": "只核公开文件日期，不确认首次上网精确时刻；不用于盘中可得性回填",
+        "evidence": {
+          "source_id": "AIRPORT-AUDIT-2025",
+          "locator": "深交所2026-04-24披露文件目录日期；不是首次秒级可得时间"
+        }
+      },
+      "legal_effect": {
+        "status": "not_applicable",
+        "date": null,
+        "reason": "这里记录财务审计意见，不把签署日表述为行政处罚生效日"
+      },
+      "rule_application": {
+        "status": "not_checked",
+        "version_id": null,
+        "effective_from": null,
+        "effective_until": null,
+        "relation": "audit_standard_not_checked",
+        "reason": "审计准则/上市规则具体有效版未独立核验，不自动建立退市数值判断"
+      },
+      "audit_domain": "financial_statements",
+      "audit_opinion": "unmodified",
+      "classification_scope": "no_fraud_inference",
+      "record_id": "airport-financial-audit-2025",
+      "event_type": "audit_opinion",
+      "public_date": "2026-04-24",
+      "verification_status": "evidence_checked_rule_gap",
+      "validation": "declared_structure_only"
+    }
+  ]
+}
