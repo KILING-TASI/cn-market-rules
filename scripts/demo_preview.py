@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Build a readable offline preview from existing verified/sample inputs."""
 import argparse
 import hashlib
@@ -20,9 +21,12 @@ DATE_LABELS={'inquiry_received_date':'收到问询','notice_document_date':'公�
 def read(path):return json.loads(path.read_text(encoding='utf-8'),parse_float=Decimal)
 def escape(value):return html.escape(str(value),quote=True)
 def money(value):return format(Decimal(str(value)),',.2f')
-def write_json(path,value):path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+def write_json(path,value):path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 
-def make_html(rule,event_input,event_result,cash,manifest):
+def make_html(rule,event_input,event_result,cash,manifest,cash_input):
+    balance_statement='现金未出现负余额' if Decimal(cash['minimum_balance'])>=0 else '现金出现负余额'
+    buffer_statement='低于' if Decimal(cash['maximum_buffer_gap'])>0 else '未低于'
+    cash_note=f'{balance_statement}，但最低 {money(cash["minimum_balance"])} 元{buffer_statement}预设 {money(cash_input["minimum_buffer"])} 元缓冲。退款只有已确认可用才进入本账本；不能用待退款或持仓市值补上午资金。'
     erows=[]
     for record in event_input['records']:
         known=[f for f in record['facts'] if f['status']!='unknown']
@@ -43,7 +47,7 @@ def make_html(rule,event_input,event_result,cash,manifest):
 <header class="hero"><div class="eyebrow">CN-MARKET-RULES · 可复核的规则与个案</div><h1>核对规则版本与现金占用</h1><p>先确认适用版本，再记录事实、未知项与资金时点。</p><div class="meta">v2.1.0 候选 · PR #1 待审，main 已发布 v2.0.0<br>规则核验截至 {escape(manifest['verified_as_of'])} · 生成 {escape(manifest['generated_at'])} · 基线 {escape((manifest['base_commit'] or '无 Git 信息')[:8])}</div></header>
 <div class="grid"><section class="card"><span class="tag">规则查询演示 · 已核规则</span><h2>切换当日采用哪个版本？</h2><div class="value">{escape(rule['rule_version_id'])}</div><dl><dt>选择状态</dt><dd>适用版本已选取 · 仅版本选取</dd><dt>适用范围</dt><dd>沪市 REITs · 基金管理人 · 基础设施</dd><dt>判断日期</dt><dd>{escape(rule['query']['applicability_date'])}</dd><dt>生效区间</dt><dd>{escape(rule['effective_from'])} 起；终止日未登记，仅截至 {escape(rule['catalog_verified_as_of'])} 覆盖</dd><dt>替代旧版</dt><dd>{escape(', '.join(rule['supersedes']))}</dd><dt>原文定位</dt><dd>{escape(rule['evidence']['source_id'])} · {escape(rule['evidence']['locator'])}</dd></dl><p class="note">新通知公布与生效均为 2025-12-31。选中版本不代表项目审批、账户资格或定价已通过；暂缓条文需另查实施通知。</p><a href="rule-selection.json">完整结果与更替依据 →</a></section>
 <section class="card"><span class="tag">真实公告摘取 · 非实时全市场库</span><h2>问询与更正：日期各有含义</h2><p class="small">{event_result['record_count']} 条原文例证 · {event_result['unknown_field_count']} 个未知字段 · 结构检查通过</p>{''.join(erows)}<a href="event-evidence.json">字段、来源与未知理由 →</a></section></div>
-<section class="card section" id="cash"><span class="tag amber">教学现金情景 · 全部金额／支付与退款时点均为假设</span><h2>下午退款不覆盖上午的缓冲需求</h2><p class="small">v2.1.0 候选 · 生成 {escape(manifest['generated_at'])}<br>金额：人民币元。按原现金事件账本计算，不是收益、损失预测或真实账户余额。</p><div class="metrics"><div class="metric"><span>期末可用现金</span><strong>{money(cash['final_cash'])}</strong></div><div class="metric"><span>过程中最低余额</span><strong>{money(cash['minimum_balance'])}</strong></div><div class="metric warn"><span>最大缓冲缺口</span><strong>{money(cash['maximum_buffer_gap'])}</strong></div></div><div class="table-wrap"><table><thead><tr><th>时点（Asia/Shanghai）</th><th>事件</th><th class="num">可用余额</th><th class="num">缓冲缺口</th></tr></thead><tbody>{cash_rows}</tbody></table></div><p class="note">现金未出现负余额，但最低 5,000.00 元低于预设 20,000.00 元缓冲。退款只有已确认可用才进入本账本；不能用待退款或持仓市值补上午资金。</p><a href="cash-scenario.json">原计算结果 →</a></section>
+<section class="card section" id="cash"><span class="tag amber">教学现金情景 · 全部金额／支付与退款时点均为假设</span><h2>下午退款不覆盖上午的缓冲需求</h2><p class="small">v2.1.0 候选 · 生成 {escape(manifest['generated_at'])}<br>金额：人民币元。按原现金事件账本计算，不是收益、损失预测或真实账户余额。</p><div class="metrics"><div class="metric"><span>期末可用现金</span><strong>{money(cash['final_cash'])}</strong></div><div class="metric"><span>过程中最低余额</span><strong>{money(cash['minimum_balance'])}</strong></div><div class="metric warn"><span>最大缓冲缺口</span><strong>{money(cash['maximum_buffer_gap'])}</strong></div></div><div class="table-wrap"><table><thead><tr><th>时点（Asia/Shanghai）</th><th>事件</th><th class="num">可用余额</th><th class="num">缓冲缺口</th></tr></thead><tbody>{cash_rows}</tbody></table></div><p class="note">{escape(cash_note)}</p><a href="cash-scenario.json">原计算结果 →</a></section>
 <section class="card section"><h2>来源、输入与继续研究</h2><ul>{source_rows}</ul><div class="downloads"><a href="inputs/rule-query.json">规则查询输入</a><a href="inputs/event-evidence.json">事件输入</a><a href="inputs/cash-ledger.json">教学现金输入</a><a href="report-manifest.json">输入哈希与生成说明</a></div><p><a href="{WORKBENCH}">进入主工作台：按研究问题选择入口 →</a></p><p class="small">本页只复制自编条款摘取和教学输入，不附原公告全文、账户或付费资料。旧更正原版本、精确首发时刻与问询实际实施时刻尚未取得。</p></section>
 <footer class="footer">仅供规则核对、公开信息研究与教学，不构成交易指令、法律税务意见或收益保证。JSON 与原命令入口继续独立可用。</footer></main></body></html>'''
 
@@ -53,15 +57,17 @@ def generate(output_dir):
     documents={key:read(ROOT/path) for key,path in INPUTS.items()}
     catalog=load_catalog();rule=select(catalog,documents['rule']);events=validate(documents['events']);cash=run(documents['cash'])
     if rule['status']!='selected':raise ValueError('built-in rule sample is not selectable')
-    try:commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip()
+    try:
+        git_root=subprocess.check_output(['git','rev-parse','--show-toplevel'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip()
+        commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip() if Path(git_root).resolve()==ROOT else None
     except (OSError,subprocess.CalledProcessError):commit=None
     manifest=dict(preview_version='1.0',package_version=VERSION,verified_as_of=catalog['verified_as_of'],generated_at=datetime.now(timezone(timedelta(hours=8))).isoformat(timespec='seconds'),base_commit=commit,inputs=[dict(role=k,path=p,sha256=hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),data_class='teaching assumptions' if k=='cash' else 'source-backed rule query or public notice excerpts') for k,p in INPUTS.items()],outputs=['index.html','rule-selection.json','event-evidence.json','cash-scenario.json'],scope='read-only derived preview; no original full text, account data, live retrieval or trading')
-    rendered=make_html(rule,documents['events'],events,cash,manifest)
+    rendered=make_html(rule,documents['events'],events,cash,manifest,documents['cash'])
     output.mkdir(parents=True,exist_ok=False);(output/'inputs').mkdir()
     for key,name in [('rule','rule-query.json'),('events','event-evidence.json'),('cash','cash-ledger.json')]:
         (output/'inputs'/name).write_bytes((ROOT/INPUTS[key]).read_bytes())
     for name,value in [('rule-selection.json',rule),('event-evidence.json',events),('cash-scenario.json',cash),('report-manifest.json',manifest)]:write_json(output/name,value)
-    (output/'index.html').write_text(rendered,encoding='utf-8')
+    (output/'index.html').write_text(rendered,encoding='utf-8',newline='\n')
     return manifest
 
 def main():

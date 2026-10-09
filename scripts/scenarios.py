@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Offline, explicitly parameterized research arithmetic. No market/account access."""
 from __future__ import annotations
 

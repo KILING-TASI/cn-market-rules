@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Describe native units without converting values or changing scale."""
 UNITS={
     'ratio':('fraction',None,'1'),

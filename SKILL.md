@@ -3,10 +3,13 @@ name: cn-market-rules
 description: 核对中国大陆打新、可转债条款、要约收购与换股合并、ST摘帽与退市、公募REITs发售规则，并计算收益情景和组合现金占用。用于规则研究及公告精读；不提供行情、不执行交易、不保证收益。
 metadata:
   version: 2.1.0
+  license: MIT-original-parts-only
   verified_at: 2026-10-09
 ---
 
 # 中国证券市场规则与个案核验
+
+> 许可范围：本文件涉及原包专题或提供方案的改建来源，不声明整文件 MIT。见[第三方与未明来源](THIRD_PARTY_NOTICES.md)。原材料未经许可的表达不纳入根许可证。
 
 当前分支为 PR #1 待审的 v2.1.0 与接口增量；main 已发布 v2.0.0。实际状态见 [README](README.md)。
 

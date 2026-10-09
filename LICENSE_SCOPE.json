@@ -1,0 +1,410 @@
+{
+  "scope_version": "1.0",
+  "reviewed_at": "2026-10-09",
+  "copyright_holder": "KILING-TASI",
+  "grant": "MIT only for parts maintainer has rights to license",
+  "third_party_grant": false,
+  "original_input": {
+    "label": "CodeBuddy v1.0.0 supplied ZIP",
+    "sha256": "2f21274cb932a1d56a459f3ad47e605fe770938cbc7db14a25aa96a208b5d550",
+    "markdown_files": 17,
+    "script_files": 0,
+    "long_normalized_line_match_threshold": 60,
+    "long_line_matches": 0,
+    "comparison_limit": "not a full originality or rights certification"
+  },
+  "files": {
+    ".github/workflows/validate.yml": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    ".gitignore": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "calendars/2026-holiday-notice.md": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "calendars/2026-SSE.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "calendars/2026-SZSE.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "calendars/README.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "CHANGELOG.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "docs/license-scope.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "docs/preview/cash-scenario.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/cash.jpg": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/event-evidence.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/fullpage.jpg": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/index.html": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/inputs/cash-ledger.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/inputs/event-evidence.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/inputs/rule-query.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/overview.jpg": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/README.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "docs/preview/report-manifest.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/rule-selection.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/preview/screenshot-manifest.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "docs/repository-status.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "docs/risk-evidence-roadmap.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "docs/upgrade-v2.1.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "docs/version-selection-design.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "examples/cash-ledger.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "examples/dilution.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "examples/expansion.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "examples/repo-with-calendar.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "examples/scenarios.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "interfaces/common-examples/identity-partial.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "interfaces/common-inputs/identity-partial.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "interfaces/examples/aggregate-availability.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "interfaces/examples/inquiry-correction.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "interfaces/examples/reits-terms.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "interfaces/examples/risk-events.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "LICENSE": {
+      "class": "license_text",
+      "basis": "standard MIT template; declared verified repository maintainer KILING-TASI"
+    },
+    "licenses/README.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "PLAN.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "README.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/calculations.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/cases/evidence-gaps.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/cases/verified-examples.md": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "references/evidence-standard.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/interfaces/common-handoff-contract.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/interfaces/evidence-contract.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/interfaces/rule-version-contract.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/pitfalls/arb-costs.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/pitfalls/cb-defaults.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/pitfalls/common-mistakes.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/pitfalls/event-arb-failures.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/pitfalls/redemption-traps.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/playbooks/capital-coordination.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "references/playbooks/downward-revision-game.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/playbooks/event-arb-playbook.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/playbooks/forced-redemption-game.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/playbooks/putback-game.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/rules/arbitrage-rules.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/rules/cb-clause-rules.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/rules/event-arb-rules.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/rules/ipo-rules.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/rules/reits-expansion-rules.md": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "references/rules/reits-offering-rules.md": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "references/rules/risk-event-evidence.md": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "references/rules/st-delisting-rules.md": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "references/rules/trading-rules.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "references/source-retrieval.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "references/sources.md": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "rules/example-query.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "rules/version-catalog.json": {
+      "class": "mixed_source_data",
+      "basis": "only original structure/interface/explanation licensed; public source facts/third-party expression and data rights excluded"
+    },
+    "scripts/audit_distribution.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/common_interface.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/contracts/__init__.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/contracts/common.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/contracts/identity.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/contracts/units.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/demo_preview.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/evidence_interface.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/rule_versions.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/scenarios.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "scripts/validate_package.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "SKILL.md": {
+      "class": "excluded_pending_rights",
+      "basis": "legacy-topic or supplied-design provenance; no whole-file MIT; in-file exclusion retained"
+    },
+    "templates/case-terms.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "templates/risk-event-record.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "templates/scenario-analysis.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "templates/verification-checklist.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_calendars.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_common_contract.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_demo_preview.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_dilution.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_distribution_audit.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_evidence_interface.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_expansion.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_rule_versions.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "tests/test_scenarios.py": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    "LICENSE_SCOPE.json": {
+      "class": "original_mit",
+      "basis": "original scope manifest; records declaration, not proof of all external rights"
+    },
+    ".gitattributes": {
+      "class": "original_mit",
+      "basis": "original cross-platform text-format configuration; no numeric/unit/date conversion"
+    }
+  }
+}

@@ -1,13 +1,13 @@
 {
-  "captured_at": "2026-10-09",
-  "method": "Codex in-app browser actual screenshot; JPEG; screenshot clip, no generated image or post-edit",
-  "report_generated_at": "2026-10-09T18:59:37+08:00",
-  "report_sha256": "4a6bcf364317b3070f40c5fdd735e365f55ca2e05460437b0f82f298b988ee99",
-  "visual_check": "checked complete Chinese text/cards, candidate/version/date, source references, unknowns and teaching cash labels",
+  "captured_on": "2026-10-09",
+  "method": "Codex in-app browser actual JPEG screenshots; no AI generation or post-edit; recaptured after UTF-8/LF normalization",
+  "report_generated_at": "2026-10-09T19:21:01+08:00",
+  "report_sha256": "8f6c24d6c3252fd2b265f2d0d4adf332fafe395e452c39f02081940a0bca7d2e",
+  "visual_check": "checked complete Chinese cards/version/date, actual source dates/unknowns and teaching cash scope",
   "screenshots": [
     {
       "path": "overview.jpg",
-      "sha256": "de921e6577a14ad5a93fff46971755bb56d28b62771ccffebcc82c25ac90c638",
+      "sha256": "2d3eb95079bd54db43a9c9a096f80f179c8fbae6c74948072398bf1243cc7cbd",
       "inputs": [
         "rules/example-query.json",
         "interfaces/examples/inquiry-correction.json",
@@ -16,7 +16,7 @@
     },
     {
       "path": "cash.jpg",
-      "sha256": "2bc6b90541a1b7e2e21eae7e1eb036f24ac211d8f8380884129e9691d2277e31",
+      "sha256": "c3c25bbeae19209b19d85bafdaf229b7d105fc074b438f95637de509f1d74cb3",
       "inputs": [
         "rules/example-query.json",
         "interfaces/examples/inquiry-correction.json",
@@ -25,7 +25,7 @@
     },
     {
       "path": "fullpage.jpg",
-      "sha256": "582609ffa955eba45c09221714339de53d91795181335a50e88c70678a8e3f07",
+      "sha256": "7171260789c53e2c187db6455720b6de0dffe5b027926cb72321196bdece9835",
       "inputs": [
         "rules/example-query.json",
         "interfaces/examples/inquiry-correction.json",

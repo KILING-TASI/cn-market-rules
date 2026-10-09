@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Offline validation of field-level evidence. No valuation or risk inference."""
 import argparse
 import json

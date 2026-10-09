@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Select a source-backed rule version within explicitly verified coverage."""
 import argparse
 import json

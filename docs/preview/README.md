@@ -29,3 +29,5 @@ python scripts/demo_preview.py --output-dir demo-output/first-rule-check
 截图是已检查的静态展示；demo 命令生成 HTML／JSON，不自动操控或安装截图浏览器。JSON 和原终端入口独立可用。原公告全文、付费数据、账户和字体文件未打包；第三方来源／名称的权利不由本库授予。
 
 继续研究：[主工作台按问题选择入口](https://github.com/KILING-TASI/research-workbench/blob/main/references/practical-entry.md)。本报告未新增自动消费端或经营估值。
+
+许可范围：预览自编界面与原创部分可按[根 MIT](../../LICENSE)，第三方材料／数据／名称等权利排除。截图不授予第三方成分权利，见[范围说明](../license-scope.md)。

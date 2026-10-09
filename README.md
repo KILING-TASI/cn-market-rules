@@ -65,7 +65,7 @@ AKShare 质押比例接口文档已核存在，实际聚合数据未拉取；合
 
 ## 验证范围
 
-当前 PR 共 133 项测试通过，42 份 Markdown、54 个来源 ID、所有情景／事件示例、日历和共用格式对照通过；GitHub 检查在 PR 中记录。验证证明实现和输入结构的一致性，不能证明原文永远有效、历史首次公开时刻或未来价格。
+当前 PR 共 139 项测试通过，45 份 Markdown、54 个来源 ID、所有情景／事件示例、日历和共用格式对照通过；GitHub 检查在 PR 中记录。验证证明实现和输入结构的一致性，不能证明原文永远有效、历史首次公开时刻或未来价格。
 
 ```sh
 python -m unittest discover -s tests
@@ -82,7 +82,9 @@ python scripts/validate_package.py
 
 ## 许可与第三方材料
 
-原始输入为 CodeBuddy 署名的 v1.0.0 知识包，未附许可证。当前未选择或更换自有内容 LICENSE，也不据此授予原包或第三方材料再许可。法规、交易所及发行人公告链接到发布者；公开可访问不等于任意再许可。统一文档格式不扩大许可或数据访问权限。
+[![原创部分采用 MIT](https://img.shields.io/badge/original_parts-MIT-green)](LICENSE)
+
+本 PR 按用户授权为有权许可的原创代码／说明加入 [MIT](LICENSE)，逐文件范围见 [LICENSE_SCOPE.json](LICENSE_SCOPE.json) 和[范围清单](docs/license-scope.md)。原 CodeBuddy 知识包未附许可证；原包同路径专题、SKILL 及提供方案改建设计不声明整文件 MIT，保守排除未明表达。第三方原文、数据、名称、字体及截图内第三方成分不因代码许可获得再分发或商用权；详见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)。原 ZIP、官方全文、账户／付费资料和字体文件未打包。main 的既有 v2.0.0 发布状态不追溯改写。
 
 ## 免责声明
 

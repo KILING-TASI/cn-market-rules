@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Explicit security identity. Never infer a venue from a code prefix."""
 import copy
 

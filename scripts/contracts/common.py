@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Lossless common rule/evidence view, preserving the original envelope."""
 import copy
 import json

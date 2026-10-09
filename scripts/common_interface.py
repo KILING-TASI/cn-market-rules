@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Export/recover a compatible rule handoff. No financial calculation."""
 import argparse
 import json

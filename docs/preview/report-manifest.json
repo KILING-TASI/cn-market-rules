@@ -2,19 +2,19 @@
   "preview_version": "1.0",
   "package_version": "2.1.0 candidate (PR #1, unreleased)",
   "verified_as_of": "2026-10-09",
-  "generated_at": "2026-10-09T18:59:37+08:00",
-  "base_commit": "eaa979aa17e2571cedc902ccdf261560791d4e55",
+  "generated_at": "2026-10-09T19:21:01+08:00",
+  "base_commit": "bfb6d8488e1a35f302f16e91b2d70fe13ad0573d",
   "inputs": [
     {
       "role": "rule",
       "path": "rules/example-query.json",
-      "sha256": "7b0e131a819298e92c2d05333bfe523cd4ffd79e7440b463a498c738f9378636",
+      "sha256": "744ea155f0cc3bff45e2bf2c7781c9c490938470652a71a7ddf1e8e81f1d8f4d",
       "data_class": "source-backed rule query or public notice excerpts"
     },
     {
       "role": "events",
       "path": "interfaces/examples/inquiry-correction.json",
-      "sha256": "26b7a05edb53f98e752353b91bb3267335b799f1e83138d3bd0526364df9273b",
+      "sha256": "5a70683654f9954ecea54f91427d87bd81cdf47d85d5f2bcacbd81b35f6c71c2",
       "data_class": "source-backed rule query or public notice excerpts"
     },
     {

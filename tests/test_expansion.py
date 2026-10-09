@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 from test_scenarios import s
 import test_scenarios as initial_tests
 import unittest

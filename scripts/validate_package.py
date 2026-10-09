@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Validate local Markdown references, source IDs, UTF-8 and runnable examples."""
 import json
 import re
@@ -7,10 +8,11 @@ from scenarios import run,load_calendar,apply_calendar
 from evidence_interface import validate as validate_evidence
 from rule_versions import load_catalog,select
 from contracts.common import to_common,from_common
+from audit_distribution import audit as audit_distribution,files as distribution_files
 
 ROOT=Path(__file__).resolve().parents[1]
 errors=[]
-mds=list(ROOT.rglob('*.md'))
+mds=[path for path in distribution_files(ROOT).values() if path.suffix=='.md']
 for path in mds:
     text=path.read_text(encoding='utf-8')
     if '\ufffd' in text: errors.append(f'{path}: replacement character')
@@ -78,9 +80,12 @@ if preview.exists():
             if item['sha256']!=hashlib.sha256(path.read_bytes()).hexdigest():raise ValueError('preview input changed; regenerate/review required')
     except (ValueError,KeyError,TypeError,OSError) as e:errors.append(f'preview: {e}')
 preview_assets={preview/'index.html',preview/'overview.jpg',preview/'cash.jpg',preview/'fullpage.jpg'}
-for path in ROOT.rglob('*'):
-    if path.is_file() and path.suffix.lower() not in {'.md','.json','.py','.yml','.yaml','.gitignore'} and path.name!='.gitignore' and path not in preview_assets and path!=ROOT/'LICENSE' and '.git' not in path.parts and '__pycache__' not in path.parts:
+for path in distribution_files(ROOT).values():
+    if path.suffix.lower() not in {'.md','.json','.py','.yml','.yaml','.gitignore'} and path.name not in {'.gitignore','.gitattributes'} and path not in preview_assets and path!=ROOT/'LICENSE':
         errors.append(f'unexpected distribution file: {path}')
+if (ROOT/'LICENSE_SCOPE.json').exists():
+    try:audit_distribution(ROOT)
+    except (ValueError,KeyError,TypeError,OSError) as e:errors.append(f'distribution scope: {e}')
 if errors:
     print('\n'.join(errors))
     raise SystemExit(1)
