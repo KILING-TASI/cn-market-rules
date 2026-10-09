@@ -53,6 +53,8 @@
 | GOODWILL-GS | [江西监管局对国盛金控责令改正决定](https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml) | [2024]13号，决定日2024-05-21 | 网页第二项为2022年报商誉减值测试披露不足；不是造假或减值金额认定；网页可读、本地403 |
 | GOODWILL-REG | [重大资产重组指引第6号](https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20250516_10779132.shtml) | 2025年3月修订，2025-03-28施行 | 正文第51条，适用沪市重组形成商誉的年度测试与披露，不能推导个案减值金额 |
 
+| AKSHARE-PLEDGE | [AKShare股票数据文档](https://akshare.akfamily.xyz/data/stock/stock.html#id105) | 文档1.19.1，2026-10-09核读 | stock_gpzy_pledge_ratio_em存在；东方财富聚合；比例%、股数万股、市值万元；未实拉接口、未认证合同或覆盖完整性 |
+
 ## 取得状态与缺口
 
 `source-retrieval.json`保存本次下载字节哈希，个别页面403/空文字层如实记录。浏览器原文读取可与本地下载状态不同。大汇编中定位到标题不等于已核整份汇编。台账标“入口”的条款不计已核覆盖。

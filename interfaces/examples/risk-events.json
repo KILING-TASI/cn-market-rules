@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "kind": "risk_events",
   "as_of": "2026-10-09",
   "sources": [
@@ -10,7 +10,13 @@
       "publisher": "上海证券交易所",
       "version": "2026-10-09摘要快照",
       "published_at": null,
-      "url": "https://www.sse.com.cn/disclosure/listedinfo/summaries/indexDetail.shtml?SEQ=334690737"
+      "url": "https://www.sse.com.cn/disclosure/listedinfo/summaries/indexDetail.shtml?SEQ=334690737",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "summary_only",
+      "verified_at": null
     },
     {
       "source_id": "PLEDGE-GCL",
@@ -19,7 +25,13 @@
       "publisher": "协鑫能源科技股份有限公司",
       "version": "2026-040",
       "published_at": "2026-04-29",
-      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-29/28d7561c-c318-463e-8f00-b3f9374ba4ad.PDF"
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-29/28d7561c-c318-463e-8f00-b3f9374ba4ad.PDF",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
     },
     {
       "source_id": "GOODWILL-GS",
@@ -28,7 +40,13 @@
       "publisher": "江西证监局",
       "version": "[2024]13号；决定日2024-05-21",
       "published_at": null,
-      "url": "https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml"
+      "url": "https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
     },
     {
       "source_id": "GOODWILL-REG",
@@ -37,7 +55,13 @@
       "publisher": "上海证券交易所",
       "version": "2025年3月修订",
       "published_at": "2025-03-28",
-      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20250516_10779132.shtml"
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20250516_10779132.shtml",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
     },
     {
       "source_id": "ST-SH",
@@ -46,7 +70,13 @@
       "publisher": "上海证券交易所",
       "version": "2026年4月修订",
       "published_at": "2026-04-24",
-      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20260424_10816589.shtml"
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20260424_10816589.shtml",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
     }
   ],
   "records": [

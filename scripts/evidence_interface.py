@@ -1,7 +1,7 @@
 """Offline validation of field-level evidence. No valuation or risk inference."""
 import argparse
 import json
-from datetime import date
+from datetime import date,datetime
 from decimal import Decimal,InvalidOperation
 from pathlib import Path
 
@@ -16,8 +16,16 @@ def day(value,label,nullable=False):
     try:return date.fromisoformat(value)
     except ValueError:raise ValueError(f'{label}: invalid date') from None
 
+def instant(value,label):
+    if not isinstance(value,str):raise ValueError(f'{label}: timestamp required')
+    try:result=datetime.fromisoformat(value)
+    except ValueError:raise ValueError(f'{label}: invalid timestamp') from None
+    if result.tzinfo is None:raise ValueError(f'{label}: timezone required')
+    return result
+
 def validate(document):
-    if not isinstance(document,dict) or document.get('schema_version')!='1.0':raise ValueError('schema_version: 1.0 required')
+    if not isinstance(document,dict) or document.get('schema_version') not in {'1.0','1.1'}:raise ValueError('schema_version: 1.0/1.1 required')
+    layered=document['schema_version']=='1.1'
     kind=text(document,'kind')
     if kind not in {'risk_events','reits_expansion_terms'}:raise ValueError('unsupported interface kind')
     as_of=day(document.get('as_of'),'as_of')
@@ -28,11 +36,23 @@ def validate(document):
         sid=text(source,'source_id')
         if sid in sources:raise ValueError('duplicate source ID')
         for key in ('title','publisher','version'):text(source,key)
-        if source.get('source_type') not in {'rule','company_notice','official_summary','regulatory_decision'}:raise ValueError('source_type invalid')
+        if source.get('source_type') not in {'rule','company_notice','official_summary','regulatory_decision','aggregate'}:raise ValueError('source_type invalid')
         if not text(source,'url').startswith(('https://','http://')):raise ValueError('source URL required')
         if 'published_at' not in source:raise ValueError('published_at: explicit date or null required')
         pub=day(source['published_at'],'published_at',True)
         if pub and pub>as_of:raise ValueError('source publication after as_of')
+        if layered:
+            if source.get('source_tier') not in {'public_original','third_party_aggregate','licensed_data'}:raise ValueError('source_tier invalid')
+            if source.get('access_requirement') not in {'public','paid','authorization','unknown'}:raise ValueError('access_requirement invalid')
+            if source.get('acquisition_status') not in {'success','failed','not_attempted'}:raise ValueError('acquisition_status invalid')
+            if source.get('original_verification') not in {'verified','summary_only','not_verified'}:raise ValueError('original_verification invalid')
+            for k in ('retrieved_at','verified_at'):
+                if k not in source:raise ValueError(f'{k}: explicit date/null required')
+                moment=day(source[k],k,True)
+                if moment and moment>as_of:raise ValueError(f'{k}: after as_of')
+            if source['acquisition_status']=='success' and source['retrieved_at'] is None:raise ValueError('successful acquisition needs date')
+            if source['original_verification']=='verified' and (source['verified_at'] is None or source['source_tier']!='public_original' or source['acquisition_status']!='success'):raise ValueError('original verification requires acquired original and verification date')
+            if source['source_tier']=='third_party_aggregate' and source['source_type']!='aggregate':raise ValueError('aggregate tier requires aggregate type')
         sources[sid]=source
     records=document.get('records')
     if not isinstance(records,list) or not records:raise ValueError('records: nonempty list required')
@@ -51,6 +71,10 @@ def validate(document):
         if observed>as_of:raise ValueError('observation after as_of')
         if 'event_date' not in record:raise ValueError('event_date must be explicit date/null')
         day(record['event_date'],'event_date',True)
+        cutoff=None
+        if 'backtest_cutoff' in record:
+            cutoff=instant(record['backtest_cutoff'],'backtest_cutoff')
+            if cutoff.date()>as_of:raise ValueError('backtest cutoff after as_of')
         if kind=='risk_events':
             if record.get('event_type') not in {'unlock','pledge','goodwill'}:raise ValueError('event_type invalid')
             if record.get('record_role') not in {'company_event','regulatory_observation'}:raise ValueError('record_role invalid')
@@ -82,10 +106,17 @@ def validate(document):
             if status=='hypothesis':text(fact,'reason')
             else:
                 source=binding(fact.get('evidence'))
+                if status=='original' and source['source_type']=='aggregate':raise ValueError('aggregate cannot certify original fact')
+                if layered and status=='original' and source['original_verification']!='verified':raise ValueError('original fact requires original verification')
                 if status in {'original','reported'} and source['source_type']=='official_summary':raise ValueError('summary cannot certify full original fact')
                 if status=='summary' and source['source_type']!='official_summary':raise ValueError('summary requires official_summary source')
                 if source['published_at'] and day(source['published_at'],'published_at')>observed:raise ValueError('evidence publication after observation')
                 if status=='original' and source['source_type']=='company_notice':original_keys.add(key)
+            if cutoff:
+                if status=='hypothesis':raise ValueError('hypothesis cannot be historical backtest fact')
+                available=instant(fact.get('available_at'),'available_at')
+                if available>cutoff:raise ValueError('later information cannot be backfilled')
+                if source['published_at'] and available.date()<day(source['published_at'],'published_at'):raise ValueError('availability before source publication')
             if fact['unit']=='ratio':
                 if isinstance(fact['value'],bool):raise ValueError('ratio must be numeric')
                 try:value=Decimal(str(fact['value']))

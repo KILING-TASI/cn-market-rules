@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "kind": "reits_expansion_terms",
   "as_of": "2026-10-09",
   "sources": [
@@ -10,7 +10,13 @@
       "publisher": "上海证券交易所",
       "version": "上证发2025年第141号",
       "published_at": "2025-12-31",
-      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803751.shtml"
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803751.shtml",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "acquisition_status": "success",
+      "retrieved_at": "2026-10-09",
+      "original_verification": "verified",
+      "verified_at": "2026-10-09"
     }
   ],
   "records": [
