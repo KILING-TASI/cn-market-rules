@@ -2,31 +2,35 @@
 
 cn-market-rules 提供规则核对清单、个案条款模板与离线收益情景计算，记录原文依据和适用边界。
 
+## 先看一份结果
+
+![真实生成的规则版本与事件证据预览](docs/preview/overview.jpg)
+
+[阅读预览与输入说明](docs/preview/README.md) · [HTML 报告](docs/preview/index.html) · [教学现金截图](docs/preview/cash.jpg)
+
+预览采用沪市扩募版本查询、两条真实公告摘取和教学现金账本。规则版本、生效区间与未知项贴在结果旁；仅选版本不代表项目资格通过。现金案例期末 85,000.00 元，途中最低 5,000.00 元、缓冲缺口 15,000.00 元，**全部资金和支付／退款时点均为教学假设，不是实际收益或账户余额**。截图来自实际报告的浏览器渲染，保留版本与日期。
+
+## 一条命令试用
+
+Python 3.10+ 标准库，无额外包或账户；生成时不联网。以下 demo 属于 PR #1 待审增量：
+
+`sh
+python scripts/demo_preview.py --output-dir demo-output/first-rule-check
+`
+
+打开 demo-output/first-rule-check/index.html，同时得到三个 JSON 结果、输入快照和生成记录。输出目录须为新目录，已有目录会拒绝覆盖。JSON／终端仍可独立使用：
+
+`sh
+python scripts/scenarios.py --input examples/scenarios.json
+`
+
+这是虚构教学参数的算术示范。详细调用见[计算口径](references/calculations.md)和[交接契约](references/interfaces/common-handoff-contract.md)；研究问题可转到[主工作台问题入口](https://github.com/KILING-TASI/research-workbench/blob/main/references/practical-entry.md)。
+
 ## 版本与发布状态
 
-状态核对：2026-10-09。main 与 [v2.0.0 Release](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.0.0) 已发布；[PR #1](https://github.com/KILING-TASI/cn-market-rules/pull/1) 的 v2.1.0 与后续接口增量已实现、验证，仍待审，未合并、未发布新 Release。本 README 描述 PR 目录，不能据此认定 main 已具备全部增量。
+状态核对：2026-10-09。main 与 [v2.0.0 Release](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.0.0) 已发布；[PR #1](https://github.com/KILING-TASI/cn-market-rules/pull/1) 的 v2.1.0 与后续接口／预览增量仍待审，未合并、未发布新 Release。本 README 描述 PR 目录。
 
-候选包元数据为 v2.1.0；事件接口支持 1.0／1.1／1.2，规则版本目录为 1.0，共用交接契约为 cn-market-rules.rule-handoff/1.0。它们是不同层的版本号。详见[版本状态](docs/repository-status.md)。
-
-## 最短可运行示例
-
-Python 3.10+，仅用标准库。本地运行验证使用 Python 3.12，持续集成配置覆盖 Python 3.10／3.12；不连接行情、券商账户或工作台。
-
-```sh
-python scripts/scenarios.py --input examples/scenarios.json
-```
-
-这是虚构教学价格、费用与期限的算术示范，不是实时交易机会。真实公告例证用于演示证据摘取，亦不提供真实成交成本或未来收益预测。
-
-以下入口属于 PR 待审增量：
-
-```sh
-python scripts/evidence_interface.py --input interfaces/examples/inquiry-correction.json
-python scripts/rule_versions.py --input rules/example-query.json
-python scripts/common_interface.py --input interfaces/common-inputs/identity-partial.json
-```
-
-作为 Agent 技能使用时，将完整目录放入环境的技能目录，例如 `~/.codex/skills/cn-market-rules/`，并从 [SKILL.md](SKILL.md) 开始。安装本身不执行脚本。
+事件接口支持 1.0／1.1／1.2，规则目录为 1.0，共用交接为 cn-market-rules.rule-handoff/1.0；它们与候选包 v2.1.0 是不同层的版本。Python 3.10／3.12 持续集成与发布状态见[版本说明](docs/repository-status.md)。作为 Agent 技能使用时，将完整目录放入环境的技能目录，例如 ~/.codex/skills/cn-market-rules/，从 [SKILL.md](SKILL.md) 开始。
 
 ## 已实现与边界
 
@@ -61,7 +65,7 @@ AKShare 质押比例接口文档已核存在，实际聚合数据未拉取；合
 
 ## 验证范围
 
-当前 PR 共 130 项测试通过，41 份 Markdown、54 个来源 ID、所有情景／事件示例、日历和共用格式对照通过；GitHub 检查在 PR 中记录。验证证明实现和输入结构的一致性，不能证明原文永远有效、历史首次公开时刻或未来价格。
+当前 PR 共 133 项测试通过，42 份 Markdown、54 个来源 ID、所有情景／事件示例、日历和共用格式对照通过；GitHub 检查在 PR 中记录。验证证明实现和输入结构的一致性，不能证明原文永远有效、历史首次公开时刻或未来价格。
 
 ```sh
 python -m unittest discover -s tests

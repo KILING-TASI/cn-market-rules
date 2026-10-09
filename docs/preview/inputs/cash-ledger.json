@@ -1,0 +1,13 @@
+{
+  "mode":"cash",
+  "name":"单账户可用现金教学：下午退款不覆盖上午缓冲需求",
+  "timezone":"Asia/Shanghai",
+  "initial_available_cash":200000,
+  "minimum_buffer":20000,
+  "events":[
+    {"at":"2026-10-12T09:00:00","name":"现金申购冻结","amount":-100000,"cash_state":"available","source":"假设：教学资金占用，不代表任何真实项目"},
+    {"at":"2026-10-13T09:00:00","name":"REITs认购占用","amount":-80000,"cash_state":"available","source":"假设：教学资金占用"},
+    {"at":"2026-10-13T10:00:00","name":"IPO中签缴款","amount":-15000,"cash_state":"available","source":"假设：教学支付时刻"},
+    {"at":"2026-10-13T15:00:00","name":"未获配退款已确认可用","amount":80000,"cash_state":"available","source":"假设：这里显式设为已确认可用，真实项目必须核对券商到账"}
+  ]
+}

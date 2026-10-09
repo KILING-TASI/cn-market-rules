@@ -1,0 +1,34 @@
+{
+  "preview_version": "1.0",
+  "package_version": "2.1.0 candidate (PR #1, unreleased)",
+  "verified_as_of": "2026-10-09",
+  "generated_at": "2026-10-09T18:59:37+08:00",
+  "base_commit": "eaa979aa17e2571cedc902ccdf261560791d4e55",
+  "inputs": [
+    {
+      "role": "rule",
+      "path": "rules/example-query.json",
+      "sha256": "7b0e131a819298e92c2d05333bfe523cd4ffd79e7440b463a498c738f9378636",
+      "data_class": "source-backed rule query or public notice excerpts"
+    },
+    {
+      "role": "events",
+      "path": "interfaces/examples/inquiry-correction.json",
+      "sha256": "26b7a05edb53f98e752353b91bb3267335b799f1e83138d3bd0526364df9273b",
+      "data_class": "source-backed rule query or public notice excerpts"
+    },
+    {
+      "role": "cash",
+      "path": "examples/cash-ledger.json",
+      "sha256": "d30a33c1fa28ddc0aca967b8bd53b9de97ae1e5fe67b0a497936ee59d273a5fe",
+      "data_class": "teaching assumptions"
+    }
+  ],
+  "outputs": [
+    "index.html",
+    "rule-selection.json",
+    "event-evidence.json",
+    "cash-scenario.json"
+  ],
+  "scope": "read-only derived preview; no original full text, account data, live retrieval or trading"
+}

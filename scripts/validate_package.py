@@ -1,6 +1,7 @@
 """Validate local Markdown references, source IDs, UTF-8 and runnable examples."""
 import json
 import re
+import hashlib
 from pathlib import Path
 from scenarios import run,load_calendar,apply_calendar
 from evidence_interface import validate as validate_evidence
@@ -61,8 +62,24 @@ for path in (ROOT/'calendars').glob('*.json'):
         load_calendar(path)
         if document['source_id'] not in source_ids:raise ValueError('calendar source ID not registered')
     except (ValueError,KeyError,TypeError) as e:errors.append(f'{path}: {e}')
+preview=ROOT/'docs/preview'
+if preview.exists():
+    try:
+        manifest=json.loads((preview/'screenshot-manifest.json').read_text(encoding='utf-8'))
+        if manifest['report_sha256']!=hashlib.sha256((preview/'index.html').read_bytes()).hexdigest():raise ValueError('screenshot report bytes changed; recapture/review required')
+        for shot in manifest['screenshots']:
+            path=(preview/shot['path']).resolve()
+            if not path.is_relative_to(preview.resolve()):raise ValueError('screenshot path outside preview')
+            if shot['sha256']!=hashlib.sha256(path.read_bytes()).hexdigest():raise ValueError('screenshot hash mismatch')
+        report=json.loads((preview/'report-manifest.json').read_text(encoding='utf-8'))
+        for item in report['inputs']:
+            path=(ROOT/item['path']).resolve()
+            if not path.is_relative_to(ROOT):raise ValueError('preview input outside package')
+            if item['sha256']!=hashlib.sha256(path.read_bytes()).hexdigest():raise ValueError('preview input changed; regenerate/review required')
+    except (ValueError,KeyError,TypeError,OSError) as e:errors.append(f'preview: {e}')
+preview_assets={preview/'index.html',preview/'overview.jpg',preview/'cash.jpg',preview/'fullpage.jpg'}
 for path in ROOT.rglob('*'):
-    if path.is_file() and path.suffix.lower() not in {'.md','.json','.py','.yml','.yaml','.gitignore'} and path.name!='.gitignore' and '.git' not in path.parts and '__pycache__' not in path.parts:
+    if path.is_file() and path.suffix.lower() not in {'.md','.json','.py','.yml','.yaml','.gitignore'} and path.name!='.gitignore' and path not in preview_assets and path!=ROOT/'LICENSE' and '.git' not in path.parts and '__pycache__' not in path.parts:
         errors.append(f'unexpected distribution file: {path}')
 if errors:
     print('\n'.join(errors))

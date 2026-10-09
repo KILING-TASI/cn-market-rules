@@ -1,0 +1,41 @@
+{
+  "kind": "risk_events",
+  "record_count": 2,
+  "unknown_field_count": 6,
+  "status": "structure_valid_only",
+  "scope": "no source authenticity certification, liquidation price, fraud classification, valuation or execution",
+  "rule_selections": [
+    {
+      "record_id": "runze-inquiry-received",
+      "query": {
+        "topic": "reits_inquiry_disclosure",
+        "market": "SZSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "infrastructure",
+        "applicability_date": "2026-08-10",
+        "knowledge_date": "2026-08-12"
+      },
+      "catalog_version": "1.0",
+      "catalog_verified_as_of": "2026-10-09",
+      "rule_version_id": "SZSE-REITS-EXP-2025",
+      "status": "selected",
+      "document_version": "深证上〔2025〕1522号",
+      "published_at": "2025-12-31",
+      "effective_from": "2025-12-31",
+      "effective_until": null,
+      "supersedes": [],
+      "replaced_by": [],
+      "evidence": {
+        "source_id": "REITS-EXP-SZ",
+        "locator": "第20条（二）"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SZ",
+        "locator": "发布通知及第56条"
+      },
+      "scope": "基金管理人在变更注册期间收到问询，2日内公告；收到日不等于发出日",
+      "reason": "version selection only; not legal eligibility certification"
+    }
+  ]
+}
