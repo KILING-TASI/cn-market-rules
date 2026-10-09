@@ -51,13 +51,22 @@ def verify(archive, destination):
     launcher.write_text(LAUNCHER, encoding='utf-8')
     report = destination / 'report'
     commands = []
-    def run(args, expected):
-        process = subprocess.run([str(python), '-I', '-B', '-X', 'utf8', *map(str,args)], cwd=destination, env=env, capture_output=True, text=True, encoding='utf-8', timeout=60)
+    def run(args, expected, direct=False):
+        flags = ['-s', '-E'] if direct else ['-I']
+        process = subprocess.run([str(python), *flags, '-B', '-X', 'utf8', *map(str,args)], cwd=destination, env=env, capture_output=True, text=True, encoding='utf-8', timeout=60)
         commands.append(dict(argv=process.args, returncode=process.returncode, stdout=process.stdout, stderr=process.stderr))
         if process.returncode != expected:
             raise ValueError(f'command exit {process.returncode}, expected {expected}: {process.stderr}')
         return process
     run([launcher, package, destination/'origins.json', report], 0)
+    # Exact README entry with Python isolation flags, without a runpy wrapper.
+    direct_report = destination/'readme-report'
+    run([package/'scripts/demo_preview.py', '--output-dir', direct_report], 0, direct=True)
+    for name in ('cash-scenario.json','rule-selection.json','event-evidence.json'):
+        if (direct_report/name).read_bytes() != (report/name).read_bytes():
+            raise ValueError('direct README entry differs from instrumented entry')
+    run(['-c', "import importlib.util; assert importlib.util.find_spec('pypdf') is None; assert importlib.util.find_spec('pdfplumber') is None; print('Optional PDF libraries absent; demo still completed')"], 0)
+    run([package/'scripts/announcement_consumer.py', '--sidecar', package/'interfaces/announcement-samples/sidecar-920188.json', '--review', package/'interfaces/announcement-samples/review-920188.json', '--original', destination/'missing-original.pdf'], 2, direct=True)
     origins = json.loads((destination/'origins.json').read_text(encoding='utf-8'))
     allowed = [destination, Path(origins['base_prefix']).resolve()]
     for path in origins['sys_path'] + list(origins['module_origins'].values()):
