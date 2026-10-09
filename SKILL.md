@@ -41,3 +41,5 @@ metadata:
 风险事件按[证据核对](references/rules/risk-event-evidence.md)登记；对接主工作台用[字段接口](references/interfaces/evidence-contract.md)。不得由质押比例推断精确平仓价，不得将披露不足改写为造假认定。
 
 按[版本选择契约](references/interfaces/rule-version-contract.md)区分公布、实施、废止及过渡/暂缓，不用当前规则回填历史。事件交接输出rule_version_id与目录核验日，gap/deferred/ambiguous不得写成资格通过。
+
+对接工作台/引擎采用[共用交接契约](references/interfaces/common-handoff-contract.md)，身份与单位不推断，原始输入/unknown/版本保持，消费端尚未联调时不能声称自动可用。

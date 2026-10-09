@@ -62,6 +62,11 @@ class VersionTests(unittest.TestCase):
     def test_wrong_source_version(self):
         doc=json.loads((ROOT/'interfaces/examples/reits-terms.json').read_text(encoding='utf-8'));doc['sources'][0]['rule_version_id']='SSE-REITS-EXP-2022'
         with self.assertRaisesRegex(ValueError,'source rule_version_id'):validate(doc)
+    def test_old_envelope_does_not_reinterpret_extension(self):
+        doc=json.loads((ROOT/'interfaces/examples/risk-events.json').read_text(encoding='utf-8'))
+        for version in ('1.0','1.1'):
+            doc['schema_version']=version;doc['records'][0]['rule_query']='legacy opaque extension'
+            self.assertNotIn('rule_selections',validate(doc))
     def test_backtest_rejects_later_rule_knowledge(self):
         doc=json.loads((ROOT/'interfaces/examples/inquiry-correction.json').read_text(encoding='utf-8'));doc['records'][0]['backtest_cutoff']='2026-08-10T16:00:00+08:00'
         with self.assertRaisesRegex(ValueError,'later rule knowledge'):validate(doc)

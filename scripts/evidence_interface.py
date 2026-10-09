@@ -58,6 +58,7 @@ def validate(document):
             if source['acquisition_status']=='success' and source['retrieved_at'] is None:raise ValueError('successful acquisition needs date')
             if source['original_verification']=='verified' and (source['verified_at'] is None or source['source_tier']!='public_original' or source['acquisition_status']!='success'):raise ValueError('original verification requires acquired original and verification date')
             if source['source_tier']=='third_party_aggregate' and source['source_type']!='aggregate':raise ValueError('aggregate tier requires aggregate type')
+            if source['source_type']=='aggregate' and source['source_tier']=='public_original':raise ValueError('aggregate cannot be classified as public original')
         sources[sid]=source
     records=document.get('records')
     if not isinstance(records,list) or not records:raise ValueError('records: nonempty list required')
@@ -94,7 +95,7 @@ def validate(document):
         for rule in rules:
             if binding(rule)['source_type']!='rule':raise ValueError('company event cannot serve as rule source')
             text(rule,'scope')
-        if 'rule_query' in record:
+        if document['schema_version']=='1.2' and 'rule_query' in record:
             from rule_versions import load_catalog,select
             query=record['rule_query']
             if not isinstance(query,dict):raise ValueError('rule_query must be object')

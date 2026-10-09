@@ -87,5 +87,8 @@ class EvidenceTests(unittest.TestCase):
         for fact in doc['records'][0]['facts']:
             if fact['status']!='unknown':fact['available_at']='2026-09-10T16:30:00+00:00'
         self.assertEqual(validate(doc)['status'],'structure_valid_only')
+    def test_aggregate_not_relabelled_original(self):
+        self.events['sources'][0]['source_type']='aggregate'
+        with self.assertRaisesRegex(ValueError,'classified as public original'):validate(self.events)
 
 if __name__=='__main__':unittest.main()
