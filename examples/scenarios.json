@@ -1,0 +1,21 @@
+{
+  "description": "所有价格、费率、比例和日期均为虚构教学假设，不是实际标的结论。",
+  "cases": [
+    {"name":"部分要约完成：余股8元，表面20%价差被余股亏损抵消", "mode":"tender", "quantity":1000,"buy_price":10,"offer_price":12,"accepted_ratio":"0.5","residual_exit_price":8,"total_fees":20,"holding_days":30,"annual_opportunity_rate":"0.03"},
+    {"name":"部分要约缩水：只收30%，余股7元", "mode":"tender", "quantity":1000,"buy_price":10,"offer_price":12,"accepted_ratio":"0.3","residual_exit_price":7,"total_fees":20,"holding_days":45,"annual_opportunity_rate":"0.03"},
+    {"name":"要约未生效：全部按7元退出", "mode":"tender", "quantity":1000,"buy_price":10,"offer_price":12,"accepted_ratio":0,"residual_exit_price":7,"total_fees":20,"holding_days":45,"annual_opportunity_rate":"0.03"},
+    {"name":"换股成功的价格情景", "mode":"merger", "quantity":1000,"buy_price":10,"exchange_ratio":"0.5","actual_converted_shares":500,"survivor_exit_price":22,"tail_cash_adjustment":0,"total_fees":20,"holding_days":90,"annual_opportunity_rate":"0.03"},
+    {"name":"换股完成但存续方股价下跌", "mode":"merger", "quantity":1000,"buy_price":10,"exchange_ratio":"0.5","actual_converted_shares":500,"survivor_exit_price":16,"tail_cash_adjustment":0,"total_fees":20,"holding_days":120,"annual_opportunity_rate":"0.03"},
+    {"name":"现金选择权：资格成立并支付", "mode":"exit", "invested_cost":10000,"exit_cash":11000,"residual_asset_value":0,"total_fees":20,"holding_days":90,"annual_opportunity_rate":"0.03"},
+    {"name":"现金选择权：资格不成立，剩余资产折价", "mode":"exit", "invested_cost":10000,"exit_cash":0,"residual_asset_value":7500,"total_fees":20,"holding_days":120,"annual_opportunity_rate":"0.03"},
+    {"name":"ST摘帽获批后按假设价格退出", "mode":"exit", "invested_cost":10000,"exit_cash":12000,"residual_asset_value":0,"total_fees":20,"holding_days":90,"annual_opportunity_rate":"0.03"},
+    {"name":"ST退市无法即时卖出：回收估值为假设", "mode":"exit", "invested_cost":10000,"exit_cash":0,"residual_asset_value":1000,"total_fees":0,"holding_days":365,"annual_opportunity_rate":"0.03"},
+    {"name":"REITs首发边界检查：恰好满足四类数值条件", "mode":"reits", "market":"SSE","offering_type":"initial","registered_units":100000000,"final_units":80000000,"strategic_units":24000000,"offline_units":39200000,"raised_funds":200000000,"investors":1000,"originator_compliant":true,"other_failure_condition":false},
+    {"name":"REITs配售5%，上市价涨10%，全额占用5天后获配款再持有10天", "mode":"reits_return", "subscription_amount":100000,"offering_price":5,"allocation_ratio":"0.05","exit_price":"5.5","cash_distributions":0,"total_fees":10,"capital_days":550000,"annual_opportunity_rate":"0.03"},
+    {"name":"REITs同样获配但上市价跌10%", "mode":"reits_return", "subscription_amount":100000,"offering_price":5,"allocation_ratio":"0.05","exit_price":"4.5","cash_distributions":0,"total_fees":10,"capital_days":550000,"annual_opportunity_rate":"0.03"},
+    {"name":"REITs未获配：收益0但资金占用有代价", "mode":"reits_return", "subscription_amount":100000,"offering_price":5,"allocation_ratio":0,"exit_price":5,"cash_distributions":0,"total_fees":0,"capital_days":500000,"annual_opportunity_rate":"0.03"},
+    {"name":"REITs募集失败：30天全额占用、退款利息用明确假设", "mode":"exit", "invested_cost":100000,"exit_cash":100030,"residual_asset_value":0,"total_fees":0,"holding_days":30,"annual_opportunity_rate":"0.03"},
+    {"name":"普通周四一天期，合成日历", "mode":"repo", "trade_date":"2026-10-15","tenor_days":1,"principal":100000,"annual_rate":"0.03","total_fees":1,"calendar_source":"虚构教学：覆盖区间内周一至周五均交易，不是正式交易日历","calendar_start":"2026-10-12","calendar_end":"2026-10-20","trading_days":["2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-19","2026-10-20"]},
+    {"name":"转债按每日当期转股价分段计数的教学情景", "mode":"clause", "window":3,"required_hits":2,"threshold":"1.3","comparison":"ge","dates":["2026-10-12","2026-10-13","2026-10-14"],"prices":[13,12,13],"conversion_prices":[10,9,11]}
+  ]
+}

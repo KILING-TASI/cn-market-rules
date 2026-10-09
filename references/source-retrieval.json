@@ -1,0 +1,185 @@
+[
+  {
+    "id": "st-sse",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/10816589/files/0017fa2bde184b53b43c046d503f54d0.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "988941c6c98214908aa9438e3ea359881022d192fc3b48aa49fff95523dce627",
+    "text_chars": 105267
+  },
+  {
+    "id": "st-szse",
+    "url": "https://docs.static.szse.cn/www/lawrules/rule/stock/W020260424747613955674.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "958a07598a1919fe7fed7695c9e778dd029d72a38cf48faeba54cfefdb7c581c",
+    "text_chars": 110474
+  },
+  {
+    "id": "reits-base",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/10803729/files/b257f7fd523949308787c3e6d4b5b5f9.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "70c52b964b0374d50dbb094a59e8b221985dc981de144907354401b8bca37510",
+    "text_chars": 11259
+  },
+  {
+    "id": "reits-sale",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/10803747/files/dd7c68800ed54bb8b24579a6f99a9581.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "93e48763fd14e737f496f34601134fe7831848e6c47b3e00625c58dd80eef66c",
+    "text_chars": 8717
+  },
+  {
+    "id": "cb-base",
+    "url": "https://www.csrc.gov.cn/csrc/c106256/c1653887/content.shtml",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.csrc.gov.cn/csrc/c106256/c1653887/content.shtml"
+  },
+  {
+    "id": "takeover",
+    "url": "https://www.csrc.gov.cn/csrc/c106256/c1653983/content.shtml?f_link_type=f_linkinlinenote",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "a7d0b2493276776e0ec0a4b0c365c232a0871e5d5fa1b9984b9503e80bab1f4f",
+    "text_chars": 24765
+  },
+  {
+    "id": "repo-rule",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/trading/currency/c/c_20250606_10781048.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "72272f10a564b834d148678a423e3dd39026aaa71a5746af1fc00a8df5a1cdd7",
+    "text_chars": 10443
+  },
+  {
+    "id": "cb-trade",
+    "url": "https://www.szse.cn/lawrules/rule/bond/bonds/trade/t20250327_612573.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "991144ec33d86646cc0d58f63c78882c1db000b521baf2f717bcc85610ddb85d",
+    "text_chars": 8461
+  },
+  {
+    "id": "cash-case",
+    "url": "https://static.sse.com.cn/stock/disclosure/announcement/c/202506/600150_20250620_WC6J.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "079d8f080c1ad44c7d3c21656e6a63ec5832f5e9a61f540cb0883174eb7113f5",
+    "text_chars": 285060
+  },
+  {
+    "id": "st-case",
+    "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-07-01/7d2b1820-3995-4358-80f0-143b49523f8f.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "fc2f437828062b633e011ebb2baa3579d2dd546cbb99fcfbc52dbeeb427d28b9",
+    "text_chars": 2345
+  },
+  {
+    "id": "reits-case",
+    "url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2026-06-05/508027_20260605_S20X.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "d90fa67a6343bba0368b2fc30a631abd9f80634ce288a2bf3958231395271bf6",
+    "text_chars": 412882
+  },
+  {
+    "id": "reits-csrc",
+    "url": "https://www.csrc.gov.cn/csrc/c101877/c1029531/1029531/files/公开募集基础设施证券投资基金指引（试行）.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "8cc4ad0f764f613fa58906c1ecc2c98a9198e350e70322aba282853d3aac81d7",
+    "text_chars": 14189
+  },
+  {
+    "id": "reits-edu",
+    "url": "https://edu.sse.com.cn/REITS/document/c/10608581/files/6d3eeedba8404a90b6de390b094701e1.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "53209d316edca68941d81e87568a5e0753e84c67202aafe58444332ddf5c2327",
+    "text_chars": 29
+  },
+  {
+    "id": "cb-fit",
+    "url": "https://docs.static.szse.cn/www/lawrules/rule/all/W020250328578470423581.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "cccaf389804aec9fb04524ee6522b928d34756672e60ed8309214aef92438f49",
+    "text_chars": 250387
+  },
+  {
+    "id": "repo-settle",
+    "url": "https://media.sseinfo.com/roadshow/resources/uploadfile/documents/201704/1492994979589.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "2823f8fc59087118d9de61acf41eba4379109b667af4ad4208559445dd3eccfe",
+    "text_chars": 3812
+  },
+  {
+    "id": "reits-sz-sale",
+    "url": "https://reits.szse.cn/lawrule/bussrules/latest/t20251231_618231.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "6d13d1b12bced7ec8f6355e5cc1f4b0c0c236cd8162b5c079d82487bfe6b87cc",
+    "text_chars": 37963
+  },
+  {
+    "id": "trade-sh",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "cd3365ac6d36b137c7da57fa40459fe317bd8c534f3349ca1eff8bef93548494",
+    "text_chars": 10879
+  },
+  {
+    "id": "cb-trade-sh",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/trading/c/10782995/files/0cd49df084af4d6c913313fa4d3df3ad.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "d82d396cda489247898e66af340cff1ab647a6230ab943bbd70234ae54b63630",
+    "text_chars": 6403
+  },
+  {
+    "id": "trade-sh-main",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/10816482/files/959da0158c65434daa8a43a6e32be7ba.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "fc922c433438b2636cb631eab25cca405209712acbb6aaded768c45456ff8888",
+    "text_chars": 21315
+  },
+  {
+    "id": "trade-sh-other",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/10816482/files/982290258b184b4b9c2b56a625202a9c.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "6c0ffbb11664654442ff0907c8ab109349c1b7665b6745998d34c1219ec98aa1",
+    "text_chars": 949
+  },
+  {
+    "id": "trade-sh-deferred",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/10816482/files/f6bd756cdd8248f49b7795f62e73237f.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "f4a0d0976a01e3e95f82460170900993824b70d91183e42d09e13ba10a9958c5",
+    "text_chars": 977
+  },
+  {
+    "id": "reits-sz-attachment",
+    "url": "https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231642948766654.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "9000220b1d730867fa64f70a33db74dfb62789a2f43aa9fba95d59a50c8b99a8",
+    "text_chars": 9415
+  },
+  {
+    "id": "reits-sz-explainer",
+    "url": "https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231642948924009.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "e4ca55cce5aad921d9521fc96673936a8b4af56e47ccda05421afed3be6e359c",
+    "text_chars": 913
+  }
+]
