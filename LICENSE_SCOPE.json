@@ -533,6 +533,10 @@
     "docs/announcement-consumption-validation.json": {
       "class": "mixed_source_data",
       "basis": "Original bounded adapter/review structure only; third-party numerical facts, names and provenance rights excluded"
+    },
+    "scripts/verify_standalone.py": {
+      "class": "original_mit",
+      "basis": "Independently created isolated source Skill acceptance runner; standard library only"
     }
   }
 }
