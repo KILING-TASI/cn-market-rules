@@ -268,5 +268,35 @@
     "status": "retrieved",
     "sha256": "1457e3c9c94f7e247896d99b5b390fc05c5ff3f58e44a62c534963f8f2413213",
     "text_chars": 1565
+  },
+  {
+    "id": "unlock-first",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-09-10/603073_20260910_GV58.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "Stream has ended unexpectedly"
+  },
+  {
+    "id": "pledge-first",
+    "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-29/28d7561c-c318-463e-8f00-b3f9374ba4ad.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "e224e661febc2488f34a8050c0a240994464d58308fd45499d5ee19bf32886fa",
+    "text_chars": 2005
+  },
+  {
+    "id": "goodwill-first",
+    "url": "https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml"
+  },
+  {
+    "id": "goodwill-rule",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/10779132/files/98ef92cd80ed49e8b2dab9aab00546ba.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "88f5824909c9dd7773b5808daea127f0cab2d0839398fdff5af021ebaa7012cf",
+    "text_chars": 18306
   }
 ]

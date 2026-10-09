@@ -37,3 +37,5 @@ metadata:
 博弈推断按需读[强赎](references/playbooks/forced-redemption-game.md)、[下修](references/playbooks/downward-revision-game.md)、[回售](references/playbooks/putback-game.md)。交付前查[常见误区](references/pitfalls/common-mistakes.md)，信用风险读[违约](references/pitfalls/cb-defaults.md)，行权及失败风险读[强赎操作](references/pitfalls/redemption-traps.md)、[事件失败](references/pitfalls/event-arb-failures.md)。
 
 本库用于公开信息研究。规则快照截至2026-10-09，后续使用需重新检查发布与实施状态；研究结论不替代个案法律、税务或投资判断。
+
+风险事件按[证据核对](references/rules/risk-event-evidence.md)登记；对接主工作台用[字段接口](references/interfaces/evidence-contract.md)。不得由质押比例推断精确平仓价，不得将披露不足改写为造假认定。

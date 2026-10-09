@@ -52,3 +52,9 @@ REITs回拨的现行单位是**70%**，不是70‰。已核对现行《发售业
 原始输入为CodeBuddy署名的v1.0.0知识包，原包未附许可证；本次重写保留来源说明，不据此授予原包或第三方材料的再许可。法规、交易所文件及公司/基金公告链接到原发布者，未打包其全文。仓库未设置第三方材料的开源授权，公开可访问不等于任意再许可。
 
 内容用于研究参考，不构成收益保证或交易指令。维护状态与未核验项见 [PLAN.md](PLAN.md)。
+
+## 风险事件证据首批
+
+[设计与验收](docs/risk-evidence-roadmap.md)、[解禁/质押/商誉核对](references/rules/risk-event-evidence.md)及[字段接口](references/interfaces/evidence-contract.md)已提供。三条历史案例区分公告全文、官方摘要和监管认定；未形成全市场数据库。
+
+运行 `python scripts/evidence_interface.py --input interfaces/examples/risk-events.json` 或 `interfaces/examples/reits-terms.json` 校验字段。扩募接口向主工作台交接条款与缺口，经营现金流估值仍由主工作台补齐。

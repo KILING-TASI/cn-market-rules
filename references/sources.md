@@ -48,6 +48,11 @@
 | CAL-2026-SZSE | [深市2026年度休市通知](https://investor.szse.cn/disclosure/notice/general/t20251222_618087.html) | 深证会2025年第481号，2025-12-22 | 独立核验两市公告而非复制SSE来源，交易日派生；2027覆盖未提供 |
 | BLUEDON-DEFAULT | [蓝盾退债不能按期兑付本息公告](https://static.cninfo.com.cn/finalpage/2024-08-13/1220861411.PDF) | 公司2024-043，2024-08-13 | PDF第1—2页，代码404001、到期本金及最后年利息、交易场所迁移、未提供担保；最终回收仍待补 |
 
+| UNLOCK-SUMMARY | [彩蝶实业限售股份上市流通公告摘要](https://www.sse.com.cn/disclosure/listedinfo/summaries/indexDetail.shtml?SEQ=334690737) | 官方摘要，2026-10-09核读 | 仅摘要核到65107152股及2026-09-16流通日；全文下载失败，不认证全文 |
+| PLEDGE-GCL | [协鑫能科解除质押暨再质押公告](https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-29/28d7561c-c318-463e-8f00-b3f9374ba4ad.PDF) | 公司2026-040，2026-04-29 | PDF第1—3页；解除和再质押各3000万股，合计质押占所持50.96%；无平仓风险为公司陈述 |
+| GOODWILL-GS | [江西监管局对国盛金控责令改正决定](https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml) | [2024]13号，决定日2024-05-21 | 网页第二项为2022年报商誉减值测试披露不足；不是造假或减值金额认定；网页可读、本地403 |
+| GOODWILL-REG | [重大资产重组指引第6号](https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20250516_10779132.shtml) | 2025年3月修订，2025-03-28施行 | 正文第51条，适用沪市重组形成商誉的年度测试与披露，不能推导个案减值金额 |
+
 ## 取得状态与缺口
 
 `source-retrieval.json`保存本次下载字节哈希，个别页面403/空文字层如实记录。浏览器原文读取可与本地下载状态不同。大汇编中定位到标题不等于已核整份汇编。台账标“入口”的条款不计已核覆盖。

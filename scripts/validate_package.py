@@ -3,6 +3,7 @@ import json
 import re
 from pathlib import Path
 from scenarios import run,load_calendar,apply_calendar
+from evidence_interface import validate as validate_evidence
 
 ROOT=Path(__file__).resolve().parents[1]
 errors=[]
@@ -29,6 +30,12 @@ for path in (ROOT/'examples').glob('*.json'):
             document=apply_calendar(document,load_calendar(calendar_path))
         run(document)
     except (ValueError,KeyError,TypeError) as e: errors.append(f'{path}: {e}')
+for path in (ROOT/'interfaces/examples').glob('*.json'):
+    try:
+        document=json.loads(path.read_text(encoding='utf-8'))
+        validate_evidence(document)
+        if any(s['source_id'] not in source_ids for s in document['sources']):raise ValueError('interface source ID not registered')
+    except (ValueError,KeyError,TypeError) as e:errors.append(f'{path}: {e}')
 for path in (ROOT/'calendars').glob('*.json'):
     try:
         document=json.loads(path.read_text(encoding='utf-8'))
