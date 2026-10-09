@@ -469,6 +469,14 @@
     "scripts/contracts/regulatory.py": {
       "class": "original_mit",
       "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "references/rules/delisting-transitions.md": {
+      "class": "mixed_source_data",
+      "basis": "original checklist and interpretation; third-party regulatory and issuer facts rights excluded, no full original document bundled"
+    },
+    "references/cases/execution-terms.md": {
+      "class": "mixed_source_data",
+      "basis": "original checklist and interpretation; third-party regulatory and issuer facts rights excluded, no full original document bundled"
     }
   }
 }

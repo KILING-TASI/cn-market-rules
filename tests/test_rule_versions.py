@@ -37,7 +37,17 @@ class VersionTests(unittest.TestCase):
     def test_deferred_exception(self):
         result=self.trade_query('2026-07-06','block_trade_late_session')
         self.assertEqual(result['status'],'deferred');self.assertEqual(result['evidence']['source_id'],'TRADE-SH-DEFER')
-    def test_unknown_effective_not_guessed(self):
+    def test_bse_current_source_verified(self):
+        result=self.query_on('2026-08-10',topic='st_delisting',market='BSE',board='BSE',subject='listed_company',asset_type='stock')
+        self.assertEqual(result['status'],'selected')
+        self.assertEqual(result['rule_version_id'],'BSE-LISTING-2026')
+        self.assertEqual(result['evidence']['source_id'],'ST-BSE')
+    def test_bse_before_current_version_remains_gap(self):
+        result=self.query_on('2026-04-23',topic='st_delisting',market='BSE',board='BSE',subject='listed_company',asset_type='stock')
+        self.assertEqual(result['status'],'gap')
+    def test_pending_version_still_not_guessed(self):
+        item=next(v for v in self.catalog['versions'] if v['market']=='BSE')
+        item.update(verification_status='pending',published_at=None,effective_from=None)
         result=self.query_on('2026-08-10',topic='st_delisting',market='BSE',board='BSE',subject='listed_company',asset_type='stock')
         self.assertEqual(result['status'],'gap')
     def test_future_application_not_historical(self):

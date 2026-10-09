@@ -27,7 +27,7 @@
 | ST-SZ | [深主板上市规则（2026修订）通知](https://www.szse.cn/www/lawrules/rule/stock/t20260424_620193.html)及[附件](https://docs.static.szse.cn/www/lawrules/rule/stock/W020260424747613955674.pdf) | 2026-04-24版；退市衔接仍联查2024通知 | 第9章，9.3.8—9.3.12撤销/终止；深主板核对 |
 | ST-STAR | [科创板上市规则（2026年4月修订）](https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/listing/c/c_20260424_10817748.shtml) | 2026-04-24版；核对施行通知及衔接 | 已取得正文附件；第12章12.2、12.3.1、12.4.2—12.4.4、12.5.1、12.7核心路径与研发型例外；非全量个案法律认定 |
 | ST-GEM | [创业板上市规则2026通知](https://investor.szse.cn/lawrules/rule/allrules/bussiness/t20260424_620189.html)及[正文](https://docs.static.szse.cn/www/lawrules/rule/allrules/bussiness/W020260424688875101057.pdf) | 深证上2026年第550号，2026-04-24；退市衔接仍联查2024通知 | 已核第10章10.2.1、10.3.1—10.3.2、10.3.7—10.3.11核心指标与撤销；规范/重大违法定位10.4/10.5 |
-| ST-BSE | [北交所2026上市规则通知](https://www.bse.cn/cxjg_list/200028220.html)及[正文定位](https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf) | 2026-04-24候选官方版本 | 原文下载403/浏览器跳转失败；不把搜索摘要视为已核，当前数值保留待核 |
+| ST-BSE | [北交所2026上市规则通知](https://www.bse.cn/cxjg_list/200028220.html)及[正文定位](https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf) | 北证公告〔2026〕18号，2026-04-24施行 | 本批正文及发布通知取得成功；第10章核心指标、上市标准例外、撤销/整理与2024衔接；此前失败记录保留 |
 | ST-CASE | [金科股份撤销两类风险警示暨停复牌公告](https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-07-01/7d2b1820-3995-4358-80f0-143b49523f8f.PDF) | 公告2026-040号，2026-07-01披露 | PDF第1—4页：原警示原因、同意撤销、2026-07-02复牌；个案原文核对 |
 | TRADE-SH | [沪市交易规则（2026修订）](https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml)及[实施通知](https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml) | 上证发2026年第41号，2026-07-06施行，含暂缓实施条款 | 已核正文第3.3.13、4.4节及起草说明“风险警示5%调10%”，同时取得暂缓实施附件；主板/科创分开 |
 | REITS-BASE | [沪市不动产REITs业务办法](https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803729.shtml) | 上证发2025年第138号，2025-12-31生效，旧2021办法废止 | 附件第20—29条，尤其21条原始权益人20%/60/36/禁质押；原文核对 |
@@ -56,7 +56,7 @@
 | AKSHARE-PLEDGE | [AKShare股票数据文档](https://akshare.akfamily.xyz/data/stock/stock.html#id105) | 文档1.19.1，2026-10-09核读 | stock_gpzy_pledge_ratio_em存在；东方财富聚合；比例%、股数万股、市值万元；未实拉接口、未认证合同或覆盖完整性 |
 
 | REITS-EXP-SH-2022 | [沪市2022新购入基础设施项目指引（已废止）](https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/c_20250609_10804033.shtml) | 上证发2022年第83号，2022-05-31施行 | 取得归档正文；第2、58条及通知；2025-12-31废止依据新通知；仅历史版本 |
-| REITS-EXP-SZ | [深市2025扩募及新购入不动产指引](https://www.szse.cn/www/lawrules/rule/reits/t20251231_618232.html) | 深证上2025年第1522号，2025-12-31施行 | 正文PDF19页，第20、36—50、52、56条已核；旧2022版废止；此批登记版本/问询披露依据，不接入SZSE算术 |
+| REITS-EXP-SZ | [深市2025扩募及新购入不动产指引](https://www.szse.cn/www/lawrules/rule/reits/t20251231_618232.html) | 深证上2025年第1522号，2025-12-31施行 | 正文PDF19页，第20、36—50、52、56条已核；旧2022版废止；独立对照沪市同项条文后接入SZSE三路径算术，价格/资格/税费仍逐项核对 |
 | TRADE-SH-DEFER | [沪市2026交易规则暂缓实施附件](https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/10816482/files/f6bd756cdd8248f49b7795f62e73237f.docx) | 2026-04-24发布，具体实施另行通知 | 3.6.3(ii)16—17点成交申报等继续暂缓；未取得后续开启通知，不以整份规则生效推断开启 |
 | INQUIRY-RUNZE | [南方润泽REIT收到审核问询公告](https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-12/27a1a70e-bf18-49a3-9f79-8b6bdd879e72.PDF) | 审核函（基）2026第017号；公告落款2026-08-12 | PDF第1页，8月10日收到、8月12日公告；发出精确日/首发时刻未取得；不等于批准扩募 |
 | CORRECTION-LYH | [利元亨问询回复挂网标题更正公告](https://static.cninfo.com.cn/finalpage/2026-08-27/1225513693.PDF) | 公司2026-050，落款2026-08-26 | 发行人原公告PDF第1页；仅挂网标题由可转债更正为定向发行股票，内容保持不变；公众刊登日期另证 |
@@ -64,9 +64,19 @@
 
 | XINHAI-PENALTY-CITE | [新海宜终止上市正式通知](https://www.szse.cn/disclosure/notice/company/t20240318_606349.html) | 深交所2024-03-18正式通知 | 通知第一段援引证监会2024第14号决定，公布日明确；处罚原件未取得，不能用退市规则替代处罚法律依据 |
 | AIRPORT-AUDIT-2025 | [深圳机场2025年年报内嵌审计报告](https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-24/3079f18e-1621-4c28-b9c9-e4342933e611.PDF) | 容诚审字[2026]518Z1091，2026-04-22签署；2026-04-24披露文件 | PDF第73页，财务报告标准无保留意见；不将签署、文件日期或财务意见当处罚/造假认定；首次公开时刻待核 |
+| ST-SH-TRANS | [沪主板2024衔接通知](https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/c_20240430_10785259.shtml) | 上证发〔2024〕51号，2024-04-30；正文版本归档 | 通知二—八；2026发布通知第4项继续援引，区分市值、财务年度、占用主体、内控、重大违法、其他ST |
+| ST-SZ-TRANS | [深主板2024衔接通知](https://www.szse.cn/lawrules/rule/repeal/rules/t20240430_607069.html) | 深证上〔2024〕339号，2024-04-30；正文版本归档 | 通知二—八；2026通知第4项继续援引；市值新期限自2024-10-30计算 |
+| ST-STAR-TRANS | [科创2024衔接通知](https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/c_20240430_10777832.shtml) | 上证发〔2024〕52号，2024-04-30；正文版本归档 | 通知一—八；2026通知第3项继续援引，六个月ST过渡及分项年度不同，不套主板 |
+| ST-GEM-TRANS | [创业2024衔接通知](https://www.szse.cn/lawrules/rule/repeal/rules/t20240430_607070.html) | 深证上〔2024〕340号，2024-04-30；正文版本归档 | 通知二—七；2026通知第3项继续援引，财务/内控/占用/文书/其他ST |
+| ST-BSE-TRANS | [北交2024衔接通知](https://www.bse.cn/cxjg_list/200021755.html) | 北证公告〔2024〕22号，2024-04-30；旧正文不作当前阈值 | 通知一—五；2026通知第5项继续援引，成交量起算、财务/内控年度、主体及文书切换 |
+| TENDER-ZX-RESULT | [振兴生化部分要约结果公告](https://epaper.stcn.com/paper/zqsb/html/2017-12/14/content_1077024.htm) | 发行人署名公告，证券时报2017-12-14公开，签署12-13 | 一、2/三/四；生效下限、最终预受分母、零碎股处理入口、过户与复牌；不是到账凭证 |
+| CASH-HT-IMPL | [海通A股现金选择权实施提示公告](https://epaper.cs.com.cn/zgzqb/html/2025-02/06/nw.D110000zgzqb_20250206_1-A14.htm) | 发行人临2025-020，中国证券报2025-02-06，签署02-05 | 一、资格/申报/数量/付款，三税费，五同日价格、六停牌；报刊容器不是交易所托管副本 |
+| CASH-HT-RESULT | [海通A股现金选择权结果](https://epaper.stcn.com/pic/202502/08/dc9d43be90b099141b629f15d40c1738.pdf) | 发行人临2025-021，证券时报2025-02-08，签署02-07 | PDF1页：申报期无A股异议股东申报；不推测实际现金支付或税款 |
+| MERGER-HT-DELIST | [海通A股终止上市公告](https://epaper.cs.com.cn/zgzqb/html/2025-02/26/nw.D110000zgzqb_20250226_2-B022.htm) | 发行人临2025-025，中国证券报2025-02-26 | 一/四：2025-03-04终止上市，换股入账前显示与交易限制；不证明资产归零 |
+| MERGER-HT-RESULT | [国泰君安A股换股及新增股上市结果](https://epaper.cs.com.cn/zgzqb/html/2025-03/14/nw.D110000zgzqb_20250314_2-A30.htm) | 发行人2025-028，中国证券报2025-03-14 | 一/二：2025-03-13登记证明、换股5,985,871,332股及03-17上市；配套限售与换股流通分开，非个体整数入账凭证 |
 
 ## 取得状态与缺口
 
 `source-retrieval.json`保存本次下载字节哈希，个别页面403/空文字层如实记录。浏览器原文读取可与本地下载状态不同。大汇编中定位到标题不等于已核整份汇编。台账标“入口”的条款不计已核覆盖。
 
-v2.1未接实时行情、券商资金或持仓；未核个案税务扣缴；北交所当前全文仍缺证；深市扩募正文已取得、计算模型尚未接入；非财务退市所有例外、其它REITs业务尚未声称全量覆盖。原包事件/强赎案例及三只违约债最终回收仍待补。日历仅含2026已公布常规安排，2027不外推。这些缺口限制实际个案可执行结论。
+v2.1未接实时行情、券商资金或持仓；未核个案税务扣缴；北交所当前正文及2024衔接已核，早期版本目录仍缺；深市扩募三路径已接入，价格/资格另核；特殊非财务退市个案例外、其它REITs业务尚未声称全量覆盖。原包事件/强赎案例及三只违约债最终回收仍待补。日历仅含2026已公布常规安排，2027不外推。这些缺口限制实际个案可执行结论。

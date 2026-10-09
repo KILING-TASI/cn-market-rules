@@ -22,7 +22,7 @@ metadata:
 | 回转、交易单位、权限、费用 | [交易边界](references/rules/trading-rules.md) |
 | 要约、换股、现金选择权、重组 | [事件规则](references/rules/event-arb-rules.md)、[执行核验](references/playbooks/event-arb-playbook.md) |
 | 逆回购交收、ETF/LOF套利边界 | [通用套利](references/rules/arbitrage-rules.md) |
-| ST/*ST撤销、退市路径 | [ST与退市](references/rules/st-delisting-rules.md) |
+| ST/*ST撤销、退市路径 | [ST与退市](references/rules/st-delisting-rules.md)、[年度与主体衔接](references/rules/delisting-transitions.md) |
 | REITs询价、回拨、战配、募集失败 | [REITs发售](references/rules/reits-offering-rules.md)、[扩募](references/rules/reits-expansion-rules.md) |
 | 打新、逆回购、转债、REITs资金冲突 | [组合现金联动](references/playbooks/capital-coordination.md) |
 
@@ -52,3 +52,5 @@ metadata:
 按[版本选择契约](references/interfaces/rule-version-contract.md)区分公布、实施、废止及过渡/暂缓，不用当前规则回填历史。事件交接输出rule_version_id与目录核验日，gap/deferred/ambiguous不得写成资格通过。
 
 对接工作台/引擎采用[共用交接契约](references/interfaces/common-handoff-contract.md)，身份与单位不推断，原始输入/unknown/版本保持，消费端尚未联调时不能声称自动可用。
+
+已核历史项目的执行边界见[要约／现金选择权／换股条款](references/cases/execution-terms.md)。深市扩募算术必须显式提供rule_applicability_date，不能把2025版检查回填更早项目。

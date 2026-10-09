@@ -176,8 +176,14 @@ def reits(obj):
 
 def reits_expansion(obj):
     market = label(obj, 'market')
-    if market != 'SSE':
-        raise ValueError('reits_expansion: SSE verified routes only; SZSE expansion rules not yet fully verified')
+    if market not in {'SSE', 'SZSE'}:
+        raise ValueError('reits_expansion: verified SSE/SZSE routes only')
+    # The new SZSE path is scoped to the independently verified 2025 text.
+    # Preserve the legacy SSE input; never reinterpret a historical SZSE issue.
+    if market == 'SZSE' or 'rule_applicability_date' in obj:
+        applicable = date.fromisoformat(label(obj, 'rule_applicability_date'))
+        if not date(2025, 12, 31) <= applicable <= date(2026, 10, 9):
+            raise ValueError('rule_applicability_date: outside verified expansion version coverage')
     route = label(obj, 'offering_method')
     if route not in {'holders', 'public', 'targeted'}:
         raise ValueError('offering_method: holders/public/targeted required')
@@ -218,7 +224,7 @@ def reits_expansion(obj):
                      'holder_ownership_change_ratio': ratio((old_holder + new_holder) / total - old_holder / existing),
                      'holder_subscription_cash': money(new_holder * price)}
     return {'mode': 'reits_expansion', 'market': market, 'offering_method': route,
-            'rule_source_id': 'REITS-EXP-SH', 'failure_checks': checks,
+            'rule_source_id': 'REITS-EXP-SH' if market == 'SSE' else 'REITS-EXP-SZ', 'failure_checks': checks,
             'failure_or_route_violation_detected': failed,
             'expansion_price_to_market_ratio': ratio(price / reference - 1),
             'conditional_capital_structure': projected,

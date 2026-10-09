@@ -174,9 +174,9 @@
       "verification_status": "verified"
     },
     {
-      "version_id": "BSE-LISTING-2026-PENDING",
-      "title": "北交所现行上市规则候选",
-      "document_version": "2026-04候选版本",
+      "version_id": "BSE-LISTING-2026",
+      "title": "北京证券交易所股票上市规则",
+      "document_version": "2026年4月24日修订",
       "market": "BSE",
       "board": "BSE",
       "subjects": [
@@ -185,31 +185,30 @@
       "asset_types": [
         "stock"
       ],
-      "published_at": null,
-      "effective_from": null,
+      "published_at": "2026-04-24",
+      "effective_from": "2026-04-24",
       "effective_until": null,
       "publication_evidence": {
         "source_id": "ST-BSE",
-        "locator": "候选发布入口，未取得正文"
+        "locator": "北证公告〔2026〕18号，发布及自发布之日起施行"
       },
       "interval_evidence": {
         "source_id": "ST-BSE",
-        "locator": "未核实施及衔接"
+        "locator": "2026发布通知及第5项继续援引2024退市衔接；仅第10章范围"
       },
       "topics": {
         "st_delisting": {
+          "activation": "active",
+          "scope": "第10章核心指标与程序；必须另核上市标准、财务年度、2024衔接及个案条件，不认证资格",
           "evidence": {
             "source_id": "ST-BSE",
-            "locator": "正文待核"
-          },
-          "scope": "北交所当前数值与实施边界待核",
-          "activation": "unknown",
-          "reason": "403，缺失日期不推测"
+            "locator": "10.2.1、10.3.1、10.3.5—10.3.9、10.4—10.6；PDF113—137页"
+          }
         }
       },
       "supersedes": [],
       "replaced_by": [],
-      "verification_status": "pending"
+      "verification_status": "verified"
     }
   ]
 }

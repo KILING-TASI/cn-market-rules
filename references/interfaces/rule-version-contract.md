@@ -4,7 +4,7 @@
 
 每版本含version_id、document_version、market、board、subjects、asset_types、published_at、effective_from、effective_until、publication_evidence、interval_evidence、supersedes、replaced_by、verification_status与topics。公布和实施独立；有效区间为[effective_from,effective_until)，废止当日不再用旧版。effective_until=null只表示在verified_as_of覆盖内未登记终止，不代表永久有效。缺实施日的pending版本不选择。
 
-首批覆盖沪市REITs 2022与2025版、深市2025扩募指引、沪市2026交易规则主板选段；北交所候选版pending。沪市2022版只适用基础设施资产，2025版增加商业不动产范围；同专题按市场、板块、主体、资产类型精确匹配，不默认跨市场。2022版于2025-12-31被替代，依据为新发布通知，沿革保留旧版。深市旧版废止已核，但旧版本完整目录尚未建立，2025-12-31以前查询返回gap。
+首批覆盖沪市REITs 2022与2025版、深市2025扩募指引、沪市2026交易规则主板选段；北交所2026第10章已核并登记有效区间，2026-04-24前历史版本未登记；选中不认证上市标准例外或年度衔接。沪市2022版只适用基础设施资产，2025版增加商业不动产范围；同专题按市场、板块、主体、资产类型精确匹配，不默认跨市场。2022版于2025-12-31被替代，依据为新发布通知，沿革保留旧版。深市旧版废止已核，但旧版本完整目录尚未建立，2025-12-31以前查询返回gap。
 
 查询含topic、market、board、subject、asset_type、applicability_date、knowledge_date。前者是需要适用规则的日期，后者是允许使用公开资料的日期；适用日期不能晚于知识截止日，超出目录核验范围不外推。选择结果含rule_version_id、document_version、公布/有效区间、条款定位、更替关系、目录核验日。没有版本为gap；多个版本重叠为ambiguous，不能静默取最新。目录原文真实性、版本完整性仍需人工核验；接口只检查输入一致性。
 
