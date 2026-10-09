@@ -477,6 +477,14 @@
     "references/cases/execution-terms.md": {
       "class": "mixed_source_data",
       "basis": "original checklist and interpretation; third-party regulatory and issuer facts rights excluded, no full original document bundled"
+    },
+    "references/method-rule-applicability.md": {
+      "basis": "original method checklist and validation structure; regulatory/source facts rights independent, no source text or code redistributed",
+      "class": "mixed_source_data"
+    },
+    "docs/method-validation.json": {
+      "basis": "original method checklist and validation structure; regulatory/source facts rights independent, no source text or code redistributed",
+      "class": "mixed_source_data"
     }
   }
 }

@@ -111,7 +111,7 @@
             "source_id": "REITS-EXP-SZ",
             "locator": "第36—50条"
           },
-          "scope": "深市条款版本可选；深市扩募算术尚未接入",
+          "scope": "深市2025版三路径扩募已接入条件算术；需显式已核版本适用日期，定价/资格/审批及实际结算另核",
           "activation": "active"
         },
         "reits_inquiry_disclosure": {

@@ -523,5 +523,44 @@
     "status": "retrieved",
     "sha256": "b57b5d84263718e094113abc14503213e299c43f2ce2922602c37668c62e5b59",
     "text_chars": 6482
+  },
+  {
+    "id": "method-civil-code",
+    "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "16fb30a132114600f32059367dae0d6dd274519aa154126eae0ef9600cf4074e",
+    "text_chars": 111355
+  },
+  {
+    "id": "method-hart-lecture",
+    "url": "https://www.nobelprize.org/uploads/2018/06/hart-lecture.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.nobelprize.org/uploads/2018/06/hart-lecture.pdf"
+  },
+  {
+    "id": "method-cas30-2026",
+    "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/202608/t20260806_3995008.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "4de9a8f39aaf2aa5a5328c8b68f0c0cc1f7a0f4900ac9f0c33a12eeb299c7f20",
+    "text_chars": 14573
+  },
+  {
+    "id": "method-cas30-notice",
+    "url": "https://ah.mof.gov.cn/tongzhitonggao/202608/t20260810_3995173.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "127a21e57a53878110863b41119cf467e81412b49fc90f56c8d90f80457856b4",
+    "text_chars": 14919
+  },
+  {
+    "id": "method-hart-press",
+    "url": "https://www.nobelprize.org/prizes/economic-sciences/2016/press-release/",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "38144a86e15317f11a819fb4c91ad1135c279bc4174ea5dea2aef6267750a555",
+    "text_chars": 7758
   }
 ]

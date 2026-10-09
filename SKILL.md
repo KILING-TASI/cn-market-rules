@@ -54,3 +54,5 @@ metadata:
 对接工作台/引擎采用[共用交接契约](references/interfaces/common-handoff-contract.md)，身份与单位不推断，原始输入/unknown/版本保持，消费端尚未联调时不能声称自动可用。
 
 已核历史项目的执行边界见[要约／现金选择权／换股条款](references/cases/execution-terms.md)。深市扩募算术必须显式提供rule_applicability_date，不能把2025版检查回填更早项目。
+
+方法依据与已实现边界见[规则适用方法卡](references/method-rule-applicability.md)。涉及财报先定位适用会计准则及企业采用说明，不出审计意见；控制权／契约理论不替代当前官方规则和实施公告。
