@@ -58,6 +58,50 @@ def ratio(value):
 def carrying(obj, capital):
     return capital * num(obj, 'annual_opportunity_rate', 0, 1) * integer(obj, 'holding_days') / 365
 
+def dilution(obj):
+    principal = D(integer(obj, 'outstanding_principal', 1))
+    old_price = num(obj, 'old_conversion_price', '.000001')
+    new_price = num(obj, 'new_conversion_price', '.000001')
+    if new_price >= old_price:
+        raise ValueError('new_conversion_price must be below old_conversion_price')
+    existing = D(integer(obj, 'existing_shares', 1))
+    profit = num(obj, 'net_profit_ttm')
+    underlying = num(obj, 'underlying_price', '.000001')
+    fraction = num(obj, 'conversion_fraction', 0, 1)
+    old_new_shares = principal * fraction / old_price
+    new_new_shares = principal * fraction / new_price
+    old_dilution = old_new_shares / (existing + old_new_shares)
+    new_dilution = new_new_shares / (existing + new_new_shares)
+    eps_current = profit / existing
+    eps_old = profit / (existing + old_new_shares)
+    eps_new = profit / (existing + new_new_shares)
+    compression = (1 - eps_new / eps_old) if profit > 0 else None
+    loss_change = (1 - abs(eps_new) / abs(eps_old)) if profit < 0 else None
+    adjusted_eps = None
+    if 'profit_adjustment' in obj:
+        adjusted_eps = ratio((profit + num(obj, 'profit_adjustment')) / (existing + new_new_shares))
+    return {
+        'mode': 'dilution', 'conversion_fraction': ratio(fraction),
+        'theoretical_new_shares_old_price': ratio(old_new_shares),
+        'theoretical_new_shares_new_price': ratio(new_new_shares),
+        'additional_shares_due_to_revision': ratio(new_new_shares - old_new_shares),
+        'dilution_ratio_old_price': ratio(old_dilution),
+        'dilution_ratio_new_price': ratio(new_dilution),
+        'additional_dilution_ratio': ratio(new_dilution - old_dilution),
+        'conversion_value_old_per_100': money(100 * underlying / old_price),
+        'conversion_value_new_per_100': money(100 * underlying / new_price),
+        'conversion_value_uplift_ratio': ratio(old_price / new_price - 1),
+        'static_eps_current': ratio(eps_current), 'static_eps_old_price': ratio(eps_old),
+        'static_eps_new_price': ratio(eps_new),
+        'positive_profit_eps_compression_ratio': None if compression is None else ratio(compression),
+        'loss_per_share_absolute_reduction_ratio': None if loss_change is None else ratio(loss_change),
+        'adjusted_eps_new_price': adjusted_eps,
+        'profit_interpretation': 'positive' if profit > 0 else ('loss: less negative per-share arithmetic is not operating improvement' if profit < 0 else 'zero profit: EPS ratios undefined'),
+        'legal_floor_check': 'not assessed; verify statutory and individual bond price constraints',
+        'dilution_is_not_loss': 'ownership dilution is not shareholder economic loss',
+        'assumptions': 'same-date remaining principal/current shares including previous conversions; same conversion fraction; constant profit and reference price; theoretical fractional shares; no accounting weighted-average EPS'
+    }
+
 def tender(obj):
     qty = integer(obj, 'quantity', 1)
     cost = num(obj, 'buy_price', '.000001')
@@ -261,7 +305,7 @@ def clause(obj):
             'window_complete': len(hits) >= window,
             'calendar_and_contract': 'input sequence must contain all eligible days; legal trigger not independently assessed'}
 
-MODES = {'tender': tender, 'merger': merger, 'exit': exit_scenario, 'reits': reits,
+MODES = {'dilution': dilution, 'tender': tender, 'merger': merger, 'exit': exit_scenario, 'reits': reits,
          'reits_return': reits_return, 'repo': repo, 'cash': cash, 'clause': clause}
 
 def calculate(obj):

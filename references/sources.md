@@ -40,6 +40,10 @@
 | REITS-SZ-SALE | [深市不动产REITs发售业务指引通知](https://reits.szse.cn/lawrule/bussrules/latest/t20251231_618231.html)及[附件](https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231642948766654.pdf) | 深证上2025年第1521号，2025-12-31 | 已核第21、45、48条（PDF第6、13—15页）询价/回拨/失败；其余完整业务对照待补 |
 | REITS-CASE | [东吴苏州工业园区产业园REIT招募说明书更新2026年第1号](https://www.sse.com.cn/disclosure/fund/announcement/c/new/2026-06-05/508027_20260605_S20X.pdf) | 2026-06-05披露更新；首次募集发生于2021 | PDF第300页/正文296页备案条件，封闭式与场外转托管；历史首次募集叙述不伪装2026新发行 |
 
+| SOTE-DELIST | [搜于特股票及可转债终止上市公告](https://www.szse.cn/disclosure/notice/company/t20230721_602059.html) | 深交所2023-07-21 | 交易类退市、无整理期；历史终止决定，不单独证明债券付息违约 |
+| SOTE-TRUST | [华英证券搜特退债2024年第四季度违约处置进展报告](https://static.cninfo.com.cn/finalpage/2025-01-20/1222380393.PDF) | 2025-01-20披露，2024Q4进展 | PDF第1页利息及回售违约；第6页阶段处置。未声称覆盖最新最终回收 |
+| LINGNAN-DEFAULT | [岭南转债不能按期兑付本息公告](https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-08-15/163bb4b1-2e08-4ca6-99fe-bd695382c27d.PDF) | 公告2024-113，2024-08-15 | PDF第1—3页到期、剩余金额、暂缓摘牌、担保变现不确定性；历史阶段原文 |
+
 ## 取得状态与缺口
 
 `source-retrieval.json`保存本次下载字节哈希，个别页面403/空文字层如实记录。浏览器原文读取可与本地下载状态不同。大汇编中定位到标题不等于已核整份汇编。台账标“入口”的条款不计已核覆盖。
