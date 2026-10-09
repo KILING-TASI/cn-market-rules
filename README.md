@@ -82,6 +82,8 @@ python scripts/validate_package.py
 
 ## 与其他仓库的关系
 
+职责、实际数据入口、契约差异及本批结案点集中见[仓库状态与数据目录](docs/repository-status.md)。本轮只核规则库及已有有限联调，九仓同样本统一尚未完成。
+
 规则库维护规则、证据及适用区间；research-workbench 维护研究组织与经营现金流／估值，计算引擎按各自输入契约运行。共用格式提供包内无损适配及[工作台有限联调](references/interfaces/workbench-integration.md)，不增加强制依赖，不迁移其它引擎算法。selected/gap模板的实际消费、回转与报告已核，1.1扩展和其他引擎等价未认证。原入口和未有独立等价实现的功能保留。
 
 ## 许可与第三方材料
