@@ -25,9 +25,9 @@
 | REPO-REFORM | [深交所2017计息改革说明](https://www.szse.cn/aboutus/trends/news/t20170519_518979.html) | 2017-05-22实施 | 名义天数改实际占款；官方说明 |
 | ST-SH | [沪主板上市规则（2026年4月修订）](https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20260424_10816589.shtml) | 上证发2026年第42号，2026-04-24施行；部分治理条款另有实施/衔接 | 附件第9章，尤其9.1、9.2、9.3、9.6、9.8；沪主板核对 |
 | ST-SZ | [深主板上市规则（2026修订）通知](https://www.szse.cn/www/lawrules/rule/stock/t20260424_620193.html)及[附件](https://docs.static.szse.cn/www/lawrules/rule/stock/W020260424747613955674.pdf) | 2026-04-24版；退市衔接仍联查2024通知 | 第9章，9.3.8—9.3.12撤销/终止；深主板核对 |
-| ST-STAR | [科创板上市规则（2026年4月修订）](https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/listing/c/c_20260424_10817748.shtml) | 2026-04版 | 仅版本及独立规则入口；数值指标未完成全量对照 |
-| ST-GEM | [深交所规则目录](https://www.szse.cn/www/lawrules/index/) | 目录含2026创业板上市规则 | 仅定位入口，具体指标待补；不得套主板3亿元 |
-| ST-BSE | [北交所官网](https://www.bse.cn/) | 规则目录与具体版本待定位 | 当前具体规则链接未核实，未将主板条款推广至北交所 |
+| ST-STAR | [科创板上市规则（2026年4月修订）](https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/listing/c/c_20260424_10817748.shtml) | 2026-04-24版；核对施行通知及衔接 | 已取得正文附件；第12章12.2、12.3.1、12.4.2—12.4.4、12.5.1、12.7核心路径与研发型例外；非全量个案法律认定 |
+| ST-GEM | [创业板上市规则2026通知](https://investor.szse.cn/lawrules/rule/allrules/bussiness/t20260424_620189.html)及[正文](https://docs.static.szse.cn/www/lawrules/rule/allrules/bussiness/W020260424688875101057.pdf) | 深证上2026年第550号，2026-04-24；退市衔接仍联查2024通知 | 已核第10章10.2.1、10.3.1—10.3.2、10.3.7—10.3.11核心指标与撤销；规范/重大违法定位10.4/10.5 |
+| ST-BSE | [北交所2026上市规则通知](https://www.bse.cn/cxjg_list/200028220.html)及[正文定位](https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf) | 2026-04-24候选官方版本 | 原文下载403/浏览器跳转失败；不把搜索摘要视为已核，当前数值保留待核 |
 | ST-CASE | [金科股份撤销两类风险警示暨停复牌公告](https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-07-01/7d2b1820-3995-4358-80f0-143b49523f8f.PDF) | 公告2026-040号，2026-07-01披露 | PDF第1—4页：原警示原因、同意撤销、2026-07-02复牌；个案原文核对 |
 | TRADE-SH | [沪市交易规则（2026修订）](https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml)及[实施通知](https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml) | 上证发2026年第41号，2026-07-06施行，含暂缓实施条款 | 已核正文第3.3.13、4.4节及起草说明“风险警示5%调10%”，同时取得暂缓实施附件；主板/科创分开 |
 | REITS-BASE | [沪市不动产REITs业务办法](https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803729.shtml) | 上证发2025年第138号，2025-12-31生效，旧2021办法废止 | 附件第20—29条，尤其21条原始权益人20%/60/36/禁质押；原文核对 |
