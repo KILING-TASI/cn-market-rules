@@ -74,4 +74,6 @@ python scripts/announcement_consumer.py --sidecar interfaces/announcement-sample
 
 CLI校验原件字节、来源身份／文号与人工观察绑定，完整保留source_attachment及专业扩展；不自动解析PDF或把摘要相等写成语义核验。[规则端回执](announcement-consumption-validation.json)记录真实运行：正常输出无损，篡改摘要、文号冲突、未知时点事前使用均拒绝。未支持任何事前模式，即使调用者补填时间也不能绕过认证。观察语义来自本次选页人工核读，入口只核其绑定和字段一致；新的材料须新观察，不能沿用本次结论。
 
-北交及规则两端已实际复用同原件；工作台实际回执核对后才能登记三端完成。当前待该回执，不称九仓统一。本批结案条件是三个相关消费者的同材料／旁挂摘要与各自核验范围可关联、正常及反例通过、现有PR可审且旧输入／结果冻结。不扩其他数据链、转债第二材料、模型或服务，不合并发布或安装。
+2026-10-10联合核对完成：北交pypdf、规则PyMuPDF选页观察、工作台pdfplumber三端实际使用同一已存原件。规则端只读工作台实际回执，断言sourceRecord全对象等于规则输出source_attachment及北交来源头；三端源文件摘要及旁挂头摘要一致，完整native_payload和历史可得null保留。工作台回执字节SHA256为6e574000ed764cb88431b8e5156ff99775c7acdb05a8e11581de790a4302e443，北交回执为10df24ce5cdec9fa806d176bd617456ad3dda1d30f729fa66963cc7740057664。北交回执见其PR #1的examples/announcement-reuse-receipt.json；工作台PR #6的references/examples/announcement-workbench-920188.json及announcement-reuse-chain-920188.json关联两专业输出，保留各自限制，不继承规则视觉或个人资格结论。
+
+规则实际消费实现提交9310820，两版本Python CI通过，171项本地测试／51份Markdown／70来源ID及130文件许可范围检查通过；旧输入和两个冻结预览目录无差异。规则初次回执中的pending是当时状态，文件冻结保留，联合完成状态由本段后续记录说明。独立CLI和本次三端原件关联已完成，可结束此有界批；全部九仓、净值／行情／宏观、日历联调、完整原件认证、历史时点与个体资格仍未完成。不扩转债第二材料、模型或服务，不合并发布或安装。
