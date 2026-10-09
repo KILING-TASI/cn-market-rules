@@ -1,6 +1,6 @@
-# 包内共用规则交接契约 1.0
+# 包内共用规则交接契约 1.0／1.1
 
-contract_version为cn-market-rules.rule-handoff/1.0；事件输入schema_version保持1.0/1.1/1.2。本库可独立安装和离线调用，不依赖研究工作台或各引擎。此版本为本仓库维护的交接契约；尚未完成工作台消费端联调，不能声称与其未来全部契约等价。
+schema_version为1.0/1.1/1.2的旧输入保持cn-market-rules.rule-handoff/1.0；显式schema1.3采用交接1.1并保留regulatory_event扩展。本库可独立安装和离线调用，不依赖研究工作台或各引擎。此版本为本仓库维护的交接契约；正在通过[有界联调](workbench-integration.md)确认工作台消费与报告，规则端检查已通过；消费者结果待确认，不能声称与其全部契约等价。
 
 ## 职责及兼容入口
 

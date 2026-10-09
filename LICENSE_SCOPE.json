@@ -485,6 +485,30 @@
     "docs/method-validation.json": {
       "basis": "original method checklist and validation structure; regulatory/source facts rights independent, no source text or code redistributed",
       "class": "mixed_source_data"
+    },
+    "interfaces/common-inputs/workbench-rule-selected.json": {
+      "class": "mixed_source_data",
+      "basis": "original integration structure with limited public regulatory facts; no source full text or third-party code"
+    },
+    "interfaces/common-examples/workbench-rule-selected.json": {
+      "class": "mixed_source_data",
+      "basis": "original integration structure with limited public regulatory facts; no source full text or third-party code"
+    },
+    "interfaces/common-inputs/workbench-rule-gap.json": {
+      "class": "mixed_source_data",
+      "basis": "original integration structure with limited public regulatory facts; no source full text or third-party code"
+    },
+    "interfaces/common-examples/workbench-rule-gap.json": {
+      "class": "mixed_source_data",
+      "basis": "original integration structure with limited public regulatory facts; no source full text or third-party code"
+    },
+    "tests/test_workbench_handoff.py": {
+      "class": "original_mit",
+      "basis": "independently written public CLI boundary acceptance tests; no third-party code"
+    },
+    "references/interfaces/workbench-integration.md": {
+      "class": "original_mit",
+      "basis": "independently written bounded integration workflow and validation documentation; linked source rights independent"
     }
   }
 }
