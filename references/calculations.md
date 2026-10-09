@@ -24,3 +24,5 @@ REITs边界：首发工具支持SSE/SZSE五项检查，数量统一份额，比�
 交易条款计数：dates、prices、conversion_prices须同长且日期唯一递增，价格与转股价正数；不接收缺失日，不自动填停牌或除权。日期数组应包含本条款计数区间全部有效交易日。比较符支持lt/le/gt/ge；window命中不代表未来触发日期可确定。ST低价示范可以把conversion_prices设为1、threshold设为1、lt比较，仍要另核条款的排除日与市场。
 
 现金模型：负余额和缓冲不足分开输出；流入证据需要source，可取/融资/待退款不得混入可用现金账本。跨账户调拨需另做成可实现流出/流入事件。示例的source注明“假设”，不会伪装实际到账。
+
+v2.1支持`--calendar calendars/2026-SSE.json`或SZSE，见[日历说明](../calendars/README.md)。只对repo案例注入，原有内嵌数组兼容；任意已内嵌日历字段与外部文件并用报错。2026计划日历不包含2027交收日，不能保证年末所有期限可算。示例的validation_calendar仅用于包校验，实际命令仍显式传--calendar。

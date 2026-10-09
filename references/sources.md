@@ -44,6 +44,8 @@
 | SOTE-TRUST | [华英证券搜特退债2024年第四季度违约处置进展报告](https://static.cninfo.com.cn/finalpage/2025-01-20/1222380393.PDF) | 2025-01-20披露，2024Q4进展 | PDF第1页利息及回售违约；第6页阶段处置。未声称覆盖最新最终回收 |
 | LINGNAN-DEFAULT | [岭南转债不能按期兑付本息公告](https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-08-15/163bb4b1-2e08-4ca6-99fe-bd695382c27d.PDF) | 公告2024-113，2024-08-15 | PDF第1—3页到期、剩余金额、暂缓摘牌、担保变现不确定性；历史阶段原文 |
 | REITS-EXP-SH | [沪市扩募及新购入不动产指引](https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803751.shtml) | 上证发2025年第141号，2025-12-31；旧2022指引废止 | 取得现行正文，第36—50条三路径、持有人大会规模80%及原持有人认购80%、定价/限售；第52条购入项目费用限制 |
+| CAL-2026-SSE | [沪市2026年度休市通知](https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml) | 上证公告2025年第45号，2025-12-22 | 核七个休市区间及周末，常规交易日公告派生；不是异常停市/交收/港股通日历 |
+| CAL-2026-SZSE | [深市2026年度休市通知](https://investor.szse.cn/disclosure/notice/general/t20251222_618087.html) | 深证会2025年第481号，2025-12-22 | 独立核验两市公告而非复制SSE来源，交易日派生；2027覆盖未提供 |
 
 ## 取得状态与缺口
 

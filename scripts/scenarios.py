@@ -381,13 +381,71 @@ def run(document):
                 'notice': 'scenario arithmetic; no live data, eligibility decision or execution'}
     return calculate(document)
 
+def load_calendar(path):
+    document = json.loads(Path(path).read_text(encoding='utf-8-sig'))
+    if not isinstance(document, dict) or not isinstance(document.get('coverage'), dict):
+        raise ValueError('calendar: object with coverage required')
+    market = label(document, 'market')
+    if market not in {'SSE', 'SZSE'}:
+        raise ValueError('calendar market must be SSE/SZSE')
+    source_id = label(document, 'source_id')
+    url = label(document, 'source_url')
+    if not url.startswith(('https://', 'http://')):
+        raise ValueError('calendar source_url must be explicit HTTP(S) source')
+    iso(document, 'published_at')
+    verified = iso(document, 'verified_at')
+    start, end = iso(document['coverage'], 'start'), iso(document['coverage'], 'end')
+    if start > end:
+        raise ValueError('calendar coverage reversed')
+    raw = document.get('trading_days')
+    if not isinstance(raw, list) or not raw:
+        raise ValueError('calendar trading_days must be nonempty')
+    try:
+        days = [date.fromisoformat(d) for d in raw]
+    except (ValueError, TypeError):
+        raise ValueError('calendar contains invalid dates') from None
+    if days != sorted(set(days)) or any(d < start or d > end for d in days):
+        raise ValueError('calendar days must be unique ascending within declared coverage')
+    return {'market': market, 'trading_days': raw, 'calendar_start': start.isoformat(),
+            'calendar_end': end.isoformat(), 'calendar_source': f'{source_id} | {url} | verified {verified.isoformat()}'}
+
+def apply_calendar(document, calendar):
+    if not isinstance(document, dict):
+        raise ValueError('input must be an object')
+    cases = document.get('cases', [document])
+    if not isinstance(cases, list):
+        raise ValueError('cases must be a list')
+    replaced, used = [], False
+    for case in cases:
+        if not isinstance(case, dict):
+            raise ValueError('case must be an object')
+        copy = dict(case)
+        if case.get('mode') == 'repo':
+            if any(k in case for k in ('trading_days','calendar_start','calendar_end','calendar_source')):
+                raise ValueError('external calendar conflicts with embedded calendar fields; choose exactly one')
+            if 'market' in case and label(case,'market') != calendar['market']:
+                raise ValueError('calendar market does not match repo market')
+            copy.update(calendar)
+            used = True
+        replaced.append(copy)
+    if not used:
+        raise ValueError('--calendar requires at least one repo scenario')
+    if 'cases' in document:
+        return {**document, 'cases': replaced}
+    return replaced[0]
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--input', required=True, type=Path)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--calendar', type=Path, help='verified offline calendar; conflicts with embedded calendar fields')
     args = parser.parse_args()
     try:
         document = json.loads(args.input.read_text(encoding='utf-8-sig'), parse_float=D)
+        if args.calendar:
+            if not args.calendar.is_file():
+                raise ValueError(f'calendar not provided for requested file/year: {args.calendar}')
+            document = apply_calendar(document, load_calendar(args.calendar))
         output = json.dumps(run(document), ensure_ascii=False, indent=2)
     except (ValueError, OSError, InvalidOperation, KeyError, TypeError) as error:
         parser.exit(2, f'Input/calculation error: {error}\n')
