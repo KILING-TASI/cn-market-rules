@@ -353,5 +353,35 @@
     "status": "retrieved",
     "sha256": "0f2abf966d8ca6273270542198730254f1be5c56131d8e2ecf1cb6acb126f30e",
     "text_chars": 2613
+  },
+  {
+    "id": "airport-audit-batch",
+    "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-24/3079f18e-1621-4c28-b9c9-e4342933e611.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "5968d2bead752acb53d6a3cb2127e49319137bba39e074a691581c18299c4db4",
+    "text_chars": 197527
+  },
+  {
+    "id": "phoenix-penalty-batch",
+    "url": "https://www.csrc.gov.cn/shanghai/c103864/c7462465/content.shtml",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.csrc.gov.cn/shanghai/c103864/c7462465/content.shtml"
+  },
+  {
+    "id": "phoenix-notice-batch",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2024-02-06/600679_20240206_L4BU.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "Stream has ended unexpectedly"
+  },
+  {
+    "id": "xinhai-penalty-citation-batch",
+    "url": "https://www.szse.cn/disclosure/notice/company/t20240318_606349.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "2b5be2a2dcf88c136d1cd4e2e456d72ca69b7248030b7acd748d823993a6fe72",
+    "text_chars": 8241
   }
 ]

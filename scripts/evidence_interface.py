@@ -30,8 +30,8 @@ def instant(value,label):
     return result
 
 def validate(document):
-    if not isinstance(document,dict) or document.get('schema_version') not in {'1.0','1.1','1.2'}:raise ValueError('schema_version: 1.0/1.1/1.2 required')
-    layered=document['schema_version'] in {'1.1','1.2'}
+    if not isinstance(document,dict) or document.get('schema_version') not in {'1.0','1.1','1.2','1.3'}:raise ValueError('schema_version: 1.0/1.1/1.2/1.3 required')
+    layered=document['schema_version'] in {'1.1','1.2','1.3'}
     kind=text(document,'kind')
     if kind not in {'risk_events','reits_expansion_terms'}:raise ValueError('unsupported interface kind')
     as_of=day(document.get('as_of'),'as_of')
@@ -42,7 +42,9 @@ def validate(document):
         sid=text(source,'source_id')
         if sid in sources:raise ValueError('duplicate source ID')
         for key in ('title','publisher','version'):text(source,key)
-        if source.get('source_type') not in {'rule','company_notice','official_summary','regulatory_decision','aggregate'}:raise ValueError('source_type invalid')
+        types={'rule','company_notice','official_summary','regulatory_decision','aggregate'}
+        if document['schema_version']=='1.3':types|={'regulatory_letter','audit_report'}
+        if source.get('source_type') not in types:raise ValueError('source_type invalid')
         if not text(source,'url').startswith(('https://','http://')):raise ValueError('source URL required')
         if 'published_at' not in source:raise ValueError('published_at: explicit date or null required')
         pub=day(source['published_at'],'published_at',True)
@@ -63,7 +65,7 @@ def validate(document):
         sources[sid]=source
     records=document.get('records')
     if not isinstance(records,list) or not records:raise ValueError('records: nonempty list required')
-    ids=set();unknown=0;selections=[]
+    ids=set();unknown=0;selections=[];regulatory=[]
     def binding(evidence):
         if not isinstance(evidence,dict):raise ValueError('field evidence required')
         sid=text(evidence,'source_id');text(evidence,'locator')
@@ -83,8 +85,10 @@ def validate(document):
             cutoff=instant(record['backtest_cutoff'],'backtest_cutoff')
             if public_day(cutoff)>as_of:raise ValueError('backtest cutoff after as_of')
         if kind=='risk_events':
-            if record.get('event_type') not in {'unlock','pledge','goodwill','inquiry','correction'}:raise ValueError('event_type invalid')
-            if record.get('record_role') not in {'company_event','regulatory_observation'}:raise ValueError('record_role invalid')
+            event_types={'unlock','pledge','goodwill','inquiry','correction'};roles={'company_event','regulatory_observation'}
+            if document['schema_version']=='1.3':event_types|={'administrative_penalty','supervisory_measure','audit_opinion'};roles.add('audit_observation')
+            if record.get('event_type') not in event_types:raise ValueError('event_type invalid')
+            if record.get('record_role') not in roles:raise ValueError('record_role invalid')
         else:
             if record.get('market') not in {'SSE','SZSE'}:raise ValueError('market invalid')
             if record.get('offering_method') not in {'holders','public','targeted'}:raise ValueError('offering_method invalid')
@@ -96,7 +100,8 @@ def validate(document):
         for rule in rules:
             if binding(rule)['source_type']!='rule':raise ValueError('company event cannot serve as rule source')
             text(rule,'scope')
-        if document['schema_version']=='1.2' and 'rule_query' in record:
+        selected=None
+        if document['schema_version'] in {'1.2','1.3'} and 'rule_query' in record:
             from rule_versions import load_catalog,select
             query=record['rule_query']
             if not isinstance(query,dict):raise ValueError('rule_query must be object')
@@ -107,6 +112,12 @@ def validate(document):
             if selected['rule_version_id'] and selected['evidence']['source_id'] not in {r['source_id'] for r in rules}:raise ValueError('selected rule requires bound source evidence')
             if selected['rule_version_id'] and sources[selected['evidence']['source_id']].get('rule_version_id')!=selected['rule_version_id']:raise ValueError('source rule_version_id differs from selected catalog version')
             selections.append(dict(record_id=rid,**selected))
+        if document['schema_version']=='1.3' and kind=='risk_events':
+            from contracts.regulatory import KINDS,validate_regulatory
+            if record['event_type'] in KINDS:
+                checked=validate_regulatory(record,sources,as_of,selected)
+                if cutoff and (checked['public_date'] is None or day(checked['public_date'],'public_date')>=public_day(cutoff)):raise ValueError('day-only/unknown public time cannot enter same-day or earlier backtest cutoff')
+                regulatory.append(checked)
         facts=record.get('facts');keys=set();original_keys=set();record_unknown=0
         if not isinstance(facts,list) or not facts:raise ValueError('facts required')
         for fact in facts:
@@ -147,6 +158,7 @@ def validate(document):
     result={'kind':kind,'record_count':len(records),'unknown_field_count':unknown,
             'status':'structure_valid_only','scope':'no source authenticity certification, liquidation price, fraud classification, valuation or execution'}
     if selections:result['rule_selections']=selections
+    if regulatory:result['regulatory_events']=regulatory
     return result
 
 def main():

@@ -14,15 +14,15 @@ cn-market-rules 提供规则核对清单、个案条款模板与离线收益情�
 
 Python 3.10+ 标准库，无额外包或账户；生成时不联网。以下 demo 属于 PR #1 待审增量：
 
-`sh
+```sh
 python scripts/demo_preview.py --output-dir demo-output/first-rule-check
-`
+```
 
 打开 demo-output/first-rule-check/index.html，同时得到三个 JSON 结果、输入快照和生成记录。输出目录须为新目录，已有目录会拒绝覆盖。JSON／终端仍可独立使用：
 
-`sh
+```sh
 python scripts/scenarios.py --input examples/scenarios.json
-`
+```
 
 这是虚构教学参数的算术示范。详细调用见[计算口径](references/calculations.md)和[交接契约](references/interfaces/common-handoff-contract.md)；研究问题可转到[主工作台问题入口](https://github.com/KILING-TASI/research-workbench/blob/main/references/practical-entry.md)。
 
@@ -30,7 +30,7 @@ python scripts/scenarios.py --input examples/scenarios.json
 
 状态核对：2026-10-09。main 与 [v2.0.0 Release](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.0.0) 已发布；[PR #1](https://github.com/KILING-TASI/cn-market-rules/pull/1) 的 v2.1.0 与后续接口／预览增量仍待审，未合并、未发布新 Release。本 README 描述 PR 目录。
 
-事件接口支持 1.0／1.1／1.2，规则目录为 1.0，共用交接为 cn-market-rules.rule-handoff/1.0；它们与候选包 v2.1.0 是不同层的版本。Python 3.10／3.12 持续集成与发布状态见[版本说明](docs/repository-status.md)。作为 Agent 技能使用时，将完整目录放入环境的技能目录，例如 ~/.codex/skills/cn-market-rules/，从 [SKILL.md](SKILL.md) 开始。
+事件接口支持 1.0／1.1／1.2／1.3，规则目录为 1.0，共用交接为 cn-market-rules.rule-handoff/1.0（旧输入）与 1.1（显式 1.3 个案扩展）；它们与候选包 v2.1.0 是不同层的版本。Python 3.10／3.12 持续集成与发布状态见[版本说明](docs/repository-status.md)。作为 Agent 技能使用时，将完整目录放入环境的技能目录，例如 ~/.codex/skills/cn-market-rules/，从 [SKILL.md](SKILL.md) 开始。
 
 ## 已实现与边界
 
@@ -42,6 +42,10 @@ python scripts/scenarios.py --input examples/scenarios.json
 | 规则与数据交接 | 来源台账与适用范围 | 来源分层、获取／核验分离、历史截止时点、版本区间／更替／暂缓、无损共用格式；工作台消费端未联调 |
 
 可复用规则与个案参数分开。没有真实资格、合同、申报截止或到账依据时，交付已核部分与缺口，不能将计算通过写成实际可执行。
+
+本库主线是制度、有效版本、条款核对与给定条件情景计算。公司事件时间轴、关联检索与研究解释由 research-workbench 承接；本页仅保留有限的规则适用与证据缺口示例，不扩展为全量事件库、采集器或评分平台。
+
+[规则核对示例](docs/regulatory-preview/README.md)展示四份公开材料如何绑定原文、日期与关联规则缺口；支持另存与同输入恢复，不能认证项目资格。
 
 ## 输入与关键口径
 
@@ -65,9 +69,9 @@ AKShare 质押比例接口文档已核存在，实际聚合数据未拉取；合
 
 ## 验证范围
 
-当前 PR 共 139 项测试通过，45 份 Markdown、54 个来源 ID、所有情景／事件示例、日历和共用格式对照通过；GitHub 检查在 PR 中记录。验证证明实现和输入结构的一致性，不能证明原文永远有效、历史首次公开时刻或未来价格。
+当前 PR 共 161 项测试通过，47 份 Markdown、56 个来源 ID、所有情景／事件示例、日历和共用格式对照通过；GitHub 检查在 PR 中记录。验证证明实现和输入结构的一致性，不能证明原文永远有效、历史首次公开时刻或未来价格。
 
-```sh
+`````sh
 python -m unittest discover -s tests
 python scripts/validate_package.py
 ```

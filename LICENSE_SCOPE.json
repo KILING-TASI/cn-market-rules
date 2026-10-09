@@ -405,6 +405,70 @@
     ".gitattributes": {
       "class": "original_mit",
       "basis": "original cross-platform text-format configuration; no numeric/unit/date conversion"
+    },
+    "assets/regulatory-reader.js": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "scripts/regulatory_reader.py": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "tests/test_regulatory_events.py": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "tests/test_regulatory_reader.py": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "docs/regulatory-preview/common-handoff.json": {
+      "class": "mixed_source_data",
+      "basis": "regulatory sample public facts/data rights excluded; original structure only"
+    },
+    "docs/regulatory-preview/index.html": {
+      "class": "mixed_source_data",
+      "basis": "regulatory sample public facts/data rights excluded; original structure only"
+    },
+    "docs/regulatory-preview/input.json": {
+      "class": "mixed_source_data",
+      "basis": "regulatory sample public facts/data rights excluded; original structure only"
+    },
+    "docs/regulatory-preview/reader-session.json": {
+      "class": "mixed_source_data",
+      "basis": "regulatory sample public facts/data rights excluded; original structure only"
+    },
+    "docs/regulatory-preview/README.md": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "docs/regulatory-preview/regulatory-reader.js": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "docs/regulatory-preview/report-manifest.json": {
+      "class": "mixed_source_data",
+      "basis": "regulatory sample public facts/data rights excluded; original structure only"
+    },
+    "docs/regulatory-preview/result.json": {
+      "class": "mixed_source_data",
+      "basis": "regulatory sample public facts/data rights excluded; original structure only"
+    },
+    "interfaces/examples/regulatory-events.json": {
+      "class": "mixed_source_data",
+      "basis": "regulatory sample public facts/data rights excluded; original structure only"
+    },
+    "references/interfaces/regulatory-event-contract.md": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "scripts/contracts/reader_state.py": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
+    },
+    "scripts/contracts/regulatory.py": {
+      "class": "original_mit",
+      "basis": "independently created regulatory contract, interface/reader code or tests; no third-party code bundled"
     }
   }
 }

@@ -7,6 +7,7 @@ from .identity import identity
 from .units import unit_view
 
 CONTRACT_VERSION='cn-market-rules.rule-handoff/1.0'
+REGULATORY_CONTRACT_VERSION='cn-market-rules.rule-handoff/1.1'
 
 def to_common(document):
     validation=validate(document)
@@ -20,13 +21,17 @@ def to_common(document):
     records=[]
     for record in document['records']:
         records.append(dict(record_id=record['record_id'],entity_name=record['entity_name'],security_identity=identity(record,source_index),dates=dict(event_date=record['event_date'],observation_date=record['observation_date'],backtest_cutoff=record.get('backtest_cutoff'),date_timezone='+08:00'),facts=copy.deepcopy(record['facts']),unit_semantics=[unit_view(f) for f in record['facts']],rules=copy.deepcopy(record['rules']),rule_selection=copy.deepcopy(selections.get(record['record_id'])),record_type=record.get('event_type',document['kind']),record_role=record.get('record_role'),workbench_inputs=copy.deepcopy(record.get('workbench_inputs'))))
-    result=dict(contract_version=CONTRACT_VERSION,origin_interface_version=document['schema_version'],kind=document['kind'],as_of=document['as_of'],sources=source_views,records=records,validation=copy.deepcopy(validation),legacy_payload=copy.deepcopy(document),computation_status='not_migrated; use existing scenario input contract')
+    if document['schema_version']=='1.3':
+        for original,view in zip(document['records'],records):
+            if 'regulatory_event' in original:view['regulatory_event']=copy.deepcopy(original['regulatory_event'])
+    version=REGULATORY_CONTRACT_VERSION if document['schema_version']=='1.3' else CONTRACT_VERSION
+    result=dict(contract_version=version,origin_interface_version=document['schema_version'],kind=document['kind'],as_of=document['as_of'],sources=source_views,records=records,validation=copy.deepcopy(validation),legacy_payload=copy.deepcopy(document),computation_status='not_migrated; use existing scenario input contract')
     # Reject non-JSON numeric special values; no silent coercion or rounding.
     json.dumps(result,ensure_ascii=False,allow_nan=False)
     return result
 
 def from_common(document):
-    if not isinstance(document,dict) or document.get('contract_version')!=CONTRACT_VERSION:raise ValueError('unsupported common contract version')
+    if not isinstance(document,dict) or document.get('contract_version') not in {CONTRACT_VERSION,REGULATORY_CONTRACT_VERSION}:raise ValueError('unsupported common contract version')
     original=document.get('legacy_payload')
     expected=to_common(original)
     canonical=lambda obj:json.dumps(obj,ensure_ascii=False,sort_keys=True,allow_nan=False,separators=(',',':'))

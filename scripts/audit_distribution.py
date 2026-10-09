@@ -31,6 +31,8 @@ def audit(root=ROOT):
             for node in ast.walk(ast.parse(source)):
                 if isinstance(node,ast.Import):imports.update(alias.name.split('.')[0] for alias in node.names)
                 elif isinstance(node,ast.ImportFrom) and node.level==0 and node.module:imports.add(node.module.split('.')[0])
+        if path.suffix=='.js':
+            if entry['class']!='original_mit' or not path.read_text(encoding='utf-8').startswith('// SPDX-License-Identifier: MIT\n'):raise ValueError('JavaScript needs original MIT scope/marker: '+name)
         if entry['class']=='excluded_pending_rights' and '不声明整文件 MIT' not in path.read_text(encoding='utf-8'):raise ValueError('unresolved file needs in-file notice: '+name)
         if path.suffix=='.json':
             def sensitive_keys(obj):

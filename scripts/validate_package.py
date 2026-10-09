@@ -80,6 +80,27 @@ if preview.exists():
             if item['sha256']!=hashlib.sha256(path.read_bytes()).hexdigest():raise ValueError('preview input changed; regenerate/review required')
     except (ValueError,KeyError,TypeError,OSError) as e:errors.append(f'preview: {e}')
 preview_assets={preview/'index.html',preview/'overview.jpg',preview/'cash.jpg',preview/'fullpage.jpg'}
+reader_preview=ROOT/'docs/regulatory-preview'
+preview_assets|={reader_preview/'index.html',reader_preview/'regulatory-reader.js',reader_preview/'overview.jpg',reader_preview/'penalty-filter.jpg',ROOT/'assets/regulatory-reader.js'}
+if reader_preview.exists():
+    try:
+        manifest=json.loads((reader_preview/'report-manifest.json').read_text(encoding='utf-8'))
+        document=json.loads((reader_preview/'input.json').read_text(encoding='utf-8'))
+        if manifest['input_sha256']!=hashlib.sha256((reader_preview/'input.json').read_bytes()).hexdigest():raise ValueError('reader input hash mismatch')
+        if json.loads((reader_preview/'result.json').read_text(encoding='utf-8'))!=validate_evidence(document):raise ValueError('reader saved result differs')
+        if from_common(json.loads((reader_preview/'common-handoff.json').read_text(encoding='utf-8')))!=document:raise ValueError('reader common conversion differs')
+        if (reader_preview/'regulatory-reader.js').read_bytes()!=(ROOT/'assets/regulatory-reader.js').read_bytes():raise ValueError('reader script/version differs')
+        from contracts.reader_state import filtered,METHOD_VERSION
+        session=json.loads((reader_preview/'reader-session.json').read_text(encoding='utf-8'))
+        if session['method_version']!=METHOD_VERSION or session['input_snapshot']!=document or session['results']!=filtered(validate_evidence(document)['regulatory_events'],session['parameters']):raise ValueError('reader session differs from saved input/method')
+        if (reader_preview/'screenshot-manifest.json').exists():
+            shots=json.loads((reader_preview/'screenshot-manifest.json').read_text(encoding='utf-8'))
+            for name,key in [('index.html','report_sha256'),('regulatory-reader.js','script_sha256')]:
+                if shots[key]!=hashlib.sha256((reader_preview/name).read_bytes()).hexdigest():raise ValueError('reader screenshot/source changed; recapture/review required')
+            for shot in shots['screenshots']:
+                path=(reader_preview/shot['path']).resolve()
+                if not path.is_relative_to(reader_preview.resolve()) or shot['sha256']!=hashlib.sha256(path.read_bytes()).hexdigest():raise ValueError('reader screenshot hash/path mismatch')
+    except (ValueError,KeyError,TypeError,OSError) as e:errors.append(f'regulatory reader: {e}')
 for path in distribution_files(ROOT).values():
     if path.suffix.lower() not in {'.md','.json','.py','.yml','.yaml','.gitignore'} and path.name not in {'.gitignore','.gitattributes'} and path not in preview_assets and path!=ROOT/'LICENSE':
         errors.append(f'unexpected distribution file: {path}')
