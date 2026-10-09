@@ -56,3 +56,5 @@ metadata:
 已核历史项目的执行边界见[要约／现金选择权／换股条款](references/cases/execution-terms.md)。深市扩募算术必须显式提供rule_applicability_date，不能把2025版检查回填更早项目。
 
 方法依据与已实现边界见[规则适用方法卡](references/method-rule-applicability.md)。涉及财报先定位适用会计准则及企业采用说明，不出审计意见；控制权／契约理论不替代当前官方规则和实施公告。
+
+工作台消费的已核范围见[联合联调](references/interfaces/workbench-integration.md)：本次仅信封1.2／交接1.0模板的selected/gap对照与回转。报告必须并列版本层和项目层缺口，结算未知不入可用现金；未验收版本不得静默兼容。

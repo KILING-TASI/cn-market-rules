@@ -509,6 +509,10 @@
     "references/interfaces/workbench-integration.md": {
       "class": "original_mit",
       "basis": "independently written bounded integration workflow and validation documentation; linked source rights independent"
+    },
+    "docs/workbench-integration-validation.json": {
+      "class": "mixed_source_data",
+      "basis": "original integration validation structure with limited source/contract facts and hashes; no third-party code or full source text bundled"
     }
   }
 }
