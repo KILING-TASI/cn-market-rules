@@ -24,7 +24,7 @@
 
 ## 安装和首次试用
 
-安装包见[发布页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.3)；下载时以实际上传的完整源码、wheel、sdist 与校验清单为准。源码按下面步骤安装；下载 wheel 后，将安装命令末尾的 `.` 换成该 wheel 文件路径。pip 安装不会自动注册 AI 工具中的 Skill。
+安装包见[发布页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.3)，提供完整源码、wheel、sdist 和校验清单。源码按下面步骤安装；下载 wheel 后，将安装命令末尾的 `.` 换成该 wheel 文件路径。pip 安装不会自动注册 AI 工具中的 Skill。
 
 安装包版本为 `2.1.3`。统一安装入口需要 Python 3.10 或以上。在完整源码目录新建自己的 Python 环境，下面的 Windows 命令不需要激活脚本：
 
@@ -37,23 +37,6 @@ python -m venv .venv
 
 工具名与仓库名相同；在已激活的环境中可以直接输入工具名。Linux/macOS 使用 `.venv/bin/python` 和 `.venv/bin/cn-market-rules`。教学结果写入当前工作目录；`--auto-name` 自动另选新名字，旧结果保留。不加该参数时，教学入口拒绝已有目录。`cn-market-rules run --help` 查看原生参数，原来的命令继续兼容。其他专题可用 `cn-market-rules script --help` 查看入口，以脚本名调用，不需要记住源码路径。pip 安装提供 CLI；作为 Skill 使用仍须保留完整源码及许可资源，不能只复制 SKILL.md。安装可能需要联网获取普通构建依赖；教学离线。下面保留原生入口及此前发行记录，安装步骤和对应版本以本节为准。
 
-## 最短试用
-
-需要 Python 3.10+，只用标准库，不需要账户、行情接口或其他项目。生成报告时不联网。在解压或克隆后的项目目录打开 PowerShell：
-
-```powershell
-python scripts/demo_preview.py --output-dir demo-output/first-rule-check
-```
-
-如果电脑使用 Python Launcher，将 `python` 换成 `py -3`。完成后打开 `demo-output/first-rule-check/index.html`；同时保存输入快照和三个 JSON 结果。目录已存在时换一个新名字，工具不会覆盖旧报告。
-
-只看计算结果，也可以运行：
-
-```powershell
-python scripts/scenarios.py --input examples/scenarios.json
-```
-
-这些命令使用包内示例。真实个案需要另行提供价格、费用、资格、条款和资金到账依据。
 
 ## 看一份实际结果
 
