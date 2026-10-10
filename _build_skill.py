@@ -5,10 +5,10 @@ from shutil import copyfile
 from setuptools.command.build_py import build_py
 
 PACKAGE = 'cn_market_rules'
-ROOTS = ['README.md', 'SKILL.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'DISCLAIMER.md', 'scripts', 'references', 'templates', 'rules', 'interfaces', 'examples', 'docs', 'licenses', 'assets']
+ROOTS = ['BEGINNER.md', 'try_demo.py', 'Start-Demo.cmd', 'Start-Demo.sh', 'README.md', 'SKILL.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'DISCLAIMER.md', 'scripts', 'references', 'templates', 'rules', 'interfaces', 'examples', 'docs', 'licenses', 'assets']
 ROOTS += ['calendars', 'LICENSE_SCOPE.json']
 EXCLUDED = []
-EXTENSIONS = {'.py','.js','.cjs','.mjs','.md','.json','.txt','.csv','.html','.css','.yaml','.yml','.jpg','.png','.svg'}
+EXTENSIONS = {'.cmd', '.sh', '.py','.js','.cjs','.mjs','.md','.json','.txt','.csv','.html','.css','.yaml','.yml','.jpg','.png','.svg'}
 
 class BuildSkill(build_py):
     def run(self):
