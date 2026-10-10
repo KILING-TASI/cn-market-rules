@@ -638,10 +638,6 @@
       "class": "original_mit",
       "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
     },
-    "EXPANSION_RELEASE.md": {
-      "class": "original_mit",
-      "basis": "本轮原创版本说明；不包含第三方原文全文"
-    },
     "AUDIT_SCOPE.md": {
       "class": "original_mit",
       "basis": "本轮作者原创审计范围说明，不是外部法律认证"
@@ -649,6 +645,42 @@
     "README.en.md": {
       "class": "original_mit",
       "basis": "original project documentation; third-party source rights excluded"
+    },
+    "CONTRIBUTING.md": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    "LIFECYCLE.md": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    "RIGHTS_INDEX.json": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    "SECURITY.md": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    "SHARED_CODE.json": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    ".github/pull_request_template.md": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    "tools/check_shared_code.py": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    ".github/ISSUE_TEMPLATE/bug_report.yml": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    ".github/workflows/shared-components.yml": {
+      "class": "original_mit",
+      "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
     }
   },
   "updated_at": "2026-10-10"

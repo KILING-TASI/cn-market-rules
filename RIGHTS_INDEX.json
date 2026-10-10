@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "research-rights-index/1",
+  "repository": "cn-market-rules",
+  "originalCodeLicense": "MIT",
+  "noticeFiles": [
+    {
+      "path": "LICENSE",
+      "sha256": "3c806ee777b9a488840564fe12ca3234a724256f3fde62856ccd473f1556d91e"
+    },
+    {
+      "path": "LICENSE_SCOPE.json",
+      "sha256": "081da544c4717ea42b26f5efe00f6b4aa31fcb880169f71e0b577f83cdd0d5a4"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "c09801b67909e798c8861558f19fc36f30cec67e9bbd25eefbecda17b54cc15e"
+    },
+    {
+      "path": "docs/license-scope.md",
+      "sha256": "4f1f455ee2b676fab0ecf914684eda185be42338d6086b7d2969e9618cebba93"
+    }
+  ],
+  "dataRights": "Source-specific; not granted by code MIT",
+  "methodReferences": "See repository method documents; citations do not convey text or data redistribution rights",
+  "scope": "Notice-file inventory and hashes, not an authorization or legal compliance certificate",
+  "hashFormat": "utf-8-lf"
+}
