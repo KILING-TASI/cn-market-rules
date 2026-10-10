@@ -40,7 +40,7 @@
     },
     "CHANGELOG.md": {
       "class": "original_mit",
-      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+      "basis": "original project documentation; third-party source rights excluded"
     },
     "docs/license-scope.md": {
       "class": "original_mit",
@@ -614,10 +614,6 @@
       "class": "original_mit",
       "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
     },
-    "USER_SCENARIOS.md": {
-      "class": "original_mit",
-      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
-    },
     "examples/expansion-teaching/dividend-tax.json": {
       "class": "original_mit",
       "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
@@ -649,6 +645,10 @@
     "AUDIT_SCOPE.md": {
       "class": "original_mit",
       "basis": "本轮作者原创审计范围说明，不是外部法律认证"
+    },
+    "README.en.md": {
+      "class": "original_mit",
+      "basis": "original project documentation; third-party source rights excluded"
     }
   },
   "updated_at": "2026-10-10"

@@ -126,3 +126,9 @@ python scripts/run_scenario_acceptance.py --output-dir demo-output/scenario-chec
 
 
 [本轮审计范围与未认证事项](AUDIT_SCOPE.md)。
+
+## v2.2.1 缺口修正与数据入口
+
+清理重复使用者页面的发布残留，新增英文项目入口及版本变更索引；独立使用和历史冻结记录保持。
+
+[English introduction](README.en.md) · [版本变更](CHANGELOG.md)。
