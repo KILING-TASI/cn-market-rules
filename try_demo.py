@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Offline teaching launcher; Python required, no automatic installation."""
 import argparse,importlib,sys,webbrowser
 from pathlib import Path

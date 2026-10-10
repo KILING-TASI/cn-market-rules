@@ -585,6 +585,26 @@
     ".github/workflows/installed-entry.yml": {
       "class": "original_mit",
       "basis": "independent installed CLI acceptance implementation; third-party and data rights excluded"
+    },
+    "BEGINNER.md": {
+      "class": "original_mit",
+      "basis": "本轮原创新手说明、启动与环境检查或验收流程；不授权第三方原文、公告或数据"
+    },
+    "Start-Demo.cmd": {
+      "class": "original_mit",
+      "basis": "本轮原创新手说明、启动与环境检查或验收流程；不授权第三方原文、公告或数据"
+    },
+    "Start-Demo.sh": {
+      "class": "original_mit",
+      "basis": "本轮原创新手说明、启动与环境检查或验收流程；不授权第三方原文、公告或数据"
+    },
+    "try_demo.py": {
+      "class": "original_mit",
+      "basis": "本轮原创新手说明、启动与环境检查或验收流程；不授权第三方原文、公告或数据"
+    },
+    ".github/workflows/beginner.yml": {
+      "class": "original_mit",
+      "basis": "本轮原创新手说明、启动与环境检查或验收流程；不授权第三方原文、公告或数据"
     }
   },
   "updated_at": "2026-10-10"
