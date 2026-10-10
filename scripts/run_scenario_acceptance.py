@@ -64,4 +64,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',type=Path,required=True)
     args=parser.parse_args()
-    print(json.dumps(run(args.output_dir),ensure_ascii=False,indent=2))
+    try: result=run(args.output_dir)
+    except (ValueError,KeyError,TypeError,OSError) as error:
+        parser.exit(2,f'Scenario acceptance refused: {error}\n')
+    print(json.dumps(result,ensure_ascii=False,indent=2))
