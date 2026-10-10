@@ -102,7 +102,7 @@ if reader_preview.exists():
                 if not path.is_relative_to(reader_preview.resolve()) or shot['sha256']!=hashlib.sha256(path.read_bytes()).hexdigest():raise ValueError('reader screenshot hash/path mismatch')
     except (ValueError,KeyError,TypeError,OSError) as e:errors.append(f'regulatory reader: {e}')
 for path in distribution_files(ROOT).values():
-    if path.suffix.lower() not in {'.md','.json','.py','.yml','.yaml','.gitignore'} and path.name not in {'.gitignore','.gitattributes'} and path not in preview_assets and path!=ROOT/'LICENSE':
+    if path.suffix.lower() not in {'.md','.json','.py','.yml','.yaml','.gitignore'} and path.name not in {'.gitignore','.gitattributes'} and path not in preview_assets and path not in {ROOT/'LICENSE',ROOT/'pyproject.toml',ROOT/'MANIFEST.in'}:
         errors.append(f'unexpected distribution file: {path}')
 if (ROOT/'LICENSE_SCOPE.json').exists():
     try:audit_distribution(ROOT)
