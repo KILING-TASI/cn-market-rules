@@ -4,13 +4,19 @@
 
 [![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE)
 
-当前版本：[v2.1.2](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.2)。完整源码、wheel、sdist 和校验清单在同一发布页；历史报告及旧下载包按各自版本阅读。
+当前版本：[v2.1.3](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.3)。完整源码、wheel、sdist 和校验清单在同一发布页；历史报告及旧下载包按各自版本阅读。
+
+## 先看一份教学报告
+
+完整源码解压后，需要 Python 3.10+。Windows 可运行 `Start-Demo.cmd`；或在源码目录执行 `python try_demo.py`。Linux/macOS 用 `sh Start-Demo.sh`。不需要先执行 pip 安装，不自动下载数据或覆盖旧报告；缺 Python 会提示处理路径。
+
+换成自己的资料，先看[中文资料准备与错误处理](BEGINNER.md)。已安装 CLI 可运行 `cn-market-rules doctor` 检查软件环境；它不检查资料或认证来源。
 
 ## 安装和首次试用
 
-本轮对应[发布页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.2)；下载时以实际上传的完整源码、wheel、sdist 与校验清单为准。源码按下面步骤安装；下载 wheel 后，将安装命令末尾的 `.` 换成该 wheel 文件路径。pip 安装不会自动注册 AI 工具中的 Skill。
+本轮对应[发布页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.3)；下载时以实际上传的完整源码、wheel、sdist 与校验清单为准。源码按下面步骤安装；下载 wheel 后，将安装命令末尾的 `.` 换成该 wheel 文件路径。pip 安装不会自动注册 AI 工具中的 Skill。
 
-本轮源码版本为 `2.1.2`。统一安装入口需要 Python 3.10 或以上。在完整源码目录新建自己的 Python 环境，下面的 Windows 命令不需要激活脚本：
+本轮源码版本为 `2.1.3`。统一安装入口需要 Python 3.10 或以上。在完整源码目录新建自己的 Python 环境，下面的 Windows 命令不需要激活脚本：
 
 ```powershell
 python -m venv .venv
@@ -99,3 +105,7 @@ python scripts/run_scenario_acceptance.py --output-dir demo-output/scenario-chec
 - [MIT许可证](LICENSE)、[逐文件范围](LICENSE_SCOPE.json)、[第三方说明](THIRD_PARTY_NOTICES.md)：有权许可的原创代码及说明采用MIT；第三方原文、公告、数据与未明来源材料的权利独立，不因代码许可获得再分发或商用授权。
 
 本工具用于规则核对与研究教学，不执行交易，也不替代法律、税务或投资资格判断。
+
+## 本轮验证范围
+
+源码教学启动、软件环境查询和安装后教学入口分别验证；软件就绪不等于真实资料已取得。中文问答需要助手按本仓Skill准备已声明输入，没有宣称任意自然语言自动发现或全市场数据闭环。旧报告、历史tag与案例证据保留。

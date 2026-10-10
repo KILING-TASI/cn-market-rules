@@ -15,3 +15,5 @@ prune dist
 
 recursive-include calendars *
 include LICENSE_SCOPE.json
+
+include try_demo.py Start-Demo.cmd Start-Demo.sh BEGINNER.md

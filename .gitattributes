@@ -1,3 +1,7 @@
 * text=auto eol=lf
 *.jpg binary
 *.png binary
+
+Start-Demo.sh text eol=lf
+
+Start-Demo.cmd text eol=crlf
