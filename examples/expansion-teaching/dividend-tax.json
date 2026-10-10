@@ -1,0 +1,17 @@
+{
+  "investorType": "individual",
+  "instrument": "direct-listed-A-share",
+  "market": "SSE",
+  "restricted": false,
+  "recordDate": "2025-06-01",
+  "transferSettlementDate": "2026-05-01",
+  "soldDividendEntitledShares": 100,
+  "grossDividendPerShare": 1,
+  "lots": [
+    {
+      "acquiredDate": "2025-05-01",
+      "remainingDividendEntitledShares": 100
+    }
+  ],
+  "teaching": true
+}

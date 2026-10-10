@@ -1,0 +1,9 @@
+{
+  "product": "open-fund",
+  "asOf": "2026-01-01",
+  "specialException": "none-declared",
+  "declaredSevenWorkdayRealizableValue": 80,
+  "confirmedNetRedemption": 100,
+  "coverage": "complete-declared",
+  "teaching": true
+}
