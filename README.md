@@ -12,6 +12,10 @@ cn-market-rules 提供规则核对清单、个案条款模板与离线收益情�
 
 ## 一条命令试用
 
+本仓同时提供 Skill 资料和独立离线 CLI；仓库名、Skill frontmatter 的 `name` 和建议目录名均为 `cn-market-rules`。使用完整目录（含 SKILL.md、scripts、references、rules、calendars、interfaces、examples、templates 及许可文件），不要只复制 SKILL.md。本仓没有 wheel／pip 安装工程。
+
+Windows 在解压后的仓库目录打开 PowerShell，可复制下列 `python` 命令；若系统使用 Python Launcher，可将 `python` 换成 `py -3`。要求 Python 3.10+。最短流程及机器接口仅用标准库，不需普通第三方包、工作台或其他自家专业库。PDF原文人工核读工具是另行选择的辅助工具，不是这些CLI的安装依赖；公告消费入口需自行提供已合法保存的原件，不随包分发。规则资料人工联网更新与CLI离线计算分开，本次不自动联网取数或安装依赖。
+
 Python 3.10+ 标准库，无额外包或账户；生成时不联网。以下 demo 属于 PR #1 待审增量：
 
 ```sh

@@ -49,6 +49,6 @@ def generate(output_dir,input_path=DEFAULT_INPUT,settings=None):
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--input',type=Path,default=DEFAULT_INPUT);parser.add_argument('--output-dir',type=Path,required=True);parser.add_argument('--settings',type=Path);args=parser.parse_args()
     try:generate(args.output_dir,args.input,json.loads(args.settings.read_text(encoding='utf-8')) if args.settings else None)
-    except (ValueError,TypeError,KeyError,OSError) as error:parser.exit(2,f'Reader error: {error}\n')
-    print(f'Reading page: {args.output_dir / "index.html"}; immutable input/method snapshots saved.')
+    except (ValueError,TypeError,KeyError,OSError) as error:parser.exit(2,f'Reader error: {error}\n下一步：已有输出目录请换新名字；输入或保存会话错误请核对文件路径、schema与方法版本，勿修改冻结快照来绕过核验。\n')
+    print(f'cn-market-rules｜已生成有限规则核对阅读页与输入／方法快照。\n结果目录：{args.output_dir.resolve()}\n打开报告：{(args.output_dir / "index.html").resolve()}\n仅展示已提供的证据与缺口，不认证完整原文或项目资格。')
 if __name__=='__main__':main()

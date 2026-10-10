@@ -73,6 +73,6 @@ def generate(output_dir):
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output-dir',required=True,type=Path);args=parser.parse_args()
     try:generate(args.output_dir)
-    except (ValueError,TypeError,OSError,KeyError) as e:parser.exit(2,f'Preview error: {e}\n')
-    print(f'Preview created: {args.output_dir / "index.html"}\nJSON results and input snapshots saved. No live data or overwrite.')
+    except (ValueError,TypeError,OSError,KeyError) as e:parser.exit(2,f'Preview error: {e}\n下一步：输出目录已存在时换一个新名字；其他错误请核对包内输入文件是否完整、字段是否符合示例。\n')
+    print(f'cn-market-rules｜已生成规则核对与教学现金报告、JSON结果及输入快照。\n结果目录：{args.output_dir.resolve()}\n打开报告：{(args.output_dir / "index.html").resolve()}\n现金参数为教学假设；本次离线生成，不认证实际收益或资格。')
 if __name__=='__main__':main()
