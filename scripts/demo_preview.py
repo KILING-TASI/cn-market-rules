@@ -13,7 +13,7 @@ from rule_versions import load_catalog,select
 from scenarios import run
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='2.1.0 candidate (PR #1, unreleased)'
+VERSION='2.1.0'
 INPUTS={'rule':'rules/example-query.json','events':'interfaces/examples/inquiry-correction.json','cash':'examples/cash-ledger.json'}
 WORKBENCH='https://github.com/KILING-TASI/research-workbench/blob/main/references/practical-entry.md'
 DATE_LABELS={'inquiry_received_date':'收到问询','notice_document_date':'公告落款','public_notice_date':'公开刊登'}

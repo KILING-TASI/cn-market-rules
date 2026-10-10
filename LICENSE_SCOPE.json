@@ -545,6 +545,10 @@
     "references/scenario-index.json": {
       "class": "mixed_source_data",
       "basis": "Original teaching scenario index and expected arithmetic; source rule facts/third-party rights excluded"
+    },
+    "docs/release-v2.1.0.md": {
+      "class": "original_mit",
+      "basis": "Original release preparation and installation instructions; third-party facts and materials rights excluded"
     }
   }
 }

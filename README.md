@@ -58,11 +58,13 @@ python scripts/scenarios.py --input examples/scenarios.json
 
 ## 当前源码与旧发布包
 
-main已集成规则补证、版本选择、报告、独立运行验收和情景实例等新增能力；候选元数据仍为2.1.0，**尚未发布对应的新Release**。
+main已集成规则补证、版本选择、报告、独立运行验收和情景实例等新增能力；源码与候选安装包版本为2.1.0，**尚未发布对应的新Release**。
 
 [旧v2.0.0发布包](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.0.0)保留原内容，不包含后来新增的全部能力和当前许可范围文件。上面的试用命令面向当前源码，旧包的入口以它自己的README为准。不要把当前源码的验证或许可追溯套用到旧包。
 
 软件、接口、规则文件与数据日期各有不同含义；职责、入口、实际验收和剩余缺口集中见[仓库状态说明](docs/repository-status.md)。其中历史批次的“PR待审”记录对应当时状态，原PR #1现已集成main。
+
+发布准备见[版本说明与安装步骤](docs/release-v2.1.0.md)。新资产尚未上传；发布后可从该说明中的v2.1.0链接下载完整Skill ZIP。
 
 ## 验证、来源与许可
 
