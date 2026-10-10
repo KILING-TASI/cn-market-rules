@@ -1,10 +1,10 @@
 # v2.1.0 发布说明与安装
 
-本文件为待发布说明，候选软件版本2.1.0。源码功能已集成main；新标签和资产由总调度审合后统一发布，现有Release仍为v2.0.0，不提前宣称新包已可下载。
+v2.1.0已于2026-10-10发布，源码提交1d6986669cc9cf6e2f45d04a9365e3f3c0b7cd03。旧v2.0.0仍保留；此前准备及验收记录不追溯改写。
 
 本版可核对五市场退市核心条款与年度衔接、沪深REITs首发和扩募、规则有效版本，并生成教学资金报告。保留未知资格与证据缺口，补充中文入口、失败下一步和逆回购日历阶段诊断。规则选择不认证个人资格，教学不代表真实收益。
 
-发布后下载入口：[v2.1.0 Release](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.0)。拟提供完整源码Skill ZIP及SHA256，不提供wheel或sdist：本项目没有Python包安装工程。
+下载入口：[v2.1.0 Release](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.0)。提供[完整源码Skill ZIP](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.zip)及[SHA256清单](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.sha256)，不提供wheel或sdist：本项目没有Python包安装工程。
 
 将ZIP解压到一个新目录，核对资产SHA256后，在该目录打开PowerShell。需要Python3.10+，无需第三方库、联网、账户或其他自家项目：
 
