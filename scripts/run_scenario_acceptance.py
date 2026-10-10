@@ -37,6 +37,8 @@ def run(destination):
             document.update(case.get('changes',{}))
             (folder/'input.json').write_text(json.dumps(document,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
             args+=['--input',str(folder/'input.json')]
+            if 'calendar' in case:
+                args+=['--calendar',str(ROOT/case['calendar'])]
         sentinel=folder/'protected-result.json'
         if case.get('protect_output'):
             sentinel.write_text('frozen prior result\n',encoding='utf-8')

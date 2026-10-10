@@ -3,7 +3,8 @@
   "coverage_inventory": {
     "existing": "VersionTests, ExpansionTests, ScenariosTest, test_workbench_handoff, frozen teaching preview; reused, no duplicated unit tests",
     "increment": "Actual CLI/process and generated-report assertions, saved input/expected/actual/method, failure non-contamination",
-    "manual_only": "BSE listing-standard financial exceptions and transition-year application remain source-check checklist; no automated subject classifier"
+    "manual_only": "BSE listing-standard financial exceptions and transition-year application remain source-check checklist; no automated subject classifier",
+    "cn_batch": "4 additional CLI cases only; existing18 keep their input and expected values; manual BSE exceptions not implemented"
   },
   "cases": [
     {
@@ -303,6 +304,129 @@
       "exit_code": 2,
       "error_contains": "date",
       "protect_output": true
+    },
+    {
+      "id": "cn-main-risk-effective",
+      "script": "rule_versions.py",
+      "input_kind": "教学规则查询，不是公司退市判定",
+      "input": {
+        "topic": "risk_warning_price_band",
+        "market": "SSE",
+        "board": "MAIN",
+        "subject": "market_participant",
+        "asset_type": "stock",
+        "applicability_date": "2026-07-06",
+        "knowledge_date": "2026-07-06"
+      },
+      "basis": "2026-04-24公布不等于实施；7月6日生效。主板交易适用选中仅表示版本，风险警示板交易不能推导股票已终止上市。人民币股票／北京时间日界线。",
+      "official_basis": [
+        {
+          "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml",
+          "checked_on": "2026-10-10",
+          "locator": "发布通知一、二；4.4节；4.4.2风险警示板交易",
+          "version": "上证发〔2026〕41号",
+          "status": "官方繁体镜像页面正文核读；简体页面本次timeout",
+          "mirror": "https://big5.sse.com.cn/site/cht/www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml"
+        }
+      ],
+      "equals": {
+        "status": "selected",
+        "rule_version_id": "SSE-TRADE-2026-MAIN",
+        "effective_from": "2026-07-06",
+        "scope": "沪市主板风险警示板交易，非科创板/其他证券"
+      }
+    },
+    {
+      "id": "cn-star-not-main-rule",
+      "script": "rule_versions.py",
+      "input_kind": "教学板块反例，不是科创板风险警示能力否定",
+      "input": {
+        "topic": "risk_warning_price_band",
+        "market": "SSE",
+        "board": "STAR",
+        "subject": "market_participant",
+        "asset_type": "stock",
+        "applicability_date": "2026-07-06",
+        "knowledge_date": "2026-07-06"
+      },
+      "basis": "主板选段目录没有科创板同主题；不能将主板交易规则盲套科创板，未登记应gap而非认证退市或无规则。",
+      "official_basis": [
+        {
+          "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml",
+          "checked_on": "2026-10-10",
+          "locator": "发布通知一、二；4.4节；4.4.2风险警示板交易",
+          "version": "上证发〔2026〕41号",
+          "status": "官方繁体镜像页面正文核读；简体页面本次timeout",
+          "mirror": "https://big5.sse.com.cn/site/cht/www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml"
+        }
+      ],
+      "equals": {
+        "status": "gap",
+        "rule_version_id": null
+      }
+    },
+    {
+      "id": "cn-bse-subject-year-unknown",
+      "script": "rule_versions.py",
+      "input_kind": "教学北交规则查询；无真实公司或上市标准",
+      "input": {
+        "topic": "st_delisting",
+        "market": "BSE",
+        "board": "BSE",
+        "subject": "listed_company",
+        "asset_type": "stock",
+        "applicability_date": "2026-04-24",
+        "knowledge_date": "2026-04-24"
+      },
+      "basis": "版本可选但上市标准、2024年度衔接、个案资格仍未知；10.3.9末段排除仅第一项，不能扩大为全部财务路径豁免。本例只断言当前输出保留人工条件，不自动判断摘帽/退市。",
+      "official_basis": [
+        {
+          "url": "https://www.bse.cn/cxjg_list/200028220.html",
+          "attachment": "https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf",
+          "checked_on": "2026-10-10",
+          "locator": "2026发布通知第5项；10.3.1、10.3.9末段；2024通知第二项",
+          "version": "北证公告〔2026〕18号／北证公告〔2024〕22号",
+          "status": "2026-10-09已取得核读全文；本次官方网页/附件redirect loop，重读合法留存文本；不声称本次重新下载",
+          "saved_original_sha256": "40202d5a91c54ea5eba5d0585c8312d1dccd99bd0ae92716aa7180dca15b264f"
+        }
+      ],
+      "equals": {
+        "status": "selected",
+        "rule_version_id": "BSE-LISTING-2026",
+        "scope": "第10章核心指标与程序；必须另核上市标准、财务年度、2024衔接及个案条件，不认证资格"
+      }
+    },
+    {
+      "id": "cn-spring-repo-available-withdrawable",
+      "script": "scenarios.py",
+      "input_kind": "人民币100000元、年利率3%、费1元均为教学；官方常规交易日历派生",
+      "reuse": "examples/repo-with-calendar.json",
+      "calendar": "calendars/2026-SSE.json",
+      "basis": "2月12日交易，首期交收2月13日，名义到期清算2月13日，下一交易日2月24日最终交收；11自然日占款，100000*0.03*11/365=90.410958...，扣1元=89.41。可用2月13日与可取2月24日分开；正常结算假设非券商实账保证，休市通知不证明个体资金状态。北京时间日期。",
+      "official_basis": [
+        {
+          "url": "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+          "checked_on": "2026-10-10",
+          "locator": "第一项（二）春节；第二项清算按中国结算安排",
+          "version": "上证公告〔2025〕45号",
+          "status": "官方网页正文核读"
+        },
+        {
+          "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/trading/currency/c/c_20250606_10781048.shtml",
+          "checked_on": "2026-10-10",
+          "locator": "第22、24—25条；原核来源REPO",
+          "version": "上证发〔2022〕26号，2022-04-25施行",
+          "status": "本次官方页面现行标识及施行通知核读；附件web不支持docx，未声明本次附件全文重取"
+        }
+      ],
+      "equals": {
+        "funds_available_date": "2026-02-13",
+        "funds_withdrawable_date": "2026-02-24",
+        "interest_days": 11,
+        "gross_interest": "90.41",
+        "net_interest": "89.41",
+        "assumption": "normal settlement; broker availability must be confirmed"
+      }
     }
   ],
   "limits": [
