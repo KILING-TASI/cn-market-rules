@@ -81,7 +81,7 @@ python scripts/scenarios.py --input examples/scenarios.json
 
 本项目同时提供 **Skill资料和独立CLI**。仓库名、[SKILL.md](SKILL.md) 中的 `name`、建议目录名均为 `cn-market-rules`，两种入口可以并用。
 
-作为Skill使用时，把完整目录放入对应环境的技能目录，例如 `~/.codex/skills/cn-market-rules/`。保留 scripts、references、rules、calendars、interfaces、examples、templates及许可文件，不要只复制SKILL.md。本轮已提供 pip 安装工程与独立 CLI；安装不会自动注册 AI 工具中的 Skill。
+作为Skill使用时，把完整目录放入对应环境的技能目录，例如 `~/.codex/skills/cn-market-rules/`。保留 scripts、references、rules、calendars、interfaces、examples、templates及许可文件，不要只复制SKILL.md。这份说明的已提供 pip 安装工程与独立 CLI；安装不会自动注册 AI 工具中的 Skill。
 
 最短流程与机器接口只用标准库。PDF核读工具可另行选择，它们不是这些CLI的依赖；公告消费入口需要已合法保存的原件，原文PDF不随包提供。查找新资料需要联网，包内计算与报告生成可以离线运行。
 
