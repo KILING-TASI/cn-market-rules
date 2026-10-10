@@ -119,7 +119,6 @@ python scripts/run_scenario_acceptance.py --output-dir demo-output/scenario-chec
 本轮新增个人直接股票税款、基金限额及流动性研究条件。独立入口、底稿与限制见 [EXPANSION.md](EXPANSION.md)。
 
 
-[15类使用者的任务路径、术语口径与验收边界](USER_SCENARIOS.md)。
 
 ## v2.2.0 本轮补强
 
