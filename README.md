@@ -1,8 +1,24 @@
 # 中国证券市场规则核对与情景计算
 
+
+
 核对一条规则何时、对谁适用，再按公告条款和给定参数计算收益、资金占用与现金缺口。
 
 [![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE)
+
+## 统一安装与启动
+
+本轮源码版本为 `2.1.1`。统一安装入口需要 Python 3.10 或以上。在完整源码目录新建自己的 Python 环境，下面的 Windows 命令不需要激活脚本：
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\cn-market-rules.exe --help
+.\.venv\Scripts\cn-market-rules.exe demo --out-dir reports/demo --auto-name
+```
+
+九个仓库都用仓库名启动；在已激活的环境中可以直接输入工具名。Linux/macOS 使用 `.venv/bin/python` 和 `.venv/bin/cn-market-rules`。教学结果写入当前工作目录；`--auto-name` 自动另选新名字，旧结果保留。不加该参数时，教学入口拒绝已有目录。`cn-market-rules run --help` 查看原生参数，原来的命令继续兼容。其他专题可用 `cn-market-rules script --help` 查看入口，以脚本名调用，不需要记住源码路径。pip 安装提供 CLI；作为 Skill 使用仍须保留完整源码及许可资源，不能只复制 SKILL.md。安装可能需要联网获取普通构建依赖；教学离线。下面保留原生入口及此前发行记录，本轮安装和版本以本节为准。
+
 
 ## 最短试用
 
@@ -48,7 +64,7 @@ python scripts/scenarios.py --input examples/scenarios.json
 
 本项目同时提供 **Skill资料和独立CLI**。仓库名、[SKILL.md](SKILL.md) 中的 `name`、建议目录名均为 `cn-market-rules`，两种入口可以并用。
 
-作为Skill使用时，把完整目录放入对应环境的技能目录，例如 `~/.codex/skills/cn-market-rules/`。保留 scripts、references、rules、calendars、interfaces、examples、templates及许可文件，不要只复制SKILL.md。本仓没有wheel或pip安装工程，本文不代替你执行安装。
+作为Skill使用时，把完整目录放入对应环境的技能目录，例如 `~/.codex/skills/cn-market-rules/`。保留 scripts、references、rules、calendars、interfaces、examples、templates及许可文件，不要只复制SKILL.md。本轮已提供 pip 安装工程与独立 CLI；安装不会自动注册 AI 工具中的 Skill。
 
 最短流程与机器接口只用标准库。PDF核读工具可另行选择，它们不是这些CLI的依赖；公告消费入口需要已合法保存的原件，原文PDF不随包提供。查找新资料需要联网，包内计算与报告生成可以离线运行。
 

@@ -1,0 +1,17 @@
+include pyproject.toml setup.py _build_skill.py README.md SKILL.md LICENSE THIRD_PARTY_NOTICES.md
+recursive-include scripts *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include references *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include templates *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include rules *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include interfaces *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include examples *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include docs *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include licenses *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include assets *.py *.js *.cjs *.mjs *.md *.json *.txt *.csv *.html *.css *.yaml *.yml *.jpg *.png *.svg
+recursive-include cn_market_rules *.py
+global-exclude *.pyc *.pdf *.docx *.xlsx
+prune build
+prune dist
+
+recursive-include calendars *
+include LICENSE_SCOPE.json

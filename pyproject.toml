@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cn-market-rules"
+version = "2.1.1"
+description = "独立研究工具与完整资源；未知证据保留"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+dependencies = []
+
+[project.scripts]
+cn-market-rules = "cn_market_rules._entry:main"
+
+[tool.setuptools]
+packages = ["cn_market_rules"]
+package-dir = {"cn_market_rules" = "cn_market_rules"}

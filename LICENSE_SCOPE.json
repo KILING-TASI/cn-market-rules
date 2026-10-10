@@ -549,6 +549,43 @@
     "docs/release-v2.1.0.md": {
       "class": "original_mit",
       "basis": "Original release preparation and installation instructions; third-party facts and materials rights excluded"
+    },
+    "MANIFEST.in": {
+      "class": "original_mit",
+      "basis": "new independent CLI and packaging implementation; build dependencies are not bundled; third-party and data rights excluded"
+    },
+    "pyproject.toml": {
+      "class": "original_mit",
+      "basis": "new independent CLI and packaging implementation; build dependencies are not bundled; third-party and data rights excluded"
+    },
+    "setup.py": {
+      "class": "original_mit",
+      "basis": "new independent CLI and packaging implementation; build dependencies are not bundled; third-party and data rights excluded"
+    },
+    "_build_skill.py": {
+      "class": "original_mit",
+      "basis": "new independent CLI and packaging implementation; build dependencies are not bundled; third-party and data rights excluded"
+    },
+    "cn_market_rules/_entry.py": {
+      "class": "original_mit",
+      "basis": "new independent CLI and packaging implementation; build dependencies are not bundled; third-party and data rights excluded"
+    },
+    "cn_market_rules/__init__.py": {
+      "class": "original_mit",
+      "basis": "new independent CLI and packaging implementation; build dependencies are not bundled; third-party and data rights excluded"
+    },
+    "cn_market_rules/__main__.py": {
+      "class": "original_mit",
+      "basis": "new independent CLI and packaging implementation; build dependencies are not bundled; third-party and data rights excluded"
+    },
+    ".github/scripts/verify_installed_entry.py": {
+      "class": "original_mit",
+      "basis": "independent installed CLI acceptance implementation; third-party and data rights excluded"
+    },
+    ".github/workflows/installed-entry.yml": {
+      "class": "original_mit",
+      "basis": "independent installed CLI acceptance implementation; third-party and data rights excluded"
     }
-  }
+  },
+  "updated_at": "2026-10-10"
 }

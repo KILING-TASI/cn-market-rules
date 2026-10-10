@@ -4,3 +4,9 @@ result.json
 work/
 .venv/
 demo-output/
+
+# Local Python installation/build outputs
+.venv/
+build/
+dist/
+*.egg-info/
