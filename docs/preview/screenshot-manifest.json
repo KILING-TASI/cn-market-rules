@@ -1,0 +1,36 @@
+{
+  "captured_on": "2026-10-09",
+  "method": "Codex in-app browser actual JPEG screenshots; no AI generation or post-edit; recaptured after UTF-8/LF normalization",
+  "report_generated_at": "2026-10-09T19:21:01+08:00",
+  "report_sha256": "8f6c24d6c3252fd2b265f2d0d4adf332fafe395e452c39f02081940a0bca7d2e",
+  "visual_check": "checked complete Chinese cards/version/date, actual source dates/unknowns and teaching cash scope",
+  "screenshots": [
+    {
+      "path": "overview.jpg",
+      "sha256": "2d3eb95079bd54db43a9c9a096f80f179c8fbae6c74948072398bf1243cc7cbd",
+      "inputs": [
+        "rules/example-query.json",
+        "interfaces/examples/inquiry-correction.json",
+        "examples/cash-ledger.json"
+      ]
+    },
+    {
+      "path": "cash.jpg",
+      "sha256": "c3c25bbeae19209b19d85bafdaf229b7d105fc074b438f95637de509f1d74cb3",
+      "inputs": [
+        "rules/example-query.json",
+        "interfaces/examples/inquiry-correction.json",
+        "examples/cash-ledger.json"
+      ]
+    },
+    {
+      "path": "fullpage.jpg",
+      "sha256": "7171260789c53e2c187db6455720b6de0dffe5b027926cb72321196bdece9835",
+      "inputs": [
+        "rules/example-query.json",
+        "interfaces/examples/inquiry-correction.json",
+        "examples/cash-ledger.json"
+      ]
+    }
+  ]
+}

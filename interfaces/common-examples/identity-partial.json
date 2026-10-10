@@ -1,0 +1,286 @@
+{
+  "contract_version": "cn-market-rules.rule-handoff/1.0",
+  "origin_interface_version": "1.1",
+  "kind": "risk_events",
+  "as_of": "2026-10-09",
+  "sources": [
+    {
+      "source_id": "PLEDGE-GCL",
+      "source_type": "company_notice",
+      "title": "协鑫能科解除质押暨再质押公告",
+      "publisher": "协鑫能源科技股份有限公司",
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-29/28d7561c-c318-463e-8f00-b3f9374ba4ad.PDF",
+      "source_version": "2026-040",
+      "rule_version_id": null,
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "dates": {
+        "published_at": "2026-04-29",
+        "retrieved_at": "2026-10-09",
+        "verified_at": "2026-10-09",
+        "date_timezone": "+08:00"
+      },
+      "verification": {
+        "acquisition_status": "success",
+        "original_verification": "verified",
+        "missing_metadata": []
+      }
+    }
+  ],
+  "records": [
+    {
+      "record_id": "pledge-gcl-20260429",
+      "entity_name": "协鑫能源科技股份有限公司",
+      "security_identity": {
+        "status": "partial",
+        "code": "002015",
+        "market": null,
+        "board": null,
+        "security_type": "stock",
+        "name": "协鑫能科",
+        "reason": "代码与简称由公告页首核对；市场/板块尚未绑定独立身份证据，不从前缀推断",
+        "evidence": {
+          "source_id": "PLEDGE-GCL",
+          "locator": "PDF第1页页首"
+        }
+      },
+      "dates": {
+        "event_date": "2026-04-24",
+        "observation_date": "2026-10-09",
+        "backtest_cutoff": null,
+        "date_timezone": "+08:00"
+      },
+      "facts": [
+        {
+          "key": "shareholder",
+          "value": "上海协鑫创展企业管理有限公司",
+          "unit": "name",
+          "status": "original",
+          "evidence": {
+            "source_id": "PLEDGE-GCL",
+            "locator": "PDF第1页"
+          }
+        },
+        {
+          "key": "released_shares",
+          "value": 30000000,
+          "unit": "shares",
+          "status": "original",
+          "evidence": {
+            "source_id": "PLEDGE-GCL",
+            "locator": "PDF第1页解除质押表"
+          }
+        },
+        {
+          "key": "repledged_shares",
+          "value": 30000000,
+          "unit": "shares",
+          "status": "original",
+          "evidence": {
+            "source_id": "PLEDGE-GCL",
+            "locator": "PDF第1页再质押表；不可与解除量相加作新增净质押"
+          }
+        },
+        {
+          "key": "group_pledge_ratio",
+          "value": "0.5096",
+          "unit": "ratio",
+          "status": "original",
+          "denominator": "控股股东及一致行动人合计所持股份",
+          "denominator_date": "2026-04-29",
+          "evidence": {
+            "source_id": "PLEDGE-GCL",
+            "locator": "PDF第2页合计行：占所持股份比例"
+          }
+        },
+        {
+          "key": "issuer_risk_statement",
+          "value": "公司称目前不存在平仓风险",
+          "unit": "statement",
+          "status": "reported",
+          "evidence": {
+            "source_id": "PLEDGE-GCL",
+            "locator": "PDF第3页；公司陈述，非独立保证"
+          }
+        },
+        {
+          "key": "liquidation_price",
+          "value": null,
+          "unit": "CNY/share",
+          "status": "unknown",
+          "reason": "未取得质押合同触发条款，不能由质押比例推导"
+        }
+      ],
+      "unit_semantics": [
+        {
+          "key": "shareholder",
+          "native_unit": "name",
+          "unit_family": "unmapped",
+          "currency": null,
+          "scale": null,
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "released_shares",
+          "native_unit": "shares",
+          "unit_family": "share_count",
+          "currency": null,
+          "scale": "1",
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "repledged_shares",
+          "native_unit": "shares",
+          "unit_family": "share_count",
+          "currency": null,
+          "scale": "1",
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "group_pledge_ratio",
+          "native_unit": "ratio",
+          "unit_family": "fraction",
+          "currency": null,
+          "scale": "1",
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "issuer_risk_statement",
+          "native_unit": "statement",
+          "unit_family": "unmapped",
+          "currency": null,
+          "scale": null,
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "liquidation_price",
+          "native_unit": "CNY/share",
+          "unit_family": "money_per_share",
+          "currency": "CNY",
+          "scale": "1",
+          "conversion": "none; value retained verbatim"
+        }
+      ],
+      "rules": [],
+      "rule_selection": null,
+      "record_type": "pledge",
+      "record_role": "company_event",
+      "workbench_inputs": null
+    }
+  ],
+  "validation": {
+    "kind": "risk_events",
+    "record_count": 1,
+    "unknown_field_count": 1,
+    "status": "structure_valid_only",
+    "scope": "no source authenticity certification, liquidation price, fraud classification, valuation or execution"
+  },
+  "legacy_payload": {
+    "schema_version": "1.1",
+    "kind": "risk_events",
+    "as_of": "2026-10-09",
+    "sources": [
+      {
+        "source_id": "PLEDGE-GCL",
+        "source_type": "company_notice",
+        "title": "协鑫能科解除质押暨再质押公告",
+        "publisher": "协鑫能源科技股份有限公司",
+        "version": "2026-040",
+        "published_at": "2026-04-29",
+        "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-29/28d7561c-c318-463e-8f00-b3f9374ba4ad.PDF",
+        "source_tier": "public_original",
+        "access_requirement": "public",
+        "acquisition_status": "success",
+        "retrieved_at": "2026-10-09",
+        "original_verification": "verified",
+        "verified_at": "2026-10-09"
+      }
+    ],
+    "records": [
+      {
+        "record_id": "pledge-gcl-20260429",
+        "entity_name": "协鑫能源科技股份有限公司",
+        "event_date": "2026-04-24",
+        "observation_date": "2026-10-09",
+        "event_type": "pledge",
+        "record_role": "company_event",
+        "rules": [],
+        "facts": [
+          {
+            "key": "shareholder",
+            "value": "上海协鑫创展企业管理有限公司",
+            "unit": "name",
+            "status": "original",
+            "evidence": {
+              "source_id": "PLEDGE-GCL",
+              "locator": "PDF第1页"
+            }
+          },
+          {
+            "key": "released_shares",
+            "value": 30000000,
+            "unit": "shares",
+            "status": "original",
+            "evidence": {
+              "source_id": "PLEDGE-GCL",
+              "locator": "PDF第1页解除质押表"
+            }
+          },
+          {
+            "key": "repledged_shares",
+            "value": 30000000,
+            "unit": "shares",
+            "status": "original",
+            "evidence": {
+              "source_id": "PLEDGE-GCL",
+              "locator": "PDF第1页再质押表；不可与解除量相加作新增净质押"
+            }
+          },
+          {
+            "key": "group_pledge_ratio",
+            "value": "0.5096",
+            "unit": "ratio",
+            "status": "original",
+            "denominator": "控股股东及一致行动人合计所持股份",
+            "denominator_date": "2026-04-29",
+            "evidence": {
+              "source_id": "PLEDGE-GCL",
+              "locator": "PDF第2页合计行：占所持股份比例"
+            }
+          },
+          {
+            "key": "issuer_risk_statement",
+            "value": "公司称目前不存在平仓风险",
+            "unit": "statement",
+            "status": "reported",
+            "evidence": {
+              "source_id": "PLEDGE-GCL",
+              "locator": "PDF第3页；公司陈述，非独立保证"
+            }
+          },
+          {
+            "key": "liquidation_price",
+            "value": null,
+            "unit": "CNY/share",
+            "status": "unknown",
+            "reason": "未取得质押合同触发条款，不能由质押比例推导"
+          }
+        ],
+        "security_identity": {
+          "status": "partial",
+          "code": "002015",
+          "market": null,
+          "board": null,
+          "security_type": "stock",
+          "name": "协鑫能科",
+          "reason": "代码与简称由公告页首核对；市场/板块尚未绑定独立身份证据，不从前缀推断",
+          "evidence": {
+            "source_id": "PLEDGE-GCL",
+            "locator": "PDF第1页页首"
+          }
+        }
+      }
+    ]
+  },
+  "computation_status": "not_migrated; use existing scenario input contract"
+}

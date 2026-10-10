@@ -1,0 +1,169 @@
+# SPDX-License-Identifier: MIT
+"""Offline validation of field-level evidence. No valuation or risk inference."""
+import argparse
+import json
+from datetime import date,datetime,timezone,timedelta
+from decimal import Decimal,InvalidOperation
+from pathlib import Path
+
+PUBLIC_DATE_ZONE=timezone(timedelta(hours=8))
+
+def public_day(moment):
+    return moment.astimezone(PUBLIC_DATE_ZONE).date()
+
+def text(obj,key):
+    value=obj.get(key)
+    if not isinstance(value,str) or not value.strip():raise ValueError(f'{key}: required text')
+    return value
+
+def day(value,label,nullable=False):
+    if nullable and value is None:return None
+    if not isinstance(value,str):raise ValueError(f'{label}: ISO date required')
+    try:return date.fromisoformat(value)
+    except ValueError:raise ValueError(f'{label}: invalid date') from None
+
+def instant(value,label):
+    if not isinstance(value,str):raise ValueError(f'{label}: timestamp required')
+    try:result=datetime.fromisoformat(value)
+    except ValueError:raise ValueError(f'{label}: invalid timestamp') from None
+    if result.tzinfo is None:raise ValueError(f'{label}: timezone required')
+    return result
+
+def validate(document):
+    if not isinstance(document,dict) or document.get('schema_version') not in {'1.0','1.1','1.2','1.3'}:raise ValueError('schema_version: 1.0/1.1/1.2/1.3 required')
+    layered=document['schema_version'] in {'1.1','1.2','1.3'}
+    kind=text(document,'kind')
+    if kind not in {'risk_events','reits_expansion_terms'}:raise ValueError('unsupported interface kind')
+    as_of=day(document.get('as_of'),'as_of')
+    sources={}
+    if not isinstance(document.get('sources'),list):raise ValueError('sources: list required')
+    for source in document['sources']:
+        if not isinstance(source,dict):raise ValueError('source: object required')
+        sid=text(source,'source_id')
+        if sid in sources:raise ValueError('duplicate source ID')
+        for key in ('title','publisher','version'):text(source,key)
+        types={'rule','company_notice','official_summary','regulatory_decision','aggregate'}
+        if document['schema_version']=='1.3':types|={'regulatory_letter','audit_report'}
+        if source.get('source_type') not in types:raise ValueError('source_type invalid')
+        if not text(source,'url').startswith(('https://','http://')):raise ValueError('source URL required')
+        if 'published_at' not in source:raise ValueError('published_at: explicit date or null required')
+        pub=day(source['published_at'],'published_at',True)
+        if pub and pub>as_of:raise ValueError('source publication after as_of')
+        if layered:
+            if source.get('source_tier') not in {'public_original','third_party_aggregate','licensed_data'}:raise ValueError('source_tier invalid')
+            if source.get('access_requirement') not in {'public','paid','authorization','unknown'}:raise ValueError('access_requirement invalid')
+            if source.get('acquisition_status') not in {'success','failed','not_attempted'}:raise ValueError('acquisition_status invalid')
+            if source.get('original_verification') not in {'verified','summary_only','not_verified'}:raise ValueError('original_verification invalid')
+            for k in ('retrieved_at','verified_at'):
+                if k not in source:raise ValueError(f'{k}: explicit date/null required')
+                moment=day(source[k],k,True)
+                if moment and moment>as_of:raise ValueError(f'{k}: after as_of')
+            if source['acquisition_status']=='success' and source['retrieved_at'] is None:raise ValueError('successful acquisition needs date')
+            if source['original_verification']=='verified' and (source['verified_at'] is None or source['source_tier']!='public_original' or source['acquisition_status']!='success'):raise ValueError('original verification requires acquired original and verification date')
+            if source['source_tier']=='third_party_aggregate' and source['source_type']!='aggregate':raise ValueError('aggregate tier requires aggregate type')
+            if source['source_type']=='aggregate' and source['source_tier']=='public_original':raise ValueError('aggregate cannot be classified as public original')
+        sources[sid]=source
+    records=document.get('records')
+    if not isinstance(records,list) or not records:raise ValueError('records: nonempty list required')
+    ids=set();unknown=0;selections=[];regulatory=[]
+    def binding(evidence):
+        if not isinstance(evidence,dict):raise ValueError('field evidence required')
+        sid=text(evidence,'source_id');text(evidence,'locator')
+        if sid not in sources:raise ValueError('unresolved source ID')
+        return sources[sid]
+    for record in records:
+        if not isinstance(record,dict):raise ValueError('record: object required')
+        rid=text(record,'record_id')
+        if rid in ids:raise ValueError('duplicate record ID')
+        ids.add(rid);text(record,'entity_name')
+        observed=day(record.get('observation_date'),'observation_date')
+        if observed>as_of:raise ValueError('observation after as_of')
+        if 'event_date' not in record:raise ValueError('event_date must be explicit date/null')
+        day(record['event_date'],'event_date',True)
+        cutoff=None
+        if 'backtest_cutoff' in record:
+            cutoff=instant(record['backtest_cutoff'],'backtest_cutoff')
+            if public_day(cutoff)>as_of:raise ValueError('backtest cutoff after as_of')
+        if kind=='risk_events':
+            event_types={'unlock','pledge','goodwill','inquiry','correction'};roles={'company_event','regulatory_observation'}
+            if document['schema_version']=='1.3':event_types|={'administrative_penalty','supervisory_measure','audit_opinion'};roles.add('audit_observation')
+            if record.get('event_type') not in event_types:raise ValueError('event_type invalid')
+            if record.get('record_role') not in roles:raise ValueError('record_role invalid')
+        else:
+            if record.get('market') not in {'SSE','SZSE'}:raise ValueError('market invalid')
+            if record.get('offering_method') not in {'holders','public','targeted'}:raise ValueError('offering_method invalid')
+            if record.get('rule_check_status') not in {'unknown','partial','verified'}:raise ValueError('rule_check_status invalid')
+            inputs=record.get('workbench_inputs')
+            if not isinstance(inputs,list) or not inputs or any(not isinstance(v,str) or not v for v in inputs):raise ValueError('workbench_inputs: required data names')
+        rules=record.get('rules')
+        if not isinstance(rules,list):raise ValueError('rules must be explicit list')
+        for rule in rules:
+            if binding(rule)['source_type']!='rule':raise ValueError('company event cannot serve as rule source')
+            text(rule,'scope')
+        selected=None
+        if document['schema_version'] in {'1.2','1.3'} and 'rule_query' in record:
+            from rule_versions import load_catalog,select
+            query=record['rule_query']
+            if not isinstance(query,dict):raise ValueError('rule_query must be object')
+            if day(query.get('knowledge_date'),'knowledge_date')>observed:raise ValueError('rule knowledge after observation')
+            if cutoff and day(query['knowledge_date'],'knowledge_date')>public_day(cutoff):raise ValueError('later rule knowledge cannot enter old backtest')
+            selected=select(load_catalog(),query)
+            if record.get('rule_version_id')!=selected['rule_version_id']:raise ValueError('record rule_version_id differs from selected catalog version')
+            if selected['rule_version_id'] and selected['evidence']['source_id'] not in {r['source_id'] for r in rules}:raise ValueError('selected rule requires bound source evidence')
+            if selected['rule_version_id'] and sources[selected['evidence']['source_id']].get('rule_version_id')!=selected['rule_version_id']:raise ValueError('source rule_version_id differs from selected catalog version')
+            selections.append(dict(record_id=rid,**selected))
+        if document['schema_version']=='1.3' and kind=='risk_events':
+            from contracts.regulatory import KINDS,validate_regulatory
+            if record['event_type'] in KINDS:
+                checked=validate_regulatory(record,sources,as_of,selected)
+                if cutoff and (checked['public_date'] is None or day(checked['public_date'],'public_date')>=public_day(cutoff)):raise ValueError('day-only/unknown public time cannot enter same-day or earlier backtest cutoff')
+                regulatory.append(checked)
+        facts=record.get('facts');keys=set();original_keys=set();record_unknown=0
+        if not isinstance(facts,list) or not facts:raise ValueError('facts required')
+        for fact in facts:
+            if not isinstance(fact,dict):raise ValueError('fact must be object')
+            key=text(fact,'key')
+            if key in keys:raise ValueError('duplicate fact key')
+            keys.add(key);status=text(fact,'status');text(fact,'unit')
+            if status not in {'original','summary','reported','hypothesis','unknown'}:raise ValueError('fact status invalid')
+            if 'value' not in fact:raise ValueError('fact value required')
+            if status=='unknown':
+                if fact['value'] is not None:raise ValueError('unknown must be null, never zero')
+                text(fact,'reason');unknown+=1;record_unknown+=1
+                continue
+            if fact['value'] is None:raise ValueError('known/hypothesis fact cannot be null')
+            if status=='hypothesis':text(fact,'reason')
+            else:
+                source=binding(fact.get('evidence'))
+                if status=='original' and source['source_type']=='aggregate':raise ValueError('aggregate cannot certify original fact')
+                if layered and status=='original' and source['original_verification']!='verified':raise ValueError('original fact requires original verification')
+                if status in {'original','reported'} and source['source_type']=='official_summary':raise ValueError('summary cannot certify full original fact')
+                if status=='summary' and source['source_type']!='official_summary':raise ValueError('summary requires official_summary source')
+                if source['published_at'] and day(source['published_at'],'published_at')>observed:raise ValueError('evidence publication after observation')
+                if status=='original' and source['source_type']=='company_notice':original_keys.add(key)
+            if cutoff:
+                if status=='hypothesis':raise ValueError('hypothesis cannot be historical backtest fact')
+                available=instant(fact.get('available_at'),'available_at')
+                if available>cutoff:raise ValueError('later information cannot be backfilled')
+                if source['published_at'] and public_day(available)<day(source['published_at'],'published_at'):raise ValueError('availability before source publication')
+            if fact['unit']=='ratio':
+                if isinstance(fact['value'],bool):raise ValueError('ratio must be numeric')
+                try:value=Decimal(str(fact['value']))
+                except InvalidOperation:raise ValueError('ratio invalid') from None
+                if not value.is_finite() or not 0<=value<=1:raise ValueError('ratio outside 0..1')
+                text(fact,'denominator');day(fact.get('denominator_date'),'denominator_date')
+        if kind=='reits_expansion_terms' and record['rule_check_status']=='verified':
+            if record_unknown or not rules or not {'expansion_price','approved_units','offering_method'}.issubset(original_keys):
+                raise ValueError('verified requires original project price/units/route, rules and no unknowns')
+    result={'kind':kind,'record_count':len(records),'unknown_field_count':unknown,
+            'status':'structure_valid_only','scope':'no source authenticity certification, liquidation price, fraud classification, valuation or execution'}
+    if selections:result['rule_selections']=selections
+    if regulatory:result['regulatory_events']=regulatory
+    return result
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--input',type=Path,required=True);args=parser.parse_args()
+    try:result=validate(json.loads(args.input.read_text(encoding='utf-8-sig')))
+    except (ValueError,TypeError,OSError) as e:parser.exit(2,f'Invalid evidence: {e}\n')
+    print(json.dumps(result,ensure_ascii=False,indent=2))
+if __name__=='__main__':main()

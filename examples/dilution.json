@@ -1,0 +1,8 @@
+{
+  "description":"虚构教学，同日剩余本金1亿元、现有总股本1亿股；已转股股份包含在现有总股本中。",
+  "cases":[
+    {"mode":"dilution","name":"全转股：对比20元与10元","outstanding_principal":100000000,"old_conversion_price":20,"new_conversion_price":10,"existing_shares":100000000,"net_profit_ttm":100000000,"underlying_price":12,"conversion_fraction":1},
+    {"mode":"dilution","name":"亏损公司：不将每股亏损缩小解释为经营改善","outstanding_principal":100000000,"old_conversion_price":20,"new_conversion_price":10,"existing_shares":100000000,"net_profit_ttm":-100000000,"underlying_price":12,"conversion_fraction":"0.5"},
+    {"mode":"dilution","name":"利息节约等净利润变化作为显式假设","outstanding_principal":100000000,"old_conversion_price":20,"new_conversion_price":10,"existing_shares":100000000,"net_profit_ttm":100000000,"underlying_price":12,"conversion_fraction":1,"profit_adjustment":10000000}
+  ]
+}

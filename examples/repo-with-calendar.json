@@ -1,0 +1,11 @@
+{
+  "mode":"repo",
+  "validation_calendar":"../calendars/2026-SSE.json",
+  "name":"春节前一天期教学利率，日期用官方公告派生日历",
+  "market":"SSE",
+  "trade_date":"2026-02-12",
+  "tenor_days":1,
+  "principal":100000,
+  "annual_rate":"0.03",
+  "total_fees":1
+}

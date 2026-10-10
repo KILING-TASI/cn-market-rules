@@ -1,0 +1,327 @@
+{
+  "contract_version": "cn-market-rules.rule-handoff/1.0",
+  "origin_interface_version": "1.2",
+  "kind": "reits_expansion_terms",
+  "as_of": "2026-10-09",
+  "sources": [
+    {
+      "source_id": "REITS-EXP-SH",
+      "source_type": "rule",
+      "title": "沪市扩募及新购入不动产指引",
+      "publisher": "上海证券交易所",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803751.shtml",
+      "source_version": "上证发2025年第141号",
+      "rule_version_id": "SSE-REITS-EXP-2025",
+      "source_tier": "public_original",
+      "access_requirement": "public",
+      "dates": {
+        "published_at": "2025-12-31",
+        "retrieved_at": "2026-10-09",
+        "verified_at": "2026-10-09",
+        "date_timezone": "+08:00"
+      },
+      "verification": {
+        "acquisition_status": "success",
+        "original_verification": "verified",
+        "missing_metadata": []
+      }
+    }
+  ],
+  "records": [
+    {
+      "record_id": "workbench-rule-selected",
+      "entity_name": "沪市扩募规则联调模板（未绑定真实项目）",
+      "security_identity": {
+        "status": "unknown",
+        "code": null,
+        "market": null,
+        "board": null,
+        "security_type": null,
+        "name": null,
+        "reason": "explicit security identity not supplied; issuer name and code prefix are not substitutes",
+        "evidence": null
+      },
+      "dates": {
+        "event_date": null,
+        "observation_date": "2026-10-09",
+        "backtest_cutoff": null,
+        "date_timezone": "+08:00"
+      },
+      "facts": [
+        {
+          "key": "minimum_raised_threshold",
+          "value": "持有人大会决议确定扩募规模的80%",
+          "unit": "rule_threshold",
+          "status": "original",
+          "evidence": {
+            "source_id": "REITS-EXP-SH",
+            "locator": "第40条"
+          }
+        },
+        {
+          "key": "offering_method",
+          "value": "public",
+          "unit": "route",
+          "status": "hypothesis",
+          "reason": "展示接口路径；未绑定项目公告"
+        },
+        {
+          "key": "expansion_price",
+          "value": null,
+          "unit": "CNY/unit",
+          "status": "unknown",
+          "reason": "须取得实际扩募条款"
+        },
+        {
+          "key": "approved_units",
+          "value": null,
+          "unit": "units",
+          "status": "unknown",
+          "reason": "须取得持有人大会决议"
+        },
+        {
+          "key": "settlement_available_at",
+          "value": null,
+          "unit": "timestamp",
+          "status": "unknown",
+          "reason": "无实际申报、过户或银行/券商到账凭证，不能推算可用现金"
+        }
+      ],
+      "unit_semantics": [
+        {
+          "key": "minimum_raised_threshold",
+          "native_unit": "rule_threshold",
+          "unit_family": "unmapped",
+          "currency": null,
+          "scale": null,
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "offering_method",
+          "native_unit": "route",
+          "unit_family": "unmapped",
+          "currency": null,
+          "scale": null,
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "expansion_price",
+          "native_unit": "CNY/unit",
+          "unit_family": "money_per_fund_unit",
+          "currency": "CNY",
+          "scale": "1",
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "approved_units",
+          "native_unit": "units",
+          "unit_family": "fund_unit_count",
+          "currency": null,
+          "scale": "1",
+          "conversion": "none; value retained verbatim"
+        },
+        {
+          "key": "settlement_available_at",
+          "native_unit": "timestamp",
+          "unit_family": "timestamp",
+          "currency": null,
+          "scale": null,
+          "conversion": "none; value retained verbatim"
+        }
+      ],
+      "rules": [
+        {
+          "source_id": "REITS-EXP-SH",
+          "locator": "第36—50条",
+          "scope": "仅沪市三路径扩募；示例采用公众发售路径，不认证实际项目"
+        }
+      ],
+      "rule_selection": {
+        "record_id": "workbench-rule-selected",
+        "query": {
+          "topic": "reits_expansion",
+          "market": "SSE",
+          "board": "REITS",
+          "subject": "fund_manager",
+          "asset_type": "infrastructure",
+          "applicability_date": "2026-10-09",
+          "knowledge_date": "2026-10-09"
+        },
+        "catalog_version": "1.0",
+        "catalog_verified_as_of": "2026-10-09",
+        "rule_version_id": "SSE-REITS-EXP-2025",
+        "status": "selected",
+        "document_version": "上证发〔2025〕141号",
+        "published_at": "2025-12-31",
+        "effective_from": "2025-12-31",
+        "effective_until": null,
+        "supersedes": [
+          "SSE-REITS-EXP-2022"
+        ],
+        "replaced_by": [],
+        "evidence": {
+          "source_id": "REITS-EXP-SH",
+          "locator": "第36—50条"
+        },
+        "interval_evidence": {
+          "source_id": "REITS-EXP-SH",
+          "locator": "发布通知：发布施行并废止2022指引"
+        },
+        "scope": "沪市REITs三路径扩募条款，资格/项目审批仍逐案核对",
+        "reason": "version selection only; not legal eligibility certification"
+      },
+      "record_type": "reits_expansion_terms",
+      "record_role": null,
+      "workbench_inputs": [
+        "项目经营现金流及口径",
+        "净资产及评估报告",
+        "新增资产收益与融资成本",
+        "基准及扩募后份额",
+        "实际扩募价格与费用"
+      ]
+    }
+  ],
+  "validation": {
+    "kind": "reits_expansion_terms",
+    "record_count": 1,
+    "unknown_field_count": 3,
+    "status": "structure_valid_only",
+    "scope": "no source authenticity certification, liquidation price, fraud classification, valuation or execution",
+    "rule_selections": [
+      {
+        "record_id": "workbench-rule-selected",
+        "query": {
+          "topic": "reits_expansion",
+          "market": "SSE",
+          "board": "REITS",
+          "subject": "fund_manager",
+          "asset_type": "infrastructure",
+          "applicability_date": "2026-10-09",
+          "knowledge_date": "2026-10-09"
+        },
+        "catalog_version": "1.0",
+        "catalog_verified_as_of": "2026-10-09",
+        "rule_version_id": "SSE-REITS-EXP-2025",
+        "status": "selected",
+        "document_version": "上证发〔2025〕141号",
+        "published_at": "2025-12-31",
+        "effective_from": "2025-12-31",
+        "effective_until": null,
+        "supersedes": [
+          "SSE-REITS-EXP-2022"
+        ],
+        "replaced_by": [],
+        "evidence": {
+          "source_id": "REITS-EXP-SH",
+          "locator": "第36—50条"
+        },
+        "interval_evidence": {
+          "source_id": "REITS-EXP-SH",
+          "locator": "发布通知：发布施行并废止2022指引"
+        },
+        "scope": "沪市REITs三路径扩募条款，资格/项目审批仍逐案核对",
+        "reason": "version selection only; not legal eligibility certification"
+      }
+    ]
+  },
+  "legacy_payload": {
+    "schema_version": "1.2",
+    "kind": "reits_expansion_terms",
+    "as_of": "2026-10-09",
+    "sources": [
+      {
+        "source_id": "REITS-EXP-SH",
+        "source_type": "rule",
+        "title": "沪市扩募及新购入不动产指引",
+        "publisher": "上海证券交易所",
+        "version": "上证发2025年第141号",
+        "published_at": "2025-12-31",
+        "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803751.shtml",
+        "source_tier": "public_original",
+        "access_requirement": "public",
+        "acquisition_status": "success",
+        "retrieved_at": "2026-10-09",
+        "original_verification": "verified",
+        "verified_at": "2026-10-09",
+        "rule_version_id": "SSE-REITS-EXP-2025"
+      }
+    ],
+    "records": [
+      {
+        "record_id": "workbench-rule-selected",
+        "entity_name": "沪市扩募规则联调模板（未绑定真实项目）",
+        "event_date": null,
+        "observation_date": "2026-10-09",
+        "market": "SSE",
+        "offering_method": "public",
+        "rule_check_status": "partial",
+        "workbench_inputs": [
+          "项目经营现金流及口径",
+          "净资产及评估报告",
+          "新增资产收益与融资成本",
+          "基准及扩募后份额",
+          "实际扩募价格与费用"
+        ],
+        "rules": [
+          {
+            "source_id": "REITS-EXP-SH",
+            "locator": "第36—50条",
+            "scope": "仅沪市三路径扩募；示例采用公众发售路径，不认证实际项目"
+          }
+        ],
+        "facts": [
+          {
+            "key": "minimum_raised_threshold",
+            "value": "持有人大会决议确定扩募规模的80%",
+            "unit": "rule_threshold",
+            "status": "original",
+            "evidence": {
+              "source_id": "REITS-EXP-SH",
+              "locator": "第40条"
+            }
+          },
+          {
+            "key": "offering_method",
+            "value": "public",
+            "unit": "route",
+            "status": "hypothesis",
+            "reason": "展示接口路径；未绑定项目公告"
+          },
+          {
+            "key": "expansion_price",
+            "value": null,
+            "unit": "CNY/unit",
+            "status": "unknown",
+            "reason": "须取得实际扩募条款"
+          },
+          {
+            "key": "approved_units",
+            "value": null,
+            "unit": "units",
+            "status": "unknown",
+            "reason": "须取得持有人大会决议"
+          },
+          {
+            "key": "settlement_available_at",
+            "value": null,
+            "unit": "timestamp",
+            "status": "unknown",
+            "reason": "无实际申报、过户或银行/券商到账凭证，不能推算可用现金"
+          }
+        ],
+        "rule_query": {
+          "topic": "reits_expansion",
+          "market": "SSE",
+          "board": "REITS",
+          "subject": "fund_manager",
+          "asset_type": "infrastructure",
+          "applicability_date": "2026-10-09",
+          "knowledge_date": "2026-10-09"
+        },
+        "rule_version_id": "SSE-REITS-EXP-2025"
+      }
+    ],
+    "integration_case": "rule version selection only; unbound project, no legal qualification certification"
+  },
+  "computation_status": "not_migrated; use existing scenario input contract"
+}

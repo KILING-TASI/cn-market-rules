@@ -1,0 +1,192 @@
+{
+  "method_version": "rule-applicability/1.0",
+  "verified_at": "2026-10-09",
+  "baseline_commit": "6b861a4f145025a8f4a0d44dc664de8dc0a5a16b",
+  "automated_existing_tests": {
+    "tests": [
+      "test_day_before_replacement",
+      "test_replacement_day",
+      "test_old_not_commercial",
+      "test_new_commercial",
+      "test_publication_not_implementation",
+      "test_before_delayed_effective",
+      "test_effective_day",
+      "test_deferred_exception",
+      "test_subject_scope",
+      "test_board_scope"
+    ],
+    "run": 10,
+    "failures": 0,
+    "errors": 0
+  },
+  "version_selection_results": [
+    {
+      "query": {
+        "topic": "reits_expansion",
+        "market": "SSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "infrastructure",
+        "applicability_date": "2025-12-30",
+        "knowledge_date": "2025-12-30"
+      },
+      "catalog_version": "1.0",
+      "catalog_verified_as_of": "2026-10-09",
+      "rule_version_id": "SSE-REITS-EXP-2022",
+      "status": "selected",
+      "document_version": "上证发〔2022〕83号",
+      "published_at": "2022-05-31",
+      "effective_from": "2022-05-31",
+      "effective_until": "2025-12-31",
+      "supersedes": [],
+      "replaced_by": [
+        "SSE-REITS-EXP-2025"
+      ],
+      "evidence": {
+        "source_id": "REITS-EXP-SH-2022",
+        "locator": "第2条及扩募章节"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "2025发布通知：2022指引同时废止"
+      },
+      "scope": "沪市基础设施REITs；历史版，仅选版本、不复用现行计算",
+      "reason": "version selection only; not legal eligibility certification"
+    },
+    {
+      "query": {
+        "topic": "reits_expansion",
+        "market": "SSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "infrastructure",
+        "applicability_date": "2025-12-31",
+        "knowledge_date": "2025-12-31"
+      },
+      "catalog_version": "1.0",
+      "catalog_verified_as_of": "2026-10-09",
+      "rule_version_id": "SSE-REITS-EXP-2025",
+      "status": "selected",
+      "document_version": "上证发〔2025〕141号",
+      "published_at": "2025-12-31",
+      "effective_from": "2025-12-31",
+      "effective_until": null,
+      "supersedes": [
+        "SSE-REITS-EXP-2022"
+      ],
+      "replaced_by": [],
+      "evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "第36—50条"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "发布通知：发布施行并废止2022指引"
+      },
+      "scope": "沪市REITs三路径扩募条款，资格/项目审批仍逐案核对",
+      "reason": "version selection only; not legal eligibility certification"
+    },
+    {
+      "query": {
+        "topic": "reits_expansion",
+        "market": "SSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "commercial",
+        "applicability_date": "2025-12-30",
+        "knowledge_date": "2025-12-30"
+      },
+      "catalog_version": "1.0",
+      "catalog_verified_as_of": "2026-10-09",
+      "rule_version_id": null,
+      "status": "gap",
+      "reason": "no verified version for supplied scope/date; missing dates are not guessed"
+    },
+    {
+      "query": {
+        "topic": "reits_expansion",
+        "market": "SSE",
+        "board": "REITS",
+        "subject": "fund_manager",
+        "asset_type": "commercial",
+        "applicability_date": "2025-12-31",
+        "knowledge_date": "2025-12-31"
+      },
+      "catalog_version": "1.0",
+      "catalog_verified_as_of": "2026-10-09",
+      "rule_version_id": "SSE-REITS-EXP-2025",
+      "status": "selected",
+      "document_version": "上证发〔2025〕141号",
+      "published_at": "2025-12-31",
+      "effective_from": "2025-12-31",
+      "effective_until": null,
+      "supersedes": [
+        "SSE-REITS-EXP-2022"
+      ],
+      "replaced_by": [],
+      "evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "第36—50条"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "发布通知：发布施行并废止2022指引"
+      },
+      "scope": "沪市REITs三路径扩募条款，资格/项目审批仍逐案核对",
+      "reason": "version selection only; not legal eligibility certification"
+    }
+  ],
+  "manual_clause_reviews": [
+    {
+      "case": "BSE financial combination by listing standard",
+      "review_status": "manual_clause_checked",
+      "source_id": "ST-BSE",
+      "locator": "10.3.1 first item and final paragraph",
+      "facts": {
+        "deducted_revenue_yuan": 49000000,
+        "lowest_audited_profit_yuan": -1000000
+      },
+      "results": {
+        "listing_standard_1": "first item must be checked",
+        "listing_standards_2_3_4": "first item excluded; no exemption for other items"
+      },
+      "scope": "not a company-wide eligibility result"
+    },
+    {
+      "case": "BSE market capitalization by listing standard",
+      "review_status": "manual_clause_checked",
+      "source_id": "ST-BSE",
+      "locator": "10.2.1 fourth item and trading-day exclusions",
+      "facts": {
+        "market_cap_yuan_each_valid_day": 290000000,
+        "valid_consecutive_trading_days": 60
+      },
+      "results": {
+        "listing_standard_4": "fourth item must be checked",
+        "other_standards": "fourth item not applicable; other paths remain"
+      },
+      "scope": "assumed complete eligible trading-day series; no market data fetched"
+    },
+    {
+      "case": "CAS30 grouped execution dates",
+      "review_status": "manual_source_locator_checked_only",
+      "source_id": "CAS30-2026-NOTICE",
+      "locator": "notice items 1 and 2",
+      "facts": {
+        "overseas_or_dual_listed_specified_group": "2027-01-01",
+        "other_domestic_listed": "2029-01-01",
+        "unlisted_using_ASBE": "2030-01-01",
+        "early_adoption_allowed": true
+      },
+      "scope": "not integrated into catalog or accounting engine; issuer adoption evidence required"
+    }
+  ],
+  "frozen_preview_files": "byte_equal_to_baseline_commit",
+  "limitations": [
+    "no legal eligibility engine",
+    "no accounting opinion",
+    "no exact first-public time certification",
+    "no full-market coverage",
+    "no third-party text/code redistribution"
+  ]
+}

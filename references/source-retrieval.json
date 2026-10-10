@@ -181,5 +181,386 @@
     "status": "retrieved",
     "sha256": "e4ca55cce5aad921d9521fc96673936a8b4af56e47ccda05421afed3be6e359c",
     "text_chars": 913
+  },
+  {
+    "id": "sote-case-v21",
+    "url": "https://static.cninfo.com.cn/finalpage/2025-01-20/1222380393.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "b3369d147a26864cc2c5189826c27db39a2e746ca2468b4917f625b1b0bb433a",
+    "text_chars": 5661
+  },
+  {
+    "id": "lingnan-case-v21",
+    "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-08-15/163bb4b1-2e08-4ca6-99fe-bd695382c27d.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "f28f2ef4e9021202edf6587befe3bdfcb688bf7cfe4c715fe88cbf83408cb59c",
+    "text_chars": 2575
+  },
+  {
+    "id": "sote-delist-v21",
+    "url": "https://www.szse.cn/disclosure/notice/company/t20230721_602059.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "8df5ac4cc7c4fd6e5b7a23238d0db0ae41acce220a1673757d4adb02ef645086",
+    "text_chars": 8239
+  },
+  {
+    "id": "bse-v21",
+    "url": "https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf"
+  },
+  {
+    "id": "cal-sse-v21",
+    "url": "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "4e260b815ce1309175ed994e6490a4ccd51b998a5f92bcdc41cec00fc6823dc7",
+    "text_chars": 8940
+  },
+  {
+    "id": "cal-szse-v21",
+    "url": "https://investor.szse.cn/disclosure/notice/general/t20251222_618087.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "1656d8708d5faed33c7588538639d96128f39fdface02cfa6eb66d796c40f14e",
+    "text_chars": 8222
+  },
+  {
+    "id": "star-v21",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/listing/c/10817748/files/8d80222543f64159ac5d177b7aace71c.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "646a146de1f0d4fc03572b414b2c2c0d0127dd1346d0c60c276f90126e3bc5c6",
+    "text_chars": 81223
+  },
+  {
+    "id": "gem-v21",
+    "url": "https://docs.static.szse.cn/www/lawrules/rule/allrules/bussiness/W020260424688875101057.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "943802fc89787f22910edb225fb0a868f38ae112f35328b3a54536bb44ec3889",
+    "text_chars": 84369
+  },
+  {
+    "id": "sz-base-v21",
+    "url": "https://docs.static.szse.cn/www/reits/lawrule/bussrules/latest/W020251231638035935242.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "1d705476b5b49af9376e92343d0b725f9969a241c3e1417226610e9eaa89309a",
+    "text_chars": 13637
+  },
+  {
+    "id": "expansion-v21",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/10803751/files/939d0b9fdd1348999321cbb0927f6c6c.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "7e469d70b08b96efce9000b8ca3a97feb7050404e14a99e48dd3dbde1191cb5d",
+    "text_chars": 9283
+  },
+  {
+    "id": "bluedon-case-v21",
+    "url": "https://static.cninfo.com.cn/finalpage/2024-08-13/1220861411.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "1457e3c9c94f7e247896d99b5b390fc05c5ff3f58e44a62c534963f8f2413213",
+    "text_chars": 1565
+  },
+  {
+    "id": "unlock-first",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-09-10/603073_20260910_GV58.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "Stream has ended unexpectedly"
+  },
+  {
+    "id": "pledge-first",
+    "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-29/28d7561c-c318-463e-8f00-b3f9374ba4ad.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "e224e661febc2488f34a8050c0a240994464d58308fd45499d5ee19bf32886fa",
+    "text_chars": 2005
+  },
+  {
+    "id": "goodwill-first",
+    "url": "https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.csrc.gov.cn/jiangxi/c104168/c7491902/content.shtml"
+  },
+  {
+    "id": "goodwill-rule",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/10779132/files/98ef92cd80ed49e8b2dab9aab00546ba.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "88f5824909c9dd7773b5808daea127f0cab2d0839398fdff5af021ebaa7012cf",
+    "text_chars": 18306
+  },
+  {
+    "id": "bse-retry-v22",
+    "url": "https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf"
+  },
+  {
+    "id": "sz-exp-v22",
+    "url": "https://docs.static.szse.cn/www/lawrules/rule/reits/W020251231642043210042.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "640ccc667af67edb6c8bbdf7010d54c20884ec188548aba41675c72baf83f8c3",
+    "text_chars": 10017
+  },
+  {
+    "id": "inquiry-reit-v22",
+    "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-12/27a1a70e-bf18-49a3-9f79-8b6bdd879e72.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "d8704ccff95b2125b8f6f878480351bec9faa59e5769c9152700388d4fdc6534",
+    "text_chars": 761
+  },
+  {
+    "id": "correction-lyh-v22",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-08-27/1225513693.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "b037255d0a7cab4d9b25358504bfb170d789cfefab872e36a304c4345c8bff29",
+    "text_chars": 724
+  },
+  {
+    "id": "sse-exp-old-v22",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10804033/files/f6f563a925714d5cb63f471187398109.docx",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "637faf80bdc59d4993d665812f5f41035fe5cad788112bff116aeabb877fe5e8",
+    "text_chars": 10018
+  },
+  {
+    "id": "sz-exp-notice-v22",
+    "url": "https://www.szse.cn/www/lawrules/rule/reits/t20251231_618232.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "9ea2906a403b8a0474000bc5870f432d53d52d551b94c65e2ba6fed802b25fc4",
+    "text_chars": 8057
+  },
+  {
+    "id": "correction-public-v22",
+    "url": "https://epaper.cs.com.cn/zgzqb/wap/html/2026-08/27/nw.D110000zgzqb_20260827_3-B022.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "0f2abf966d8ca6273270542198730254f1be5c56131d8e2ecf1cb6acb126f30e",
+    "text_chars": 2613
+  },
+  {
+    "id": "airport-audit-batch",
+    "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-24/3079f18e-1621-4c28-b9c9-e4342933e611.PDF",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "5968d2bead752acb53d6a3cb2127e49319137bba39e074a691581c18299c4db4",
+    "text_chars": 197527
+  },
+  {
+    "id": "phoenix-penalty-batch",
+    "url": "https://www.csrc.gov.cn/shanghai/c103864/c7462465/content.shtml",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.csrc.gov.cn/shanghai/c103864/c7462465/content.shtml"
+  },
+  {
+    "id": "phoenix-notice-batch",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2024-02-06/600679_20240206_L4BU.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "Stream has ended unexpectedly"
+  },
+  {
+    "id": "xinhai-penalty-citation-batch",
+    "url": "https://www.szse.cn/disclosure/notice/company/t20240318_606349.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "2b5be2a2dcf88c136d1cd4e2e456d72ca69b7248030b7acd748d823993a6fe72",
+    "text_chars": 8241
+  },
+  {
+    "id": "bse-retry-0",
+    "url": "https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf",
+    "checked_at": "2026-10-09",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "bytes": 688737,
+    "status": "retrieved",
+    "sha256": "40202d5a91c54ea5eba5d0585c8312d1dccd99bd0ae92716aa7180dca15b264f",
+    "text_chars": 78216
+  },
+  {
+    "id": "bse-retry-1",
+    "url": "https://www.bse.cn/cxjg_list/200028220.html",
+    "checked_at": "2026-10-09",
+    "http_status": 200,
+    "content_type": "text/html",
+    "bytes": 547024,
+    "status": "retrieved",
+    "sha256": "528ad332b6abff014fe0733b5b262fbe62fdbefa2dd5ba1acc7adc867fb36622"
+  },
+  {
+    "id": "bse-retry-2",
+    "url": "https://bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "HTTPSConnectionPool(host='bse.cn', port=443): Max retries exceeded with url: /uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf (Caused by NameResolutionError(\"HTTPSConnection(host='bse.cn', port=443): Failed to resolve 'bse.cn' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "id": "bse-transition-2024",
+    "url": "https://www.bse.cn/cxjg_list/200021755.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "c68f1fdb0efd9d9b03ffd5e73a63d009a528fee2f8245591505c26bfa280211e",
+    "text_chars": 64697
+  },
+  {
+    "id": "sse-transition-2024",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/c_20240430_10785259.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "8b1b3028fc65e1c94ded55aa349c234a86974b166363f5525cde75597759d1fb",
+    "text_chars": 2937
+  },
+  {
+    "id": "star-transition-2024",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/c_20240430_10777832.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "2c9251083789eb5b1e52cee0edd9378bf1c67660a26e7d09c07f6ff405750038",
+    "text_chars": 2893
+  },
+  {
+    "id": "szse-transition-2024",
+    "url": "https://www.szse.cn/lawrules/rule/repeal/rules/t20240430_607069.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "575b8546c0208e26366698655a8dfb37a78dcfb0c0eb6e566e78d5e7ea1c1f4e",
+    "text_chars": 1602
+  },
+  {
+    "id": "szse-notice-2026",
+    "url": "https://www.szse.cn/www/lawrules/rule/stock/t20260424_620193.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "8d762a65f1f25f69b9f09d02d5b81e91dd6401245a4ac61b27536ff9f4f278bd",
+    "text_chars": 953
+  },
+  {
+    "id": "gem-notice-2026",
+    "url": "https://investor.szse.cn/lawrules/rule/allrules/bussiness/t20260424_620189.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "5ee96ca1c05cf6fcf7ae1f299d961990591b5d77bcf802ad21c22070f25390e0",
+    "text_chars": 925
+  },
+  {
+    "id": "sse-notice-2026",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20260424_10816589.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "d7957afd2f87a47f9e5d25b8411d400e9c9c80349c842d08e6296f8a80f5e466",
+    "text_chars": 2255
+  },
+  {
+    "id": "star-notice-2026",
+    "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/listing/c/c_20260424_10817748.shtml",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "e84525548d8bc47e3f7305d0c5b7a48dc9f7d121c373e42572bc80ac6bd69fd7",
+    "text_chars": 2146
+  },
+  {
+    "id": "tender-zhenxing-result",
+    "url": "https://epaper.stcn.com/paper/zqsb/html/2017-12/14/content_1077024.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "823be405ac6e97b389b8ccc92bd2e23448619807134a32d6bd8a6c15ec4f7268",
+    "text_chars": 2672
+  },
+  {
+    "id": "haitong-delisting-final",
+    "url": "https://epaper.cs.com.cn/zgzqb/html/2025-02/26/nw.D110000zgzqb_20250226_2-B022.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "4fa09f8f2790c3c76bf7cb4e80b7757c34d1ff4c27578208b7e411eedae34ad0",
+    "text_chars": 4973
+  },
+  {
+    "id": "gem-transition-2024",
+    "url": "https://www.szse.cn/lawrules/rule/repeal/rules/t20240430_607070.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "5e9e40980eb0bcec17582b0575bbb6237b07bddf2e8f6133996c4a3b4351d8fe",
+    "text_chars": 1492
+  },
+  {
+    "id": "haitong-cash-implementation",
+    "url": "https://epaper.cs.com.cn/zgzqb/html/2025-02/06/nw.D110000zgzqb_20250206_1-A14.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "ef00b7a0751a341e2b6459c1ccccb6a58877e56c8c4f58d33bac7fec346c7c96",
+    "text_chars": 6814
+  },
+  {
+    "id": "haitong-cash-result",
+    "url": "https://epaper.stcn.com/pic/202502/08/dc9d43be90b099141b629f15d40c1738.pdf",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "53094a38ef21529f708e514f72cfa9489f9983bb35720a01de29f6fd24462604",
+    "text_chars": 1411
+  },
+  {
+    "id": "haitong-merger-result",
+    "url": "https://epaper.cs.com.cn/zgzqb/html/2025-03/14/nw.D110000zgzqb_20250314_2-A30.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "b57b5d84263718e094113abc14503213e299c43f2ce2922602c37668c62e5b59",
+    "text_chars": 6482
+  },
+  {
+    "id": "method-civil-code",
+    "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "16fb30a132114600f32059367dae0d6dd274519aa154126eae0ef9600cf4074e",
+    "text_chars": 111355
+  },
+  {
+    "id": "method-hart-lecture",
+    "url": "https://www.nobelprize.org/uploads/2018/06/hart-lecture.pdf",
+    "checked_at": "2026-10-09",
+    "status": "failed",
+    "error": "403 Client Error: Forbidden for url: https://www.nobelprize.org/uploads/2018/06/hart-lecture.pdf"
+  },
+  {
+    "id": "method-cas30-2026",
+    "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/202608/t20260806_3995008.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "4de9a8f39aaf2aa5a5328c8b68f0c0cc1f7a0f4900ac9f0c33a12eeb299c7f20",
+    "text_chars": 14573
+  },
+  {
+    "id": "method-cas30-notice",
+    "url": "https://ah.mof.gov.cn/tongzhitonggao/202608/t20260810_3995173.htm",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "127a21e57a53878110863b41119cf467e81412b49fc90f56c8d90f80457856b4",
+    "text_chars": 14919
+  },
+  {
+    "id": "method-hart-press",
+    "url": "https://www.nobelprize.org/prizes/economic-sciences/2016/press-release/",
+    "checked_at": "2026-10-09",
+    "status": "retrieved",
+    "sha256": "38144a86e15317f11a819fb4c91ad1135c279bc4174ea5dea2aef6267750a555",
+    "text_chars": 7758
   }
 ]

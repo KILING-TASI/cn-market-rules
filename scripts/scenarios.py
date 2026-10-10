@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Offline, explicitly parameterized research arithmetic. No market/account access."""
 from __future__ import annotations
 
@@ -58,6 +59,50 @@ def ratio(value):
 def carrying(obj, capital):
     return capital * num(obj, 'annual_opportunity_rate', 0, 1) * integer(obj, 'holding_days') / 365
 
+def dilution(obj):
+    principal = D(integer(obj, 'outstanding_principal', 1))
+    old_price = num(obj, 'old_conversion_price', '.000001')
+    new_price = num(obj, 'new_conversion_price', '.000001')
+    if new_price >= old_price:
+        raise ValueError('new_conversion_price must be below old_conversion_price')
+    existing = D(integer(obj, 'existing_shares', 1))
+    profit = num(obj, 'net_profit_ttm')
+    underlying = num(obj, 'underlying_price', '.000001')
+    fraction = num(obj, 'conversion_fraction', 0, 1)
+    old_new_shares = principal * fraction / old_price
+    new_new_shares = principal * fraction / new_price
+    old_dilution = old_new_shares / (existing + old_new_shares)
+    new_dilution = new_new_shares / (existing + new_new_shares)
+    eps_current = profit / existing
+    eps_old = profit / (existing + old_new_shares)
+    eps_new = profit / (existing + new_new_shares)
+    compression = (1 - eps_new / eps_old) if profit > 0 else None
+    loss_change = (1 - abs(eps_new) / abs(eps_old)) if profit < 0 else None
+    adjusted_eps = None
+    if 'profit_adjustment' in obj:
+        adjusted_eps = ratio((profit + num(obj, 'profit_adjustment')) / (existing + new_new_shares))
+    return {
+        'mode': 'dilution', 'conversion_fraction': ratio(fraction),
+        'theoretical_new_shares_old_price': ratio(old_new_shares),
+        'theoretical_new_shares_new_price': ratio(new_new_shares),
+        'additional_shares_due_to_revision': ratio(new_new_shares - old_new_shares),
+        'dilution_ratio_old_price': ratio(old_dilution),
+        'dilution_ratio_new_price': ratio(new_dilution),
+        'additional_dilution_ratio': ratio(new_dilution - old_dilution),
+        'conversion_value_old_per_100': money(100 * underlying / old_price),
+        'conversion_value_new_per_100': money(100 * underlying / new_price),
+        'conversion_value_uplift_ratio': ratio(old_price / new_price - 1),
+        'static_eps_current': ratio(eps_current), 'static_eps_old_price': ratio(eps_old),
+        'static_eps_new_price': ratio(eps_new),
+        'positive_profit_eps_compression_ratio': None if compression is None else ratio(compression),
+        'loss_per_share_absolute_reduction_ratio': None if loss_change is None else ratio(loss_change),
+        'adjusted_eps_new_price': adjusted_eps,
+        'profit_interpretation': 'positive' if profit > 0 else ('loss: less negative per-share arithmetic is not operating improvement' if profit < 0 else 'zero profit: EPS ratios undefined'),
+        'legal_floor_check': 'not assessed; verify statutory and individual bond price constraints',
+        'dilution_is_not_loss': 'ownership dilution is not shareholder economic loss',
+        'assumptions': 'same-date remaining principal/current shares including previous conversions; same conversion fraction; constant profit and reference price; theoretical fractional shares; no accounting weighted-average EPS'
+    }
+
 def tender(obj):
     qty = integer(obj, 'quantity', 1)
     cost = num(obj, 'buy_price', '.000001')
@@ -103,8 +148,9 @@ def exit_scenario(obj):
             'opportunity_cost': money(carry), 'legal_eligibility': 'not assessed'}
 
 def reits(obj):
-    if label(obj, 'market') != 'SSE' or label(obj, 'offering_type') != 'initial':
-        raise ValueError('reits: only SSE initial offering is supported')
+    market = label(obj, 'market')
+    if market not in {'SSE', 'SZSE'} or label(obj, 'offering_type') != 'initial':
+        raise ValueError('reits: only SSE/SZSE initial offering is supported')
     registered = num(obj, 'registered_units', 1)
     final = num(obj, 'final_units', 0, registered)
     strategic = num(obj, 'strategic_units', 0, final)
@@ -122,10 +168,69 @@ def reits(obj):
               'originator_noncompliance': not compliance,
               'offline_below_70_percent_of_nonstrategic': fraction < D('.70'),
               'other_failure_condition': other}
-    return {'mode': 'reits', 'nonstrategic_denominator_units': str(public_pool),
+    return {'mode': 'reits', 'market': market, 'rule_source_id': 'REITS-SALE' if market == 'SSE' else 'REITS-SZ-SALE',
+            'nonstrategic_denominator_units': str(public_pool),
             'offline_ratio': ratio(fraction), 'minimum_offline_units': str(public_pool * D('.70')),
             'failure_checks': checks, 'failure_condition_detected': any(checks.values()),
             'status': 'arithmetic conditions only; formal offering result requires manager announcement'}
+
+def reits_expansion(obj):
+    market = label(obj, 'market')
+    if market not in {'SSE', 'SZSE'}:
+        raise ValueError('reits_expansion: verified SSE/SZSE routes only')
+    # The new SZSE path is scoped to the independently verified 2025 text.
+    # Preserve the legacy SSE input; never reinterpret a historical SZSE issue.
+    if market == 'SZSE' or 'rule_applicability_date' in obj:
+        applicable = date.fromisoformat(label(obj, 'rule_applicability_date'))
+        if not date(2025, 12, 31) <= applicable <= date(2026, 10, 9):
+            raise ValueError('rule_applicability_date: outside verified expansion version coverage')
+    route = label(obj, 'offering_method')
+    if route not in {'holders', 'public', 'targeted'}:
+        raise ValueError('offering_method: holders/public/targeted required')
+    approved = num(obj, 'meeting_approved_units', '.000001')
+    subscribed = num(obj, 'subscribed_units', 0, approved)
+    originator = flag(obj, 'originator_compliant')
+    other = flag(obj, 'other_failure_condition')
+    checks = {'below_80_percent_of_meeting_approved': subscribed < approved * D('.80'),
+              'originator_noncompliance': not originator, 'other_failure_condition': other}
+    if route == 'holders':
+        planned_holder = num(obj, 'planned_holder_units', '.000001', approved)
+        subscribed_holder = num(obj, 'subscribed_holder_units', 0, min(planned_holder, subscribed))
+        checks['holder_commitment_not_honored'] = not flag(obj, 'holder_commitments_honored')
+        checks['holder_subscription_below_80_percent'] = subscribed_holder < planned_holder * D('.80')
+    if route == 'targeted':
+        allottee_count = integer(obj, 'allottee_count', 1)
+        # Count must already apply the rule's aggregation of managed products.
+        checks['targeted_allottees_exceed_35'] = allottee_count > 35
+    existing = num(obj, 'existing_units', '.000001')
+    nav = num(obj, 'existing_nav_per_unit', '.000001')
+    price = num(obj, 'expansion_price', '.000001')
+    fees = num(obj, 'permitted_issue_fees', 0)
+    adjustment = num(obj, 'net_asset_adjustment')
+    old_holder = num(obj, 'holder_existing_units', 0, existing)
+    new_holder = num(obj, 'holder_subscribed_units', 0, subscribed)
+    reference = num(obj, 'reference_market_price', '.000001')
+    failed = any(checks.values())
+    projected = None
+    if not failed:
+        total = existing + subscribed
+        assets = existing * nav + subscribed * price - fees + adjustment
+        projected = {'post_units': ratio(total), 'post_net_assets': money(assets),
+                     'post_nav_per_unit': ratio(assets / total),
+                     'nav_change_ratio': ratio(assets / total / nav - 1),
+                     'nonparticipating_holder_ownership_compression': ratio(1 - existing / total),
+                     'holder_ownership_before': ratio(old_holder / existing),
+                     'holder_ownership_after': ratio((old_holder + new_holder) / total),
+                     'holder_ownership_change_ratio': ratio((old_holder + new_holder) / total - old_holder / existing),
+                     'holder_subscription_cash': money(new_holder * price)}
+    return {'mode': 'reits_expansion', 'market': market, 'offering_method': route,
+            'rule_source_id': 'REITS-EXP-SH' if market == 'SSE' else 'REITS-EXP-SZ', 'failure_checks': checks,
+            'failure_or_route_violation_detected': failed,
+            'expansion_price_to_market_ratio': ratio(price / reference - 1),
+            'conditional_capital_structure': projected,
+            'legal_price_floor_check': 'not assessed; public/targeted price bases and exceptions must be verified separately',
+            'qualification': 'not assessed; no first-offering 200m/1000/70% checks reused',
+            'assumptions': 'subscribed units treated as issued only if supplied checks pass; existing NAV plus cash minus permitted issue fees plus explicit asset/liability/fair-value adjustment; not a completion announcement or economic loss estimate'}
 
 def reits_return(obj):
     subscription = num(obj, 'subscription_amount', '.000001')
@@ -261,8 +366,8 @@ def clause(obj):
             'window_complete': len(hits) >= window,
             'calendar_and_contract': 'input sequence must contain all eligible days; legal trigger not independently assessed'}
 
-MODES = {'tender': tender, 'merger': merger, 'exit': exit_scenario, 'reits': reits,
-         'reits_return': reits_return, 'repo': repo, 'cash': cash, 'clause': clause}
+MODES = {'dilution': dilution, 'tender': tender, 'merger': merger, 'exit': exit_scenario, 'reits': reits,
+         'reits_expansion': reits_expansion, 'reits_return': reits_return, 'repo': repo, 'cash': cash, 'clause': clause}
 
 def calculate(obj):
     if not isinstance(obj, dict):
@@ -283,13 +388,71 @@ def run(document):
                 'notice': 'scenario arithmetic; no live data, eligibility decision or execution'}
     return calculate(document)
 
+def load_calendar(path):
+    document = json.loads(Path(path).read_text(encoding='utf-8-sig'))
+    if not isinstance(document, dict) or not isinstance(document.get('coverage'), dict):
+        raise ValueError('calendar: object with coverage required')
+    market = label(document, 'market')
+    if market not in {'SSE', 'SZSE'}:
+        raise ValueError('calendar market must be SSE/SZSE')
+    source_id = label(document, 'source_id')
+    url = label(document, 'source_url')
+    if not url.startswith(('https://', 'http://')):
+        raise ValueError('calendar source_url must be explicit HTTP(S) source')
+    iso(document, 'published_at')
+    verified = iso(document, 'verified_at')
+    start, end = iso(document['coverage'], 'start'), iso(document['coverage'], 'end')
+    if start > end:
+        raise ValueError('calendar coverage reversed')
+    raw = document.get('trading_days')
+    if not isinstance(raw, list) or not raw:
+        raise ValueError('calendar trading_days must be nonempty')
+    try:
+        days = [date.fromisoformat(d) for d in raw]
+    except (ValueError, TypeError):
+        raise ValueError('calendar contains invalid dates') from None
+    if days != sorted(set(days)) or any(d < start or d > end for d in days):
+        raise ValueError('calendar days must be unique ascending within declared coverage')
+    return {'market': market, 'trading_days': raw, 'calendar_start': start.isoformat(),
+            'calendar_end': end.isoformat(), 'calendar_source': f'{source_id} | {url} | verified {verified.isoformat()}'}
+
+def apply_calendar(document, calendar):
+    if not isinstance(document, dict):
+        raise ValueError('input must be an object')
+    cases = document.get('cases', [document])
+    if not isinstance(cases, list):
+        raise ValueError('cases must be a list')
+    replaced, used = [], False
+    for case in cases:
+        if not isinstance(case, dict):
+            raise ValueError('case must be an object')
+        copy = dict(case)
+        if case.get('mode') == 'repo':
+            if any(k in case for k in ('trading_days','calendar_start','calendar_end','calendar_source')):
+                raise ValueError('external calendar conflicts with embedded calendar fields; choose exactly one')
+            if 'market' in case and label(case,'market') != calendar['market']:
+                raise ValueError('calendar market does not match repo market')
+            copy.update(calendar)
+            used = True
+        replaced.append(copy)
+    if not used:
+        raise ValueError('--calendar requires at least one repo scenario')
+    if 'cases' in document:
+        return {**document, 'cases': replaced}
+    return replaced[0]
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--input', required=True, type=Path)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--calendar', type=Path, help='verified offline calendar; conflicts with embedded calendar fields')
     args = parser.parse_args()
     try:
         document = json.loads(args.input.read_text(encoding='utf-8-sig'), parse_float=D)
+        if args.calendar:
+            if not args.calendar.is_file():
+                raise ValueError(f'calendar not provided for requested file/year: {args.calendar}')
+            document = apply_calendar(document, load_calendar(args.calendar))
         output = json.dumps(run(document), ensure_ascii=False, indent=2)
     except (ValueError, OSError, InvalidOperation, KeyError, TypeError) as error:
         parser.exit(2, f'Input/calculation error: {error}\n')

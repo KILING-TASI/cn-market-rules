@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "verified_as_of": "2026-10-09",
+  "versions": [
+    {
+      "version_id": "SSE-REITS-EXP-2022",
+      "title": "沪市新购入基础设施项目指引",
+      "document_version": "上证发〔2022〕83号",
+      "market": "SSE",
+      "board": "REITS",
+      "subjects": [
+        "fund_manager"
+      ],
+      "asset_types": [
+        "infrastructure"
+      ],
+      "published_at": "2022-05-31",
+      "effective_from": "2022-05-31",
+      "effective_until": "2025-12-31",
+      "publication_evidence": {
+        "source_id": "REITS-EXP-SH-2022",
+        "locator": "发布通知、正文第58条"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "2025发布通知：2022指引同时废止"
+      },
+      "topics": {
+        "reits_expansion": {
+          "evidence": {
+            "source_id": "REITS-EXP-SH-2022",
+            "locator": "第2条及扩募章节"
+          },
+          "scope": "沪市基础设施REITs；历史版，仅选版本、不复用现行计算",
+          "activation": "active"
+        }
+      },
+      "supersedes": [],
+      "replaced_by": [
+        "SSE-REITS-EXP-2025"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "version_id": "SSE-REITS-EXP-2025",
+      "title": "沪市扩募及新购入不动产指引",
+      "document_version": "上证发〔2025〕141号",
+      "market": "SSE",
+      "board": "REITS",
+      "subjects": [
+        "fund_manager"
+      ],
+      "asset_types": [
+        "infrastructure",
+        "commercial"
+      ],
+      "published_at": "2025-12-31",
+      "effective_from": "2025-12-31",
+      "effective_until": null,
+      "publication_evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "发布通知"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SH",
+        "locator": "发布通知：发布施行并废止2022指引"
+      },
+      "topics": {
+        "reits_expansion": {
+          "evidence": {
+            "source_id": "REITS-EXP-SH",
+            "locator": "第36—50条"
+          },
+          "scope": "沪市REITs三路径扩募条款，资格/项目审批仍逐案核对",
+          "activation": "active"
+        }
+      },
+      "supersedes": [
+        "SSE-REITS-EXP-2022"
+      ],
+      "replaced_by": [],
+      "verification_status": "verified"
+    },
+    {
+      "version_id": "SZSE-REITS-EXP-2025",
+      "title": "深市扩募及新购入不动产指引",
+      "document_version": "深证上〔2025〕1522号",
+      "market": "SZSE",
+      "board": "REITS",
+      "subjects": [
+        "fund_manager"
+      ],
+      "asset_types": [
+        "infrastructure",
+        "commercial"
+      ],
+      "published_at": "2025-12-31",
+      "effective_from": "2025-12-31",
+      "effective_until": null,
+      "publication_evidence": {
+        "source_id": "REITS-EXP-SZ",
+        "locator": "发布通知"
+      },
+      "interval_evidence": {
+        "source_id": "REITS-EXP-SZ",
+        "locator": "发布通知及第56条"
+      },
+      "topics": {
+        "reits_expansion": {
+          "evidence": {
+            "source_id": "REITS-EXP-SZ",
+            "locator": "第36—50条"
+          },
+          "scope": "深市2025版三路径扩募已接入条件算术；需显式已核版本适用日期，定价/资格/审批及实际结算另核",
+          "activation": "active"
+        },
+        "reits_inquiry_disclosure": {
+          "evidence": {
+            "source_id": "REITS-EXP-SZ",
+            "locator": "第20条（二）"
+          },
+          "scope": "基金管理人在变更注册期间收到问询，2日内公告；收到日不等于发出日",
+          "activation": "active"
+        }
+      },
+      "supersedes": [],
+      "replaced_by": [],
+      "verification_status": "verified"
+    },
+    {
+      "version_id": "SSE-TRADE-2026-MAIN",
+      "title": "沪市2026交易规则（主板首批选段）",
+      "document_version": "上证发〔2026〕41号",
+      "market": "SSE",
+      "board": "MAIN",
+      "subjects": [
+        "market_participant"
+      ],
+      "asset_types": [
+        "stock"
+      ],
+      "published_at": "2026-04-24",
+      "effective_from": "2026-07-06",
+      "effective_until": null,
+      "publication_evidence": {
+        "source_id": "TRADE-SH",
+        "locator": "发布通知"
+      },
+      "interval_evidence": {
+        "source_id": "TRADE-SH",
+        "locator": "通知第一、二项"
+      },
+      "topics": {
+        "risk_warning_price_band": {
+          "evidence": {
+            "source_id": "TRADE-SH",
+            "locator": "4.4节"
+          },
+          "scope": "沪市主板风险警示板交易，非科创板/其他证券",
+          "activation": "active"
+        },
+        "block_trade_late_session": {
+          "evidence": {
+            "source_id": "TRADE-SH-DEFER",
+            "locator": "暂缓实施附件第2项、3.6.3(ii)"
+          },
+          "scope": "16—17点成交申报仅有暂缓通知，不能随整份生效自动开启",
+          "activation": "deferred",
+          "reason": "具体开启另行通知；此批未取得该通知，不能认证可用时间"
+        }
+      },
+      "supersedes": [],
+      "replaced_by": [],
+      "verification_status": "verified"
+    },
+    {
+      "version_id": "BSE-LISTING-2026",
+      "title": "北京证券交易所股票上市规则",
+      "document_version": "2026年4月24日修订",
+      "market": "BSE",
+      "board": "BSE",
+      "subjects": [
+        "listed_company"
+      ],
+      "asset_types": [
+        "stock"
+      ],
+      "published_at": "2026-04-24",
+      "effective_from": "2026-04-24",
+      "effective_until": null,
+      "publication_evidence": {
+        "source_id": "ST-BSE",
+        "locator": "北证公告〔2026〕18号，发布及自发布之日起施行"
+      },
+      "interval_evidence": {
+        "source_id": "ST-BSE",
+        "locator": "2026发布通知及第5项继续援引2024退市衔接；仅第10章范围"
+      },
+      "topics": {
+        "st_delisting": {
+          "activation": "active",
+          "scope": "第10章核心指标与程序；必须另核上市标准、财务年度、2024衔接及个案条件，不认证资格",
+          "evidence": {
+            "source_id": "ST-BSE",
+            "locator": "10.2.1、10.3.1、10.3.5—10.3.9、10.4—10.6；PDF113—137页"
+          }
+        }
+      },
+      "supersedes": [],
+      "replaced_by": [],
+      "verification_status": "verified"
+    }
+  ]
+}

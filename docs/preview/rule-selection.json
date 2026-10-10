@@ -1,0 +1,33 @@
+{
+  "query": {
+    "topic": "reits_expansion",
+    "market": "SSE",
+    "board": "REITS",
+    "subject": "fund_manager",
+    "asset_type": "infrastructure",
+    "applicability_date": "2025-12-31",
+    "knowledge_date": "2025-12-31"
+  },
+  "catalog_version": "1.0",
+  "catalog_verified_as_of": "2026-10-09",
+  "rule_version_id": "SSE-REITS-EXP-2025",
+  "status": "selected",
+  "document_version": "上证发〔2025〕141号",
+  "published_at": "2025-12-31",
+  "effective_from": "2025-12-31",
+  "effective_until": null,
+  "supersedes": [
+    "SSE-REITS-EXP-2022"
+  ],
+  "replaced_by": [],
+  "evidence": {
+    "source_id": "REITS-EXP-SH",
+    "locator": "第36—50条"
+  },
+  "interval_evidence": {
+    "source_id": "REITS-EXP-SH",
+    "locator": "发布通知：发布施行并废止2022指引"
+  },
+  "scope": "沪市REITs三路径扩募条款，资格/项目审批仍逐案核对",
+  "reason": "version selection only; not legal eligibility certification"
+}

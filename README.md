@@ -1,48 +1,111 @@
-# cn-market-rules
+# 中国证券市场规则核对与情景工具
 
-中国大陆证券市场的规则核对、个案条款与收益情景工具。**v2.0.0 · 核验截止日 2026-10-09**。
+cn-market-rules 提供规则核对清单、个案条款模板与离线收益情景计算，记录原文依据和适用边界。
 
-从原来的18份Markdown知识包改建：修正硬规则，新增ST摘帽与退市、REITs发售、组合现金联动；把可复用知识与个案参数分开，并加入离线计算与来源台账。
+## 先看一份结果
 
-## 从哪里开始
+![真实生成的规则版本与事件证据预览](docs/preview/overview.jpg)
 
-- 人阅读：打开 [SKILL.md](SKILL.md)，按专题导航。
-- 研究个案：复制 [核对清单](templates/verification-checklist.md)、[个案条款表](templates/case-terms.md)、[收益情景模板](templates/scenario-analysis.md)，逐项绑定公告原文。
-- 看有依据的示范：[个案原文核验](references/cases/verified-examples.md)。真实案例只用于演示条款摘取；未来市场价格和收益使用独立的虚构情景。
-- 算术演示：Python 3.10+，无需第三方库、行情接口或账户授权。
+[阅读预览与输入说明](docs/preview/README.md) · [HTML 报告](docs/preview/index.html) · [教学现金截图](docs/preview/cash.jpg)
+
+预览采用沪市扩募版本查询、两条真实公告摘取和教学现金账本。规则版本、生效区间与未知项贴在结果旁；仅选版本不代表项目资格通过。现金案例期末 85,000.00 元，途中最低 5,000.00 元、缓冲缺口 15,000.00 元，**全部资金和支付／退款时点均为教学假设，不是实际收益或账户余额**。截图来自实际报告的浏览器渲染，保留版本与日期。
+
+## 一条命令试用
+
+本仓同时提供 Skill 资料和独立离线 CLI；仓库名、Skill frontmatter 的 `name` 和建议目录名均为 `cn-market-rules`。使用完整目录（含 SKILL.md、scripts、references、rules、calendars、interfaces、examples、templates 及许可文件），不要只复制 SKILL.md。本仓没有 wheel／pip 安装工程。
+
+Windows 在解压后的仓库目录打开 PowerShell，可复制下列 `python` 命令；若系统使用 Python Launcher，可将 `python` 换成 `py -3`。要求 Python 3.10+。最短流程及机器接口仅用标准库，不需普通第三方包、工作台或其他自家专业库。PDF原文人工核读工具是另行选择的辅助工具，不是这些CLI的安装依赖；公告消费入口需自行提供已合法保存的原件，不随包分发。规则资料人工联网更新与CLI离线计算分开，本次不自动联网取数或安装依赖。
+
+Python 3.10+ 标准库，无额外包或账户；生成时不联网。以下 demo 属于 PR #1 待审增量：
+
+```sh
+python scripts/demo_preview.py --output-dir demo-output/first-rule-check
+```
+
+打开 demo-output/first-rule-check/index.html，同时得到三个 JSON 结果、输入快照和生成记录。输出目录须为新目录，已有目录会拒绝覆盖。JSON／终端仍可独立使用：
 
 ```sh
 python scripts/scenarios.py --input examples/scenarios.json
-python scripts/scenarios.py --input examples/scenarios.json --output result.json
-python scripts/scenarios.py --input examples/cash-ledger.json
-python -m unittest discover -s tests -v
+```
+
+这是虚构教学参数的算术示范。详细调用见[计算口径](references/calculations.md)和[交接契约](references/interfaces/common-handoff-contract.md)；研究问题可转到[主工作台问题入口](https://github.com/KILING-TASI/research-workbench/blob/main/references/practical-entry.md)。
+
+## 版本与发布状态
+
+状态核对：2026-10-09。main 与 [v2.0.0 Release](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.0.0) 已发布；[PR #1](https://github.com/KILING-TASI/cn-market-rules/pull/1) 的 v2.1.0 与后续接口／预览增量仍待审，未合并、未发布新 Release。本 README 描述 PR 目录。
+
+事件接口支持 1.0／1.1／1.2／1.3，规则目录为 1.0，共用交接为 cn-market-rules.rule-handoff/1.0（旧输入）与 1.1（显式 1.3 个案扩展）；它们与候选包 v2.1.0 是不同层的版本。Python 3.10／3.12 持续集成与发布状态见[版本说明](docs/repository-status.md)。作为 Agent 技能使用时，将完整目录放入环境的技能目录，例如 ~/.codex/skills/cn-market-rules/，从 [SKILL.md](SKILL.md) 开始。
+
+## 已实现与边界
+
+| 用途 | 已发布 v2.0 基线 | PR 待审增量／边界 |
+|---|---|---|
+| 规则核对 | IPO、转债、要约／换股／现金选择权，沪深主板 ST 与退市，沪市 REITs 首发 | 五市场核心退市指标、主体例外与2024衔接清单、深市首发；特殊条款逐案核对 |
+| 个案条款 | 通用清单、条款表、收益模板、代表性原文 | 要约结果与现金选择权／换股执行条款、有限证据示例；官方摘要不冒充全文，个人实际资格与税费另核 |
+| 情景计算 | 参数化损益、逆回购交收、组合可用现金与缺口 | 下修增量摊薄、沪深三路径扩募、两市 2026 日历；深市扩募显式限定已核版本日期 |
+| 规则与数据交接 | 来源台账与适用范围 | 来源分层、获取／核验分离、历史截止时点、版本区间／更替／暂缓、无损共用格式；工作台已完成1.2／交接1.0有限消费对照，1.1扩展仍拒绝 |
+
+可复用规则与个案参数分开。没有真实资格、合同、申报截止或到账依据时，交付已核部分与缺口，不能将计算通过写成实际可执行。
+
+本库主线是制度、有效版本、条款核对与给定条件情景计算。公司事件时间轴、关联检索与研究解释由 research-workbench 承接；本页仅保留有限的规则适用与证据缺口示例，不扩展为全量事件库、采集器或评分平台。
+
+[规则核对示例](docs/regulatory-preview/README.md)展示四份公开材料如何绑定原文、日期与关联规则缺口；支持另存与同输入恢复，不能认证项目资格。
+
+## 输入与关键口径
+
+人阅读按 [SKILL.md](SKILL.md) 导航；个案复制[核对清单](templates/verification-checklist.md)、[条款表](templates/case-terms.md)和[收益模板](templates/scenario-analysis.md)，逐项绑定原文。
+
+情景输入的金额、份额、费用与日期显式提供；利率用小数，`0.03` 表示 3%。工具用 Decimal，金额输出保留两位、比例保留六位；适配器保留原值和类型，不新增舍入或单位转换。未知不填零，未知布尔不填 False；市值不是可用现金。详见[计算口径](references/calculations.md)。
+
+REITs 回拨现行已核规则为 **70%**，分母为扣除战略配售后的公开发售份额，不能写成 70‰。首发与扩募分开核对；募集失败、资格、价格、锁定期及例外逐项确认，不套用统一硬规则。
+
+公布、生效、观察、取得、核验和公开可得时点分别记录；规则有效区间按市场、板块、主体及资产类型选择。2026 日历来自两市独立官方公告，仅覆盖常规安排，不外推 2027 或临时停市。
+
+## 输出、来源与缺失状态
+
+输出顺序为结论及条件、原文与适用范围、个案条款／时限、净收益情景与现金缺口、未核项。核对工具不自动认证法律资格、税务、到账或收益保证。
+
+[来源台账](references/sources.md)与[证据规范](references/evidence-standard.md)区分公开原文、第三方聚合和付费／授权资料；获取成功与核验上游原文是不同状态。`references/source-retrieval.json` 记录下载哈希和失败，不打包原文全文。浏览器成功核读与下载失败可以同时存在。
+
+证据字段采用 original／summary／reported／hypothesis／unknown；unknown 保留 null 与理由。规则版本返回 selected／gap／deferred／conditional／unknown／ambiguous，选中版本也不等于资格通过。见[事件接口](references/interfaces/evidence-contract.md)、[版本契约](references/interfaces/rule-version-contract.md)及[共用交接契约](references/interfaces/common-handoff-contract.md)。
+
+AKShare 质押比例接口文档已核存在，实际聚合数据未拉取；合同融资条件仍未知。接口存在和本次取得状态不能被写成全市场能力调查结论。
+
+## 验证范围
+
+当前 PR 共 171 项测试通过，51 份 Markdown、70 个来源 ID、所有情景／事件示例、日历和共用格式对照通过；GitHub 检查在 PR 中记录。验证证明实现和输入结构的一致性，不能证明原文永远有效、历史首次公开时刻或未来价格。
+
+`````sh
+python -m unittest discover -s tests
 python scripts/validate_package.py
 ```
 
-作为Agent技能使用时，将整个仓库目录放入相应环境的技能目录，例如Codex的 `~/.codex/skills/cn-market-rules/`。安装不自动执行脚本、不调用券商、不发送交易。
+## 后续路线
 
-## 已纠正的关键问题
+情景实例统一入口（教学参数／未绑定项目）：
 
-深市IPO参与门槛与申购单位分开；科创板盘后交易不混入IPO申购；股票印花税按减半政策；可转债买入单位与转股单位分开；新增可转债适当性约束；下修净资产限制逐券核对；逆回购周五一天期与节前末日计息重算；30%要约路径、履约保证替代安排、退市股权分布与现金选择权资格重写。
+```sh
+python scripts/run_scenario_acceptance.py --output-dir demo-output/scenario-acceptance
+```
 
-REITs回拨的现行单位是**70%**，不是70‰。已核对现行《发售业务指引》第45条和上交所投教手册第20问。该比例的分母是**扣除战略配售后的公开发售份额**。完整修订记录见 [CHANGELOG.md](CHANGELOG.md)。
+输出目录必须为新目录。见[情景索引与独立预期](references/scenario-index.json)：复用已有版本更替、主体范围、资格缺证、冻结／退款与REITs路径案例，通过实际命令保存输入、预期、实际结果及方法版本。失败实例核验错误并保护已有结果；北交主体例外仍是人工条款核对，合成通过不代表真实投资资格。CI在单仓归档的独立虚拟环境运行同一入口。
 
-## 覆盖与限制
+已有、待审、后续范围集中在 [PLAN.md](PLAN.md)；设计见[v2.1 修订](docs/upgrade-v2.1.md)、[风险事件增量](docs/risk-evidence-roadmap.md)及[版本选择验收](docs/version-selection-design.md)。本批已补北交所现行全文、深市扩募算术及五市场衔接清单；见[退市衔接](references/rules/delisting-transitions.md)与[个案执行条款](references/cases/execution-terms.md)。仍缺早期完整版本目录、特殊个案适用与逐户执行凭证、旧更正原版本／精确公开时刻、2027 日历及历史债券最终回收。保留缺口，不声称全市场覆盖。
 
-| 专题 | 已交付 | 边界 |
-|---|---|---|
-| IPO与转债 | 规则、清单、计算 | 市值/行情、个券条款及券商时限由使用者取得 |
-| 事件研究 | 要约、换股、现金选择权、重组窗口 | 股东资格、价格调整、税务、到账逐案确认 |
-| ST与退市 | 沪深主板原文与撤销流程、板块差异入口 | 未声称已覆盖所有科创/创业/北交所指标；这些板块必须补入对应原文后判断 |
-| REITs发售 | 上交所现行首发规则、回拨/失败/锁定/询价；深市关键条款对照 | 深市其余细则未全量对照；扩募另查，不套首发判定 |
-| 组合联动 | 可用/可取/冻结区分，压力日历与现金缺口 | 不自动取券商余额，不假设申购退款立即可用 |
+## 与其他仓库的关系
 
-数据不全时可交付已核对部分与缺口，不将缺值当零，不以持仓市值充当现金。情景中的概率、价格、费率和日期属于假设，不是行情预测。年化换算不是可重复收益。
+职责、实际数据入口、契约差异及本批结案点集中见[仓库状态与数据目录](docs/repository-status.md)。本轮只核规则库及已有有限联调，九仓同样本统一尚未完成。
 
-## 来源与维护
+规则库维护规则、证据及适用区间；research-workbench 维护研究组织与经营现金流／估值，计算引擎按各自输入契约运行。共用格式提供包内无损适配及[工作台有限联调](references/interfaces/workbench-integration.md)，不增加强制依赖，不迁移其它引擎算法。selected/gap模板的实际消费、回转与报告已核，1.1扩展和其他引擎等价未认证。原入口和未有独立等价实现的功能保留。
 
-[来源台账](references/sources.md)记录官方网址、条款、版本、生效信息和核验状态；[证据规范](references/evidence-standard.md)定义冲突与更新流程。`references/source-retrieval.json`只记录本次取得文件的哈希和状态，不包含原文全文；哈希只证明取得文件身份，不证明规则完整或永远有效。
+## 许可与第三方材料
 
-原始输入为CodeBuddy署名的v1.0.0知识包，原包未附许可证；本次重写保留来源说明，不据此授予原包或第三方材料的再许可。法规、交易所文件及公司/基金公告链接到原发布者，未打包其全文。仓库未设置第三方材料的开源授权，公开可访问不等于任意再许可。
+[![原创部分采用 MIT](https://img.shields.io/badge/original_parts-MIT-green)](LICENSE)
 
-内容用于研究参考，不构成收益保证或交易指令。维护状态与未核验项见 [PLAN.md](PLAN.md)。
+本 PR 按用户授权为有权许可的原创代码／说明加入 [MIT](LICENSE)，逐文件范围见 [LICENSE_SCOPE.json](LICENSE_SCOPE.json) 和[范围清单](docs/license-scope.md)。原 CodeBuddy 知识包未附许可证；原包同路径专题、SKILL 及提供方案改建设计不声明整文件 MIT，保守排除未明表达。第三方原文、数据、名称、字体及截图内第三方成分不因代码许可获得再分发或商用权；详见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)。原 ZIP、官方全文、账户／付费资料和字体文件未打包。main 的既有 v2.0.0 发布状态不追溯改写。
+
+## 免责声明
+
+仅供公开信息研究与教学，不构成交易指令、法律税务意见或收益保证。
+
+方法补强（待审）：[规则适用与执行证据方法卡](references/method-rule-applicability.md)复用现有版本边界验收，区分自动选择与人工主体／年度核对。会计准则仅定位来源，未扩审计、全量法规适用或事件库。

@@ -1,0 +1,58 @@
+{
+  "schema": "cn-market-rules.announcement-review/1",
+  "document_id": "BSE:920188:2026-019",
+  "source_sha256": "228f91c01b41118cdd3c67b248cc1727d188c3530724fb3014476d862ca4bafb",
+  "source_version": "2026-019",
+  "reviewed_on": "2026-10-10",
+  "method": {
+    "extraction": "PyMuPDF get_text, six pages",
+    "visual": "Poppler rendered page 2, manually reviewed",
+    "limits": "Selected page 2 numeric fields; page 1 identity/permission and page 3 body date text only; not full-document certification"
+  },
+  "reviewed_native_fields": {
+    "online_issue_shares": {
+      "value": 19793879,
+      "unit": "shares",
+      "source_id": "result",
+      "page": 2,
+      "text_anchor": "19,793,879",
+      "review_status": "selected_page_image_and_text_reviewed"
+    },
+    "effective_subscription_shares": {
+      "value": 63279684500,
+      "unit": "shares",
+      "source_id": "result",
+      "page": 2,
+      "text_anchor": "63,279,684,500",
+      "review_status": "selected_page_image_and_text_reviewed"
+    },
+    "online_allocation_rate": {
+      "value": 0.0003127999,
+      "unit": "fraction",
+      "source_id": "result",
+      "page": 2,
+      "text_anchor": "0.0312799900%",
+      "review_status": "selected_page_image_and_text_reviewed"
+    }
+  },
+  "notice_conditions": {
+    "value": "Online offering to qualified investors with BSE trading permission",
+    "status": "issuer_notice_text_reviewed",
+    "locator": "page 1; not a normative rule or individual permission certificate"
+  },
+  "rule_version_id": null,
+  "rule_selection": {
+    "status": "not_selected",
+    "reason": "Issuance result is not normative rule; no complete BSE issuance version binding in current catalog"
+  },
+  "qualification": {
+    "value": null,
+    "status": "unknown",
+    "reason": "No individual permission, subscription order, residual allocation or broker cash proof"
+  },
+  "limitations": [
+    "Body date 2026-03-19 and URL date 2026-03-18 differ; no inferred first publication",
+    "Offer/listing document fields retained but not reviewed in this batch",
+    "No personal allocation, cash availability or realized return conclusion"
+  ]
+}

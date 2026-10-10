@@ -2,11 +2,16 @@
 name: cn-market-rules
 description: 核对中国大陆打新、可转债条款、要约收购与换股合并、ST摘帽与退市、公募REITs发售规则，并计算收益情景和组合现金占用。用于规则研究及公告精读；不提供行情、不执行交易、不保证收益。
 metadata:
-  version: 2.0.0
+  version: 2.1.0
+  license: MIT-original-parts-only
   verified_at: 2026-10-09
 ---
 
 # 中国证券市场规则与个案核验
+
+> 许可范围：本文件涉及原包专题或提供方案的改建来源，不声明整文件 MIT。见[第三方与未明来源](THIRD_PARTY_NOTICES.md)。原材料未经许可的表达不纳入根许可证。
+
+当前分支为 PR #1 待审的 v2.1.0 与接口增量；main 已发布 v2.0.0。实际状态见 [README](README.md)。
 
 先确定证券身份、市场/板块、业务类型、判断截止日。按下面导航只读所需专题。
 
@@ -17,9 +22,13 @@ metadata:
 | 回转、交易单位、权限、费用 | [交易边界](references/rules/trading-rules.md) |
 | 要约、换股、现金选择权、重组 | [事件规则](references/rules/event-arb-rules.md)、[执行核验](references/playbooks/event-arb-playbook.md) |
 | 逆回购交收、ETF/LOF套利边界 | [通用套利](references/rules/arbitrage-rules.md) |
-| ST/*ST撤销、退市路径 | [ST与退市](references/rules/st-delisting-rules.md) |
-| REITs询价、回拨、战配、募集失败 | [REITs发售](references/rules/reits-offering-rules.md) |
+| ST/*ST撤销、退市路径 | [ST与退市](references/rules/st-delisting-rules.md)、[年度与主体衔接](references/rules/delisting-transitions.md) |
+| REITs询价、回拨、战配、募集失败 | [REITs发售](references/rules/reits-offering-rules.md)、[扩募](references/rules/reits-expansion-rules.md) |
 | 打新、逆回购、转债、REITs资金冲突 | [组合现金联动](references/playbooks/capital-coordination.md) |
+
+本库主线是制度、有效版本、条款核对与给定条件情景计算。公司事件时间轴、关联检索与研究解释由 research-workbench 承接；本页仅保留有限的规则适用与证据缺口示例，不扩展为全量事件库、采集器或评分平台。
+
+规则主题核对后，按需查看[有限个案示例](docs/regulatory-preview/README.md)及[证据扩展契约](references/interfaces/regulatory-event-contract.md)。
 
 ## 核验要求
 
@@ -30,8 +39,22 @@ metadata:
 5. 使用[收益情景](templates/scenario-analysis.md)列成功、缩水/延迟、失败情景；概率仅在有依据时填写。读取[费用与资金占用](references/pitfalls/arb-costs.md)，采用实际日历，不把周末默认成交易日。
 6. `scripts/scenarios.py` 为离线算术工具，输入必须核验；不会判断真实证券资格、税务结论、报价可成交性或事件成功概率。看[计算说明](references/calculations.md)。
 
+下修比较可用dilution，区分旧条款下总潜在摊薄和下修额外股份；现有总股本已含历史转股，未知利润调整留空。REITs扩募用独立mode并指定已核市场/路径，不套首发。逆回购可显式使用[2026日历](calendars/README.md)，内嵌与外部日历互斥，跨年缺交收日时报错。
+
 输出顺序：结论与条件 → 原文依据与适用范围 → 个案条款/时限 → 净收益情景和最大现金缺口 → 未核实项。具体期限无法确认时不要编造天数。解释市场结果的可能性，不输出保证、交易指令或确定性价格预测。
 
 博弈推断按需读[强赎](references/playbooks/forced-redemption-game.md)、[下修](references/playbooks/downward-revision-game.md)、[回售](references/playbooks/putback-game.md)。交付前查[常见误区](references/pitfalls/common-mistakes.md)，信用风险读[违约](references/pitfalls/cb-defaults.md)，行权及失败风险读[强赎操作](references/pitfalls/redemption-traps.md)、[事件失败](references/pitfalls/event-arb-failures.md)。
 
 本库用于公开信息研究。规则快照截至2026-10-09，后续使用需重新检查发布与实施状态；研究结论不替代个案法律、税务或投资判断。
+
+风险事件按[证据核对](references/rules/risk-event-evidence.md)登记；对接主工作台用[字段接口](references/interfaces/evidence-contract.md)。不得由质押比例推断精确平仓价，不得将披露不足改写为造假认定。
+
+按[版本选择契约](references/interfaces/rule-version-contract.md)区分公布、实施、废止及过渡/暂缓，不用当前规则回填历史。事件交接输出rule_version_id与目录核验日，gap/deferred/ambiguous不得写成资格通过。
+
+对接工作台/引擎采用[共用交接契约](references/interfaces/common-handoff-contract.md)，身份与单位不推断，原始输入/unknown/版本保持，消费端尚未联调时不能声称自动可用。
+
+已核历史项目的执行边界见[要约／现金选择权／换股条款](references/cases/execution-terms.md)。深市扩募算术必须显式提供rule_applicability_date，不能把2025版检查回填更早项目。
+
+方法依据与已实现边界见[规则适用方法卡](references/method-rule-applicability.md)。涉及财报先定位适用会计准则及企业采用说明，不出审计意见；控制权／契约理论不替代当前官方规则和实施公告。
+
+工作台消费的已核范围见[联合联调](references/interfaces/workbench-integration.md)：本次仅信封1.2／交接1.0模板的selected/gap对照与回转。报告必须并列版本层和项目层缺口，结算未知不入可用现金；未验收版本不得静默兼容。
