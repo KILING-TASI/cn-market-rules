@@ -427,6 +427,168 @@
         "net_interest": "89.41",
         "assumption": "normal settlement; broker availability must be confirmed"
       }
+    },
+    {
+      "id": "calendar-normal-1",
+      "script": "scenarios.py",
+      "input_kind": "教学人民币10万元、3%利率及1元费；正常案例官方2026日历，反例故意截断/损坏",
+      "basis": "北京时间10/15周四成交，首期交收10/16；名义到期按自然日1天，后续交易日由SSE官方日历。100000*0.03*3/365-1独立手算；实际券商状态未认证",
+      "input": {
+        "mode": "repo",
+        "market": "SSE",
+        "trade_date": "2026-10-15",
+        "tenor_days": 1,
+        "principal": 100000,
+        "annual_rate": "0.03",
+        "total_fees": 1
+      },
+      "calendar": "calendars/2026-SSE.json",
+      "equals": {
+        "interest_days": 3,
+        "net_interest": "23.66",
+        "first_settlement_date": "2026-10-16",
+        "final_settlement_date": "2026-10-19"
+      }
+    },
+    {
+      "id": "calendar-normal-7",
+      "script": "scenarios.py",
+      "input_kind": "教学人民币10万元、3%利率及1元费；正常案例官方2026日历，反例故意截断/损坏",
+      "basis": "北京时间10/15周四成交，首期交收10/16；名义到期按自然日7天，后续交易日由SSE官方日历。100000*0.03*7/365-1独立手算；实际券商状态未认证",
+      "input": {
+        "mode": "repo",
+        "market": "SSE",
+        "trade_date": "2026-10-15",
+        "tenor_days": 7,
+        "principal": 100000,
+        "annual_rate": "0.03",
+        "total_fees": 1
+      },
+      "calendar": "calendars/2026-SSE.json",
+      "equals": {
+        "interest_days": 7,
+        "net_interest": "56.53",
+        "first_settlement_date": "2026-10-16",
+        "final_settlement_date": "2026-10-23"
+      }
+    },
+    {
+      "id": "calendar-final-missing",
+      "script": "scenarios.py",
+      "input_kind": "教学人民币10万元、3%利率及1元费；正常案例官方2026日历，反例故意截断/损坏",
+      "basis": "10/16首期交收及名义清算均已知，但没有清算后交易日；不能推可取日，失败不能污染旧结果",
+      "input": {
+        "mode": "repo",
+        "market": "SSE",
+        "trade_date": "2026-10-15",
+        "tenor_days": 1,
+        "principal": 100000,
+        "annual_rate": "0.03",
+        "total_fees": 1,
+        "calendar_start": "2026-10-15",
+        "calendar_end": "2026-10-16",
+        "calendar_source": "teaching truncated official dates; intentionally incomplete",
+        "trading_days": [
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "exit_code": 2,
+      "error_contains": "最终交收/可取阶段",
+      "protect_output": true
+    },
+    {
+      "id": "calendar-holiday-clearing-missing",
+      "script": "scenarios.py",
+      "input_kind": "教学人民币10万元、3%利率及1元费；正常案例官方2026日历，反例故意截断/损坏",
+      "basis": "故意截断春节窗口：2/12交易、首期2/13、7天名义到期2/19，无不早于2/19的交易日；不猜2/24或政府调休日",
+      "input": {
+        "mode": "repo",
+        "market": "SSE",
+        "trade_date": "2026-02-12",
+        "tenor_days": 7,
+        "principal": 100000,
+        "annual_rate": "0.03",
+        "total_fees": 1,
+        "calendar_start": "2026-02-12",
+        "calendar_end": "2026-02-23",
+        "calendar_source": "teaching truncated spring window",
+        "trading_days": [
+          "2026-02-12",
+          "2026-02-13"
+        ]
+      },
+      "exit_code": 2,
+      "error_contains": "名义到期清算阶段",
+      "protect_output": true
+    },
+    {
+      "id": "calendar-format-error",
+      "script": "scenarios.py",
+      "input_kind": "教学人民币10万元、3%利率及1元费；正常案例官方2026日历，反例故意截断/损坏",
+      "basis": "格式错与覆盖不足分开：日期非法，不进入阶段推算",
+      "input": {
+        "mode": "repo",
+        "market": "SSE",
+        "trade_date": "2026-10-15",
+        "tenor_days": 1,
+        "principal": 100000,
+        "annual_rate": "0.03",
+        "total_fees": 1,
+        "calendar_start": "2026-10-15",
+        "calendar_end": "2026-10-16",
+        "calendar_source": "teaching truncated official dates; intentionally incomplete",
+        "trading_days": [
+          "not-a-date"
+        ]
+      },
+      "exit_code": 2,
+      "error_contains": "invalid ISO date",
+      "protect_output": true
+    },
+    {
+      "id": "calendar-market-error",
+      "script": "scenarios.py",
+      "input_kind": "教学人民币10万元、3%利率及1元费；正常案例官方2026日历，反例故意截断/损坏",
+      "basis": "深市输入不能套沪市日历，不静默切换市场",
+      "input": {
+        "mode": "repo",
+        "market": "SZSE",
+        "trade_date": "2026-10-15",
+        "tenor_days": 1,
+        "principal": 100000,
+        "annual_rate": "0.03",
+        "total_fees": 1
+      },
+      "calendar": "calendars/2026-SSE.json",
+      "exit_code": 2,
+      "error_contains": "calendar market does not match",
+      "protect_output": true
+    },
+    {
+      "id": "calendar-nominal-outside",
+      "script": "scenarios.py",
+      "input_kind": "教学人民币10万元、3%利率及1元费；正常案例官方2026日历，反例故意截断/损坏",
+      "basis": "7天名义到期10/22超出10/16覆盖，已知首期交收10/16而清算未知",
+      "input": {
+        "mode": "repo",
+        "market": "SSE",
+        "trade_date": "2026-10-15",
+        "tenor_days": 7,
+        "principal": 100000,
+        "annual_rate": "0.03",
+        "total_fees": 1,
+        "calendar_start": "2026-10-15",
+        "calendar_end": "2026-10-16",
+        "calendar_source": "teaching truncated official dates; intentionally incomplete",
+        "trading_days": [
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "exit_code": 2,
+      "error_contains": "名义到期清算日期尚无法推算",
+      "protect_output": true
     }
   ],
   "limits": [

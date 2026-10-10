@@ -257,7 +257,7 @@ def repo(obj):
     start, end = iso(obj, 'calendar_start'), iso(obj, 'calendar_end')
     calendar_source = label(obj, 'calendar_source')
     if not start <= trade <= end:
-        raise ValueError('trade date outside declared calendar coverage')
+        raise ValueError(f'trade date outside declared calendar coverage {start}—{end}; 请补充覆盖成交日的该市场官方交易日历，不用政府调休工作日替代')
     raw_days = obj.get('trading_days')
     if not isinstance(raw_days, list) or not raw_days:
         raise ValueError('trading_days: explicit complete calendar required')
@@ -272,17 +272,18 @@ def repo(obj):
     tenor = integer(obj, 'tenor_days', 1)
     if tenor not in {1, 2, 3, 4, 7, 14, 28, 91, 182}:
         raise ValueError('unsupported repo tenor')
-    def next_day(after, inclusive=False):
+    def next_day(after, inclusive=False, stage='', known=''):
         found = [d for d in days if d >= after] if inclusive else [d for d in days if d > after]
         if not found:
-            raise ValueError('calendar coverage insufficient; no extrapolation allowed')
+            relation = '不早于' if inclusive else '晚于'
+            raise ValueError(f'calendar coverage insufficient; no extrapolation allowed; 日历覆盖 {start}—{end}；{stage}缺少{relation}{after}的后续交易日。{known}请按该市场官方公告补充完整交易日历（跨年需下一年度官方安排），核对覆盖区间及漏日后重试；无法确认日期，不推算可用/可取日，也不以政府工作日替代交易日。')
         return found[0]
-    first = next_day(trade)
+    first = next_day(trade, stage='首期交收阶段：', known=f'已知成交日 {trade}。')
     nominal = trade + timedelta(days=tenor)
     if nominal > end:
-        raise ValueError('nominal maturity outside calendar coverage')
-    clearing = next_day(nominal, True)
-    final = next_day(clearing)
+        raise ValueError(f'nominal maturity outside calendar coverage {start}—{end}; 已知首期交收 {first}、名义到期 {nominal}；名义到期清算日期尚无法推算。请补充覆盖名义到期及其后最终交收的该市场官方交易日历，不外推下一年度或政府工作日。')
+    clearing = next_day(nominal, True, stage='名义到期清算阶段：', known=f'已知首期交收 {first}、名义到期 {nominal}。')
+    final = next_day(clearing, stage='最终交收/可取阶段：', known=f'已知首期交收 {first}、名义到期清算 {clearing}；正常结算模型可用日为 {clearing}，实际账务仍需确认。')
     interest_days = (final - first).days
     principal = num(obj, 'principal', 1000)
     if principal % 1000:
