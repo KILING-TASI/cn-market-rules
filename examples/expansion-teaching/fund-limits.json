@@ -1,0 +1,17 @@
+{
+  "asOf": "2026-01-01",
+  "checks": [
+    {
+      "id": "基金单一发行人",
+      "profile": "single-fund-issuer",
+      "denominatorBasis": "net-assets",
+      "numerator": 10,
+      "denominator": 100,
+      "scope": "partial",
+      "applicable": true,
+      "exemptionStatus": "none-declared",
+      "passiveBreach": false
+    }
+  ],
+  "teaching": true
+}

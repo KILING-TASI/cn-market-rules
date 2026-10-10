@@ -605,6 +605,50 @@
     ".github/workflows/beginner.yml": {
       "class": "original_mit",
       "basis": "本轮原创新手说明、启动与环境检查或验收流程；不授权第三方原文、公告或数据"
+    },
+    ".github/workflows/research-expansion.yml": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "EXPANSION.md": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "USER_SCENARIOS.md": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "examples/expansion-teaching/dividend-tax.json": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "examples/expansion-teaching/fund-limits.json": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "examples/expansion-teaching/redemption-liquidity.json": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "scripts/investment_checks.py": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "scripts/review_io.py": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "tests/test_investment_checks.py": {
+      "class": "original_mit",
+      "basis": "本轮作者原创研究核对代码、说明或合成教学；规则链接与有限条款释义不声明第三方原文MIT；无原件全文或账户资料"
+    },
+    "EXPANSION_RELEASE.md": {
+      "class": "original_mit",
+      "basis": "本轮原创版本说明；不包含第三方原文全文"
+    },
+    "AUDIT_SCOPE.md": {
+      "class": "original_mit",
+      "basis": "本轮作者原创审计范围说明，不是外部法律认证"
     }
   },
   "updated_at": "2026-10-10"
