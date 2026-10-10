@@ -537,6 +537,14 @@
     "scripts/verify_standalone.py": {
       "class": "original_mit",
       "basis": "Independently created isolated source Skill acceptance runner; standard library only"
+    },
+    "scripts/run_scenario_acceptance.py": {
+      "class": "original_mit",
+      "basis": "Independently created bounded CLI scenario acceptance runner; standard library only"
+    },
+    "references/scenario-index.json": {
+      "class": "mixed_source_data",
+      "basis": "Original teaching scenario index and expected arithmetic; source rule facts/third-party rights excluded"
     }
   }
 }

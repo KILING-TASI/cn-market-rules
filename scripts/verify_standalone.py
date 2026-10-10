@@ -67,6 +67,7 @@ def verify(archive, destination):
             raise ValueError('direct README entry differs from instrumented entry')
     run(['-c', "import importlib.util; assert importlib.util.find_spec('pypdf') is None; assert importlib.util.find_spec('pdfplumber') is None; print('Optional PDF libraries absent; demo still completed')"], 0)
     run([package/'scripts/announcement_consumer.py', '--sidecar', package/'interfaces/announcement-samples/sidecar-920188.json', '--review', package/'interfaces/announcement-samples/review-920188.json', '--original', destination/'missing-original.pdf'], 2, direct=True)
+    run([package/'scripts/run_scenario_acceptance.py', '--output-dir', destination/'scenarios'], 0, direct=True)
     origins = json.loads((destination/'origins.json').read_text(encoding='utf-8'))
     allowed = [destination, Path(origins['base_prefix']).resolve()]
     for path in origins['sys_path'] + list(origins['module_origins'].values()):

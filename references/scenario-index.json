@@ -1,0 +1,315 @@
+{
+  "method_version": "cn-market-rules.cli-scenarios/1",
+  "coverage_inventory": {
+    "existing": "VersionTests, ExpansionTests, ScenariosTest, test_workbench_handoff, frozen teaching preview; reused, no duplicated unit tests",
+    "increment": "Actual CLI/process and generated-report assertions, saved input/expected/actual/method, failure non-contamination",
+    "manual_only": "BSE listing-standard financial exceptions and transition-year application remain source-check checklist; no automated subject classifier"
+  },
+  "cases": [
+    {
+      "id": "replacement-before",
+      "script": "rule_versions.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse test_rule_versions replacement cases; official effective boundary in version catalog, half-open intervals",
+      "reuse": "rules/example-query.json",
+      "changes": {
+        "applicability_date": "2025-12-30",
+        "knowledge_date": "2025-12-30"
+      },
+      "equals": {
+        "status": "selected",
+        "rule_version_id": "SSE-REITS-EXP-2022"
+      }
+    },
+    {
+      "id": "replacement-on",
+      "script": "rule_versions.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse test_rule_versions replacement cases; official effective boundary in version catalog, half-open intervals",
+      "reuse": "rules/example-query.json",
+      "changes": {
+        "applicability_date": "2025-12-31",
+        "knowledge_date": "2025-12-31"
+      },
+      "equals": {
+        "status": "selected",
+        "rule_version_id": "SSE-REITS-EXP-2025"
+      }
+    },
+    {
+      "id": "subject-outside",
+      "script": "rule_versions.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse subject_scope: fund manager rules cannot certify listed company subject",
+      "reuse": "rules/example-query.json",
+      "changes": {
+        "subject": "listed_company"
+      },
+      "equals": {
+        "status": "gap",
+        "rule_version_id": null
+      }
+    },
+    {
+      "id": "historical-asset-gap",
+      "script": "rule_versions.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse old_not_commercial: 2022 asset scope cannot be expanded by future 2025 replacement",
+      "reuse": "rules/example-query.json",
+      "changes": {
+        "applicability_date": "2025-12-30",
+        "knowledge_date": "2025-12-30",
+        "asset_type": "commercial"
+      },
+      "equals": {
+        "status": "gap",
+        "rule_version_id": null
+      }
+    },
+    {
+      "id": "selected-project-unknown",
+      "script": "common_interface.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse workbench-rule-selected: source-backed version matches, three real project prerequisites absent; selected does not certify qualification",
+      "reuse": "interfaces/common-inputs/workbench-rule-selected.json",
+      "equals": {
+        "validation/rule_selections/0/status": "selected",
+        "validation/unknown_field_count": 3,
+        "legacy_payload/records/0/rule_check_status": "partial",
+        "records/0/facts/2/value": null
+      }
+    },
+    {
+      "id": "cash-report",
+      "script": "demo_preview.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse frozen teaching ledger: 200000-100000-80000-15000+80000=85000; minimum5000, buffer20000-5000=15000, afternoon refund cannot fund morning",
+      "equals": {
+        "cash/final_cash": "85000.00",
+        "cash/minimum_balance": "5000.00",
+        "cash/maximum_buffer_gap": "15000.00",
+        "rules/status": "selected"
+      }
+    },
+    {
+      "id": "same-instant-cash",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse debit-first boundary: 100-150=-50 before refund; final50 cannot erase intraday shortfall50",
+      "input": {
+        "mode": "cash",
+        "timezone": "Asia/Shanghai",
+        "initial_available_cash": 100,
+        "minimum_buffer": 0,
+        "events": [
+          {
+            "at": "2026-10-12T09:00:00",
+            "name": "refund",
+            "amount": 100,
+            "source": "teaching",
+            "cash_state": "available"
+          },
+          {
+            "at": "2026-10-12T09:00:00",
+            "name": "payment",
+            "amount": -150,
+            "source": "teaching",
+            "cash_state": "available"
+          }
+        ]
+      },
+      "equals": {
+        "final_cash": "50.00",
+        "maximum_cash_shortfall": "50.00"
+      }
+    },
+    {
+      "id": "pending-refund-rejected",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse pending_refund_is_not_cash: unconfirmed availability cannot enter spendable balance; failure must preserve prior output",
+      "input": {
+        "mode": "cash",
+        "timezone": "Asia/Shanghai",
+        "initial_available_cash": 0,
+        "minimum_buffer": 0,
+        "events": [
+          {
+            "at": "2026-10-12T09:00:00",
+            "name": "pending refund",
+            "amount": 100,
+            "source": "teaching",
+            "cash_state": "pending"
+          }
+        ]
+      },
+      "exit_code": 2,
+      "error_contains": "pending refunds/asset values are not cash",
+      "protect_output": true
+    },
+    {
+      "id": "initial-exact-boundaries",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse first-offering threshold tests: 80m/100m=80%; offline39.2m/(80m-24m)=70%; funds200m and1000 investors exactly meet arithmetic boundaries",
+      "input": {
+        "mode": "reits",
+        "market": "SSE",
+        "offering_type": "initial",
+        "registered_units": 100000000,
+        "final_units": 80000000,
+        "strategic_units": 24000000,
+        "offline_units": 39200000,
+        "raised_funds": 200000000,
+        "investors": 1000,
+        "originator_compliant": true,
+        "other_failure_condition": false
+      },
+      "equals": {
+        "offline_ratio": "0.700000",
+        "failure_condition_detected": false
+      }
+    },
+    {
+      "id": "initial-permille-trap",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "39.2? No: 3.92m/56m=7%=70 per mille, below70%; independent denominator calculation",
+      "input": {
+        "mode": "reits",
+        "market": "SSE",
+        "offering_type": "initial",
+        "registered_units": 100000000,
+        "final_units": 80000000,
+        "strategic_units": 24000000,
+        "offline_units": 3920000,
+        "raised_funds": 200000000,
+        "investors": 1000,
+        "originator_compliant": true,
+        "other_failure_condition": false
+      },
+      "equals": {
+        "offline_ratio": "0.070000",
+        "failure_condition_detected": true
+      }
+    },
+    {
+      "id": "public-expansion",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse ExpansionTests/expansion.json: 80/100 approved=80%; (100*10+80*10)/(100+80)=10, tiny teaching size not rejected by initial200m/1000 conditions",
+      "reuse": "examples/expansion.json",
+      "case_index": 0,
+      "equals": {
+        "failure_or_route_violation_detected": false,
+        "conditional_capital_structure/post_nav_per_unit": "10.000000"
+      }
+    },
+    {
+      "id": "holders-below",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse ExpansionTests/expansion.json: 39/50=78%, although total80/100=80%; holder-specific failure suppresses post-issue projection",
+      "reuse": "examples/expansion.json",
+      "case_index": 1,
+      "equals": {
+        "failure_or_route_violation_detected": true,
+        "conditional_capital_structure": null
+      }
+    },
+    {
+      "id": "sz-public",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse ExpansionTests/expansion.json: Same conservation equation under explicitly dated SZSE rule, not automatic cross-market source",
+      "reuse": "examples/expansion.json",
+      "case_index": 2,
+      "equals": {
+        "failure_or_route_violation_detected": false,
+        "conditional_capital_structure/post_nav_per_unit": "10.000000"
+      }
+    },
+    {
+      "id": "sz-holders-exact",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse ExpansionTests/expansion.json: 40/50=80%, commitments true, both holder and total boundaries met",
+      "reuse": "examples/expansion.json",
+      "case_index": 3,
+      "equals": {
+        "failure_or_route_violation_detected": false,
+        "conditional_capital_structure/post_nav_per_unit": "10.000000"
+      }
+    },
+    {
+      "id": "sz-targeted-35",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Reuse ExpansionTests/expansion.json: 35 allottees meets targeted limit, distinct route requirement",
+      "reuse": "examples/expansion.json",
+      "case_index": 4,
+      "equals": {
+        "failure_or_route_violation_detected": false,
+        "conditional_capital_structure/post_nav_per_unit": "10.000000"
+      }
+    },
+    {
+      "id": "sz-targeted-36",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "35 limit:36 exceeds route count; suppress projected issued NAV, no qualification inference",
+      "reuse": "examples/expansion.json",
+      "case_index": 4,
+      "changes": {
+        "allottee_count": 36
+      },
+      "equals": {
+        "failure_or_route_violation_detected": true,
+        "conditional_capital_structure": null
+      }
+    },
+    {
+      "id": "unknown-compliance",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Unknown compliance cannot default true/false or zero; prior output preserved",
+      "input": {
+        "mode": "reits",
+        "market": "SSE",
+        "offering_type": "initial",
+        "registered_units": 100000000,
+        "final_units": 80000000,
+        "strategic_units": 24000000,
+        "offline_units": 39200000,
+        "raised_funds": 200000000,
+        "investors": 1000,
+        "originator_compliant": null,
+        "other_failure_condition": false
+      },
+      "exit_code": 2,
+      "error_contains": "originator_compliant",
+      "protect_output": true
+    },
+    {
+      "id": "sz-before-supported-rule",
+      "script": "scenarios.py",
+      "input_kind": "teaching or unbound template; not real investor coverage",
+      "basis": "Existing SZSE date guard rejects before2025-12-31, no implicit rule fallback",
+      "reuse": "examples/expansion.json",
+      "case_index": 2,
+      "changes": {
+        "rule_applicability_date": "2025-12-30"
+      },
+      "exit_code": 2,
+      "error_contains": "date",
+      "protect_output": true
+    }
+  ],
+  "limits": [
+    "All numeric scenarios teaching, rule fixtures unbound; no real investor or all-market coverage",
+    "Rule catalog selection does not certify eligibility",
+    "No real account availability, pricing, tax or historical publication clock",
+    "BSE subject exceptions remain manual; see delisting-transitions and method-rule-applicability",
+    "No new probability/options/collector/platform"
+  ]
+}

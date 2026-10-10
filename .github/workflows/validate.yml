@@ -23,4 +23,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: standalone-receipt-${{ matrix.python-version }}
-          path: ${{ runner.temp }}/rules-independent/receipt.json
+          path: |
+            ${{ runner.temp }}/rules-independent/receipt.json
+            ${{ runner.temp }}/rules-independent/scenarios/

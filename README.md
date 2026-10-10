@@ -78,6 +78,14 @@ python scripts/validate_package.py
 
 ## 后续路线
 
+情景实例统一入口（教学参数／未绑定项目）：
+
+```sh
+python scripts/run_scenario_acceptance.py --output-dir demo-output/scenario-acceptance
+```
+
+输出目录必须为新目录。见[情景索引与独立预期](references/scenario-index.json)：复用已有版本更替、主体范围、资格缺证、冻结／退款与REITs路径案例，通过实际命令保存输入、预期、实际结果及方法版本。失败实例核验错误并保护已有结果；北交主体例外仍是人工条款核对，合成通过不代表真实投资资格。CI在单仓归档的独立虚拟环境运行同一入口。
+
 已有、待审、后续范围集中在 [PLAN.md](PLAN.md)；设计见[v2.1 修订](docs/upgrade-v2.1.md)、[风险事件增量](docs/risk-evidence-roadmap.md)及[版本选择验收](docs/version-selection-design.md)。本批已补北交所现行全文、深市扩募算术及五市场衔接清单；见[退市衔接](references/rules/delisting-transitions.md)与[个案执行条款](references/cases/execution-terms.md)。仍缺早期完整版本目录、特殊个案适用与逐户执行凭证、旧更正原版本／精确公开时刻、2027 日历及历史债券最终回收。保留缺口，不声称全市场覆盖。
 
 ## 与其他仓库的关系
