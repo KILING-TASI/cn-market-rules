@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cn-market-rules"
-version = "2.2.1"
+version = "2.2.2"
 description = "独立研究工具与完整资源；未知证据保留"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -18,3 +18,6 @@ cn-market-rules = "cn_market_rules._entry:main"
 [tool.setuptools]
 packages = ["cn_market_rules"]
 package-dir = {"cn_market_rules" = "cn_market_rules"}
+
+[tool.setuptools.data-files]
+"share/cn-market-rules" = ["SHARED_CODE.json", "RIGHTS_INDEX.json", "CONTRIBUTING.md", "SECURITY.md", "LIFECYCLE.md"]

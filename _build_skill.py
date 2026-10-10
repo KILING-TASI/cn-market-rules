@@ -5,7 +5,7 @@ from shutil import copyfile
 from setuptools.command.build_py import build_py
 
 PACKAGE = 'cn_market_rules'
-ROOTS = ['README.en.md', 'CHANGELOG.md', 'AUDIT_SCOPE.md', 'EXPANSION_RELEASE.md', 'EXPANSION.md', 'examples/expansion-teaching', 'BEGINNER.md', 'try_demo.py', 'Start-Demo.cmd', 'Start-Demo.sh', 'README.md', 'SKILL.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'DISCLAIMER.md', 'scripts', 'references', 'templates', 'rules', 'interfaces', 'examples', 'docs', 'licenses', 'assets']
+ROOTS = ['SHARED_CODE.json','tools', 'RIGHTS_INDEX.json', 'CONTRIBUTING.md', 'SECURITY.md', 'LIFECYCLE.md', 'README.en.md', 'CHANGELOG.md', 'AUDIT_SCOPE.md', 'EXPANSION.md', 'examples/expansion-teaching', 'BEGINNER.md', 'try_demo.py', 'Start-Demo.cmd', 'Start-Demo.sh', 'README.md', 'SKILL.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'DISCLAIMER.md', 'scripts', 'references', 'templates', 'rules', 'interfaces', 'examples', 'docs', 'licenses', 'assets']
 ROOTS += ['calendars', 'LICENSE_SCOPE.json']
 EXCLUDED = []
 EXTENSIONS = {'.cmd', '.sh', '.py','.js','.cjs','.mjs','.md','.json','.txt','.csv','.html','.css','.yaml','.yml','.jpg','.png','.svg'}
