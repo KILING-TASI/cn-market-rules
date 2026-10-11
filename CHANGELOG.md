@@ -115,3 +115,8 @@ main已集成规则补证、版本选择、报告、独立运行验收和情景�
 软件、接口、规则文件与数据日期各有不同含义；职责、入口、实际验收和剩余缺口集中见[仓库状态说明](docs/repository-status.md)。其中历史批次的“PR待审”记录对应当时状态，原PR #1现已集成main。
 
 安装步骤见[版本说明](docs/release-v2.1.0.md)。下载[完整Skill ZIP](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.zip)和[SHA256清单](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.sha256)。
+
+## 2.2.3
+
+- Skill版本元数据与命令行包对齐，发行页、独立安装与结果状态说明统一。
+- 计算方法继续按各自结果内的方法版本复查。

@@ -2,9 +2,10 @@
 name: cn-market-rules
 description: 核对中国大陆打新、可转债条款、要约收购与换股合并、ST摘帽与退市、公募REITs发售规则，并计算收益情景和组合现金占用。用于规则研究及公告精读；不提供行情、不执行交易、不保证收益。
 metadata:
-  version: 2.1.3
+  version: 2.2.3
   license: MIT-original-parts-only
   verified_at: 2026-10-09
+license: MIT
 ---
 
 # 中国证券市场规则核对与情景计算
@@ -65,3 +66,7 @@ metadata:
 
 
 本轮新增个人直接股票税款、基金限额及流动性研究条件。独立入口、底稿与限制见 [EXPANSION.md](EXPANSION.md)。
+
+## 安装与结果状态
+
+本仓可以单独安装；pip安装命令行包不等于在助手中注册Skill。按本仓README安装完整资源，再使用SKILL中的入口。结果生成、资料取得与原文核验分别解释；未知说明影响及补齐路径。原创代码MIT，第三方代码保留许可，公告、研报和数据不随代码许可转移权利。

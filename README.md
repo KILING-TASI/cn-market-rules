@@ -2,7 +2,7 @@
 
 核对规则版本、日期和适用条件，并按声明条款计算离线情景。
 
-[![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE) · [当前发行版 v2.2.2](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.2) · [运行检查](https://github.com/KILING-TASI/cn-market-rules/actions)
+[![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE) · [当前发行版 v2.2.3](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.3) · [运行检查](https://github.com/KILING-TASI/cn-market-rules/actions)
 
 ## 能解决什么问题
 
@@ -12,7 +12,7 @@
 
 ## 快速开始
 
-从[发行页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.2)下载完整源码并解压，需要 Python 3.10 或以上。在源码目录执行：
+从[发行页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.3)下载完整源码并解压，需要 Python 3.10 或以上。在源码目录执行：
 
 ```text
 python try_demo.py --no-open --out-dir reports/first-demo
@@ -52,3 +52,7 @@ cn-market-rules --help
 [贡献说明](CONTRIBUTING.md) · [安全反馈](SECURITY.md) · [更新与清理](LIFECYCLE.md) · [English](README.en.md)
 
 [按问题选择其他工具](https://github.com/KILING-TASI/research-workbench/blob/main/references/tool-navigation.md)。共12个活跃仓，另有1个供旧记录复查的[历史契约仓](https://github.com/KILING-TASI/cn-research-contracts)。各仓分别发布；main的后续文档整理不改写旧发行包和冻结结果。
+
+## 安装与结果状态
+
+可单独安装本仓，无需工作台。生成报告表示本流程已运行，不表示资料完整或原文已经认证；来源、口径和缺口按报告说明复查。命令行安装与助手Skill注册是两个步骤。
