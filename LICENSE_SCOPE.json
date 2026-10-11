@@ -681,6 +681,10 @@
     ".github/workflows/shared-components.yml": {
       "class": "original_mit",
       "basis": "项目原创维护说明、反馈模板、摘要清单或独立检查程序；不含源站原件或第三方数据授权声明"
+    },
+    "USAGE.md": {
+      "class": "original_mit",
+      "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
     }
   },
   "updated_at": "2026-10-10"
