@@ -2,7 +2,7 @@
 
 核对规则版本、日期和适用条件，并按声明条款计算离线情景。
 
-[![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE) · [当前发行版 v2.2.3](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.3) · [运行检查](https://github.com/KILING-TASI/cn-market-rules/actions)
+[![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE) · [当前发行版 v2.2.4](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.4) · [运行检查](https://github.com/KILING-TASI/cn-market-rules/actions)
 
 ## 能解决什么问题
 
@@ -12,7 +12,7 @@
 
 ## 快速开始
 
-从[发行页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.3)下载完整源码并解压，需要 Python 3.10 或以上。在源码目录执行：
+从[发行页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.4)下载完整源码并解压，需要 Python 3.10 或以上。在源码目录执行：
 
 ```text
 python try_demo.py --no-open --out-dir reports/first-demo
