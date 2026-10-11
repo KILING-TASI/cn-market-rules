@@ -100,3 +100,18 @@ main 已发布 v2.0.0；下列 v2.1.0 与后续增量位于 PR #1，未合并、
 新增个人沪深非限售直接A股红利税期限情景、选定基金限额和流动性条件核对；分母、机构范围、例外明确。
 
 审计覆盖独立使用、选定反例、跨仓格式一致性及15类任务路径；这不是全市场数据认证、真实客户覆盖或机构生产就绪承诺。原代码MIT，第三方原许可及数据权利独立。
+
+
+## 历史首页版本状态说明（归档于2026-10-11）
+
+以下是当时首页的记录，不是当前下载或完成状态。当前发行入口以README为准。
+
+## 当前源码与旧发布包
+
+main已集成规则补证、版本选择、报告、独立运行验收和情景实例等新增能力；源码与安装包版本为2.1.0，**[v2.1.0 Release已发布](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.0)**。
+
+[旧v2.0.0发布包](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.0.0)保留原内容，不包含后来新增的全部能力和当前许可范围文件。上面的试用命令面向当前源码，旧包的入口以它自己的README为准。不要把当前源码的验证或许可追溯套用到旧包。
+
+软件、接口、规则文件与数据日期各有不同含义；职责、入口、实际验收和剩余缺口集中见[仓库状态说明](docs/repository-status.md)。其中历史批次的“PR待审”记录对应当时状态，原PR #1现已集成main。
+
+安装步骤见[版本说明](docs/release-v2.1.0.md)。下载[完整Skill ZIP](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.zip)和[SHA256清单](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.sha256)。

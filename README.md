@@ -1,126 +1,54 @@
-# 中国证券市场规则核对与情景计算
+# 中国证券市场规则核对
 
-核对一条规则何时、对谁适用，再按公告条款和给定参数计算收益、资金占用与现金缺口。
+核对规则版本、日期和适用条件，并按声明条款计算离线情景。
 
-## 你可以用它解决什么
+[![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE) · [当前发行版 v2.2.2](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.2) · [运行检查](https://github.com/KILING-TASI/cn-market-rules/actions)
 
-**这条规则在当时适用吗？公告里的条件能直接套进去吗？**
+## 能解决什么问题
 
-按规则版本、日期、适用对象及公告条款核对；不替代个案法律判断。
+**这条规则在当时适用吗？公告中的条件能直接套用吗？**
 
-先看[保存的结果示例](docs/preview/index.html)，不需要安装 Python：图片可直接查看；HTML 请下载完整源码后用浏览器打开。示例按原记录标注教学或限定真实样本，不能换个名称就当作你的研究结果。重新计算才需要 Python。
+规则库维护定义、条款、版本和离线情景；事件证据解释与投研判断归相应研究工具。
 
-其他问题可看[按问题选择工具](https://github.com/KILING-TASI/research-workbench/blob/main/references/tool-navigation.md)。各工具可独立使用，不必安装全部仓库。
+## 快速开始
 
-[![原创代码 MIT](https://img.shields.io/badge/原创代码-MIT-green)](LICENSE)
+从[发行页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.2)下载完整源码并解压，需要 Python 3.10 或以上。在源码目录执行：
 
-当前版本：[v2.2.2](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.2)。完整源码、wheel、sdist 和校验清单在同一发布页；历史报告及旧下载包按各自版本阅读。
-
-## 先看一份教学报告
-
-完整源码解压后，需要 Python 3.10+。Windows 可运行 `Start-Demo.cmd`；或在源码目录执行 `python try_demo.py`。Linux/macOS 用 `sh Start-Demo.sh`。不需要先执行 pip 安装，不自动下载数据或覆盖旧报告；缺 Python 会提示处理路径。
-
-换成自己的资料，先看[中文资料准备与错误处理](BEGINNER.md)。已安装 CLI 可运行 `cn-market-rules doctor` 检查软件环境；它不检查资料或认证来源。
-
-## 名称与使用入口
-
-| 用途 | 名称 |
-|---|---|
-| 中文展示名称 | 中国证券市场规则核对与情景计算 |
-| GitHub 仓库／Python 发行包 | `cn-market-rules` |
-| Skill 注册名 | `cn-market-rules` |
-| 安装后的命令 | `cn-market-rules` |
-| Python 模块 | `cn_market_rules` |
-
-中文名称用于介绍；安装、调用和已有记录沿用表中的技术标识。CLI 安装与 Skill 注册分别完成，使用 Skill 时保留完整仓库资源。
-
-## 安装和首次试用
-
-安装包见[发布页](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.2)，提供完整源码、wheel、sdist 和校验清单。源码按下面步骤安装；下载 wheel 后，将安装命令末尾的 `.` 换成该 wheel 文件路径。pip 安装不会自动注册 AI 工具中的 Skill。
-
-安装包版本为 `2.2.2`。统一安装入口需要 Python 3.10 或以上。在完整源码目录新建自己的 Python 环境，下面的 Windows 命令不需要激活脚本：
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install .
-.\.venv\Scripts\cn-market-rules.exe --help
-.\.venv\Scripts\cn-market-rules.exe demo --out-dir reports/demo --auto-name
+```text
+python try_demo.py --no-open --out-dir reports/first-demo
 ```
 
-工具名与仓库名相同；在已激活的环境中可以直接输入工具名。Linux/macOS 使用 `.venv/bin/python` 和 `.venv/bin/cn-market-rules`。教学结果写入当前工作目录；`--auto-name` 自动另选新名字，旧结果保留。不加该参数时，教学入口拒绝已有目录。`cn-market-rules run --help` 查看原生参数，原来的命令继续兼容。其他专题可用 `cn-market-rules script --help` 查看入口，以脚本名调用，不需要记住源码路径。pip 安装提供 CLI；作为 Skill 使用仍须保留完整源码及许可资源，不能只复制 SKILL.md。安装可能需要联网获取普通构建依赖；教学离线。原生入口与当前安装步骤见下文；历史版本说明见 CHANGELOG。
+按提示打开新生成的 HTML。Windows 也可双击 `Start-Demo.cmd`，Linux/macOS 可用 `sh Start-Demo.sh`。教学使用原创模拟资料，不自动取真实数据；重复运行使用新目录，历史结果保留。
 
+[查看已保存的报告示例](docs/preview/index.html)。HTML请随完整源码下载后打开；示例按自身生成日期和口径阅读。
 
-## 看一份实际结果
+## 使用自己的资料
 
-![规则版本、公告证据与教学现金报告](docs/preview/overview.jpg)
+先按[资料准备](BEGINNER.md)填写输入，再看[详细命令与方法](USAGE.md)。需要安装CLI时，在自己的Python环境运行：
 
-[打开示例报告](docs/preview/index.html) · [查看输入与截图说明](docs/preview/README.md)
-
-现金示例的期末余额为 **85,000 元**，途中最低 **5,000 元**，相对预设缓冲还差 **15,000 元**：下午退款不能解决上午的资金缺口。资金金额与支付、退款时点都是教学假设，不是实际账户或收益。
-
-报告把规则版本、公告日期和未知项列在结果旁边；截图保留生成时的版本与日期。选中规则版本，只说明登记的适用范围匹配，不能据此认定项目或个人资格通过。
-
-## 能做什么，哪些还需要另核
-
-| 要解决的问题 | 当前源码支持 | 仍需核对 |
-|---|---|---|
-| 打新、转债、要约、换股与现金选择权 | 规则清单、个案条款表和参数计算 | 投资者权限、个券条款、行权窗口、税费与实际到账 |
-| ST 摘帽与退市 | 五市场核心指标、主体例外和2024年衔接清单 | 具体上市标准、财务年度、特殊主体及交易所决定；不自动认定退市 |
-| 公募 REITs 首发与扩募 | 沪深首发核对、三种扩募路径和条件算术 | 定价、审批、项目资格、资产调整与申报结果；首发和扩募不能混用 |
-| 资金占用与缺口 | 逆回购日期推算、组合可用现金账本、压力时点 | 真实账户余额、退款可用时刻、异常交收和跨账户调拨 |
-| 一条规则在什么日期适用 | 有限版本目录、市场与主体范围、来源及缺口 | 早期完整版本、历史首次公开时刻和目录未覆盖条款 |
-
-金额用人民币，股数与基金份额分开；比例 `0.03` 表示3%。未知保留为空并说明原因，不填零；持仓市值不当作可用现金。2026年沪深日历来自官方常规休市安排，不外推2027年或临时停市。详细口径见[计算说明](references/calculations.md)。
-
-## 独立使用与协作
-
-本项目同时提供 **Skill资料和独立CLI**。仓库名、[SKILL.md](SKILL.md) 中的 `name`、建议目录名均为 `cn-market-rules`，两种入口可以并用。
-
-作为Skill使用时，把完整目录放入对应环境的技能目录，例如 `~/.codex/skills/cn-market-rules/`。保留 scripts、references、rules、calendars、interfaces、examples、templates及许可文件，不要只复制SKILL.md。这份说明的已提供 pip 安装工程与独立 CLI；安装不会自动注册 AI 工具中的 Skill。
-
-最短流程与机器接口只用标准库。PDF核读工具可另行选择，它们不是这些CLI的依赖；公告消费入口需要已合法保存的原件，原文PDF不随包提供。查找新资料需要联网，包内计算与报告生成可以离线运行。
-
-规则库负责制度、版本、条款和给定条件计算；公司经营、公司事件时间轴与综合研究由[研究工作台](https://github.com/KILING-TASI/research-workbench)组织。工作台可以调用规则库，但规则库不依赖工作台安装，也不承担全量公司事件采集或评分。
-
-个案可从[核对清单](templates/verification-checklist.md)、[条款表](templates/case-terms.md)和[收益情景模板](templates/scenario-analysis.md)开始。结果先写判断和条件，再列依据与未核项。
-
-## 当前源码与旧发布包
-
-main已集成规则补证、版本选择、报告、独立运行验收和情景实例等新增能力；源码与安装包版本为2.1.0，**[v2.1.0 Release已发布](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.1.0)**。
-
-[旧v2.0.0发布包](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.0.0)保留原内容，不包含后来新增的全部能力和当前许可范围文件。上面的试用命令面向当前源码，旧包的入口以它自己的README为准。不要把当前源码的验证或许可追溯套用到旧包。
-
-软件、接口、规则文件与数据日期各有不同含义；职责、入口、实际验收和剩余缺口集中见[仓库状态说明](docs/repository-status.md)。其中历史批次的“PR待审”记录对应当时状态，原PR #1现已集成main。
-
-安装步骤见[版本说明](docs/release-v2.1.0.md)。下载[完整Skill ZIP](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.zip)和[SHA256清单](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.1.0/cn-market-rules-v2.1.0.sha256)。
-
-## 验证、来源与许可
-
-当前有171项单元测试及29个代表情景。情景通过实际命令保存输入、独立预期和结果，覆盖版本更替、主体范围、资格缺证、冻结退款、REITs路径与交易／交收日期区别：
-
-```powershell
-python scripts/run_scenario_acceptance.py --output-dir demo-output/scenario-check
+```text
+python -m pip install .
+cn-market-rules --help
 ```
 
-输出目录同样须为新目录。[情景索引](references/scenario-index.json)列出每例依据与通过范围；CI只检出本仓，在独立虚拟环境运行源码归档。教学通过不代表真实账户、自然语言Skill发现或视觉验收通过。
+仓库、Python发行包、安装命令及Skill注册名均为 `cn-market-rules`。CLI安装和Skill注册是两个步骤：自然语言调用按[SKILL.md](SKILL.md)配置，保留完整资源；不必安装全部仓库。安装普通构建依赖可能联网，教学流程不需要作者缓存。
 
-- [来源台账](references/sources.md)、[证据规范](references/evidence-standard.md)：原发布者、获取与原文核验分开，下载成功不等于语义核验。
-- [版本契约](references/interfaces/rule-version-contract.md)、[数据交接说明](references/interfaces/common-handoff-contract.md)：保留日期角色、原字段和未知项，不静默换版本或口径。
-- [规则核对示例](docs/regulatory-preview/README.md)、[方法说明](references/method-rule-applicability.md)：查看有限公告材料与人工核对边界。
-- [MIT许可证](LICENSE)、[逐文件范围](LICENSE_SCOPE.json)、[第三方说明](THIRD_PARTY_NOTICES.md)：有权许可的原创代码及说明采用MIT；第三方原文、公告、数据与未明来源材料的权利独立，不因代码许可获得再分发或商用授权。
+## 结果范围
 
-本工具用于规则核对与研究教学，不执行交易，也不替代法律、税务或投资资格判断。
+不认证实际资格，不替代个案法律判断；规则适用范围须逐案核对。
 
-## 验证范围
+报告中的来源、日期、假设和未知事项需一起阅读。程序运行成功不等于来源已经认证、资料完整或投资判断有效。原创代码采用MIT，第三方代码、公告、研报和数据仍按各自权利范围处理。
 
-源码教学启动、软件环境查询和安装后教学入口分别验证；软件就绪不等于真实资料已取得。中文问答需要助手按本仓Skill准备已声明输入，没有宣称任意自然语言自动发现或全市场数据闭环。旧报告、历史tag与案例证据保留。
+## 文档与维护
 
+- [详细命令与方法](USAGE.md)
+- [资料准备与排错](BEGINNER.md)
+- [Skill调用指引](SKILL.md)
+- [版本记录](CHANGELOG.md)
+- [许可与第三方范围](THIRD_PARTY_NOTICES.md)
+- [审计范围](AUDIT_SCOPE.md)
+- [扩展专题](EXPANSION.md)
 
-本轮新增个人直接股票税款、基金限额及流动性研究条件。独立入口、底稿与限制见 [EXPANSION.md](EXPANSION.md)。
+[贡献说明](CONTRIBUTING.md) · [安全反馈](SECURITY.md) · [更新与清理](LIFECYCLE.md) · [English](README.en.md)
 
-
-## 参与、更新与清理
-
-[贡献说明](CONTRIBUTING.md) · [安全反馈](SECURITY.md) · [更新、缓存与卸载](LIFECYCLE.md)。
-
-[English introduction](README.en.md) · [版本变更](CHANGELOG.md)。
+[按问题选择其他工具](https://github.com/KILING-TASI/research-workbench/blob/main/references/tool-navigation.md)。共12个活跃仓，另有1个供旧记录复查的[历史契约仓](https://github.com/KILING-TASI/cn-research-contracts)。各仓分别发布；main的后续文档整理不改写旧发行包和冻结结果。
