@@ -4,7 +4,7 @@ Review selected rule versions, evidence and declared scenarios. Includes bounded
 
 [中文说明](README.md) · [Release v2.2.4](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.4) · [Skill instructions](SKILL.md) · [Input preparation](BEGINNER.md)
 
-Current release: **regular release**. Python **3.10+**. Base runtime dependencies: none.
+Current release: **v2.2.4 · regular release**. Python **3.10+**. Base runtime dependencies: none.
 
 ## First run
 
