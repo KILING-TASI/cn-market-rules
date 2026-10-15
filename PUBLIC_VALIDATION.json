@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "public-validation/1",
+  "repository": "cn-market-rules",
+  "registeredOn": "2026-10-15",
+  "hashFormat": "UTF-8 with LF newlines; BOM ignored; original response hashes remain in original receipts",
+  "coverage": "limited-public-inputs",
+  "sourceAuthenticityCertified": false,
+  "evidence": [
+    {
+      "path": "rules/version-catalog.json",
+      "kind": "official-rule-evidence",
+      "normalizedSha256": "29f0b668401059bb6eafc5ec964bf8fe946233d7aa2d1f41c7bc9f448ea6338b",
+      "sourceUrls": [
+        "https://investor.szse.cn/institute/rules/t20230601_600765.html",
+        "https://one.sse.com.cn/onething/gptz/",
+        "https://edu.sse.com.cn/tib/qa/",
+        "https://www.bse.cn/fxrz_list/200025384.html"
+      ]
+    }
+  ],
+  "checkFiles": [
+    "test_rule_versions.py"
+  ],
+  "gaps": [
+    "规则核验日仍按目录记录；软件升级不刷新法律有效性",
+    "未登记条款和过渡条件保持缺口"
+  ],
+  "limits": "registry and selected counterexamples; no new original-document authentication or investment-effect certification"
+}

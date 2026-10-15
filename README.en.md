@@ -2,13 +2,13 @@
 
 Review selected rule versions, evidence and declared scenarios. Includes bounded dividend-tax, fund-limit and liquidity checks; partial data cannot certify institutional compliance.
 
-[中文说明](README.md) · [Release v2.2.4](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.4) · [Skill instructions](SKILL.md) · [Input preparation](BEGINNER.md)
+[中文说明](README.md) · [Release v2.2.5](https://github.com/KILING-TASI/cn-market-rules/releases/tag/v2.2.5) · [Skill instructions](SKILL.md) · [Input preparation](BEGINNER.md)
 
-Current release: **v2.2.4 · regular release**. Python **3.10+**. Base runtime dependencies: none.
+Current release: **v2.2.5 · regular release**. Python **3.10+**. Base runtime dependencies: none.
 
 ## First run
 
-Download the [complete source ZIP](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.2.4/cn-market-rules-v2.2.4-source.zip), extract it and enter the directory containing `try_demo.py`:
+Download the [complete source ZIP](https://github.com/KILING-TASI/cn-market-rules/releases/download/v2.2.5/cn-market-rules-v2.2.5-source.zip), extract it and enter the directory containing `try_demo.py`:
 
 ```console
 python try_demo.py --no-open --out-dir reports/first-demo

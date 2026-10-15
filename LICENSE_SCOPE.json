@@ -685,6 +685,18 @@
     "USAGE.md": {
       "class": "original_mit",
       "basis": "independently created implementation, tests, template, contract or project documentation; any third-party quoted/source material rights excluded"
+    },
+    ".github/workflows/public-validation.yml": {
+      "class": "original_mit",
+      "basis": "本项目原创CI配置，不认证真实市场效果"
+    },
+    "PUBLIC_VALIDATION.json": {
+      "class": "mixed_source_data",
+      "basis": "选定官方规则引用与本项目覆盖登记，第三方原文权利不由MIT授予"
+    },
+    "tools/verify_public_validation.py": {
+      "class": "original_mit",
+      "basis": "本项目原创标准库校验器，固定副本由数据仓维护"
     }
   },
   "updated_at": "2026-10-10"
